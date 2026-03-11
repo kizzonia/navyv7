@@ -1,0 +1,106 @@
+
+
+
+<div class="ttm-row  ttm-bgcolor-darkgrey ttm-bg clearfix">
+    <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+    <div class="container">
+        <div class="row"><!-- row -->
+        <div class="col-md-8 offset-md-2">
+            <div class="testimonial-slide style1 owl-carousel" data-item="1" data-nav="false" data-dots="false" data-auto="true">
+                <!-- testimonials -->
+                <% if Feedback.exists?%>
+                <% @feedbacks.each do |f| %>
+                <div class="testimonials text-center">
+                    <div class="testimonial-content"><!-- testimonials-content -->
+                        <div class="testimonial-avatar">
+                            <div class="testimonial-img"><!-- testimonials-img -->
+                            </div>
+                        </div>
+                        <blockquote>
+                          <%= raw(f.body) %>
+.</blockquote>
+                        <div class="ttm-ratting-star">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="testimonial-caption"><!-- testimonials-caption -->
+                            <h6><%= f.title %></h6>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+                <% else %>
+                <div class="testimonials text-center">
+                    <div class="testimonial-content"><!-- testimonials-content -->
+                        <div class="testimonial-avatar">
+                            <div class="testimonial-img"><!-- testimonials-img -->
+                            </div>
+                        </div>
+                        <blockquote>Our team discussed every single detail to make sure Creatives Planet is the most versatile and unique theme created so far. No coding skills.</blockquote>
+                        <div class="ttm-ratting-star">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="testimonial-caption"><!-- testimonials-caption -->
+                            <h6>Victor Williamson</h6>
+                            <label>Web Devloper</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- testimonials END -->
+                <!-- testimonials -->
+                <div class="testimonials text-center">
+                    <div class="testimonial-content"><!-- testimonials-content -->
+                        <div class="testimonial-avatar">
+                            <div class="testimonial-img"><!-- testimonials-img -->
+                            </div>
+                        </div>
+                        <blockquote>Our team discussed every single detail to make sure Creatives Planet is the most versatile and unique theme created so far. No coding skills.</blockquote>
+                        <div class="ttm-ratting-star">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="testimonial-caption"><!-- testimonials-caption -->
+                            <h6>Victor Williamson</h6>
+                            <label>Web Devloper</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- testimonials END -->
+                <!-- testimonials -->
+                <div class="testimonials text-center">
+                    <div class="testimonial-content"><!-- testimonials-content -->
+                        <div class="testimonial-avatar">
+                            <div class="testimonial-img"><!-- testimonials-img -->
+                            </div>
+                        </div>
+                        <blockquote>Our team discussed every single detail to make sure Creatives Planet is the most versatile and unique theme created so far. No coding skills.</blockquote>
+                        <div class="ttm-ratting-star">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="testimonial-caption"><!-- testimonials-caption -->
+                            <h6>Victor Williamson</h6>
+                            <label>Web Devloper</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- testimonials END -->
+                <% end %>
+            </div>
+        </div>
+    </div><!-- row end -->
+    </div>
+</div>

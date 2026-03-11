@@ -1,0 +1,42 @@
+<!-- Start CTR Area -->
+<% if Section.exists? %>
+<% @sections.take(1).each do |s| %>
+<section class="ctr-area">
+    <div class="container">
+        <div class="ctr-content">
+            <h2><%= s.title %></h2>
+            <p><%= s.body %></p>
+            <%= link_to s, class: "default-btn"  do %>
+        Get a Quote <i class="flaticon-right-chevron"></i><span></span><% end %>
+        </div>
+
+        <div class="ctr-image">
+            <img src="<%= asset_path "ctr-img.jpg"%>" alt="image">
+        </div>
+
+        <div class="shape">
+            <img src="<%= asset_path "bg-dot3.png" %>" alt="image">
+        </div>
+    </div>
+</section>
+<%end %>
+<% else %>
+<section class="ctr-area">
+    <div class="container">
+        <div class="ctr-content">
+            <h2>Insurances for your child's future</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <a href="#" class="default-btn">Get a Quote <i class="flaticon-right-chevron"></i><span></span></a>
+        </div>
+
+        <div class="ctr-image">
+            <img src="<%= asset_path "ctr-img.jpg"%>" alt="image">
+        </div>
+
+        <div class="shape">
+            <img src="<%= asset_path "bg-dot3.png" %>" alt="image">
+        </div>
+    </div>
+</section>
+<!-- End CTR Area -->
+<% end %>

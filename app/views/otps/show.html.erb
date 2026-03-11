@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Otp:</strong>
+  <%= @otp.otp %>
+</p>
+
+<p>
+  <strong>Transfer:</strong>
+  <%= @otp.transfer %>
+</p>
+
+<%= link_to 'Edit', edit_otp_path(@otp) %> |
+<%= link_to 'Back', otps_path %>

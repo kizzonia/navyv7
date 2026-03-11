@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%  @welcomes = Welcome.all  %>
+  <% @welcomes.take(1).each do |w| %>
+  <title><%=w.title %> || <%= w.desc %> </title>
+  <meta name="description" content="<%= w.desc %>">
+  <% end %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta charset="utf-8">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- Responsive -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+  <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+  <!--Start of Tawk.to Script-->
+  <meta name="theme-color" content="#ffffff">
+  <%= favicon_link_tag asset_path('favicon.png') %>
+
+
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+  }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="//code.jivosite.com/widget/Y61uNFs9rY" async></script>
+
+</head>
+
+<body>
+
+  <% unless flash.empty? %>
+ <script type="text/javascript">
+     <% flash.each do |f| %>
+     <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+      toastr['<%= type %>']('<%= f[1] %>');
+     <% end %>
+ </script>
+<% end %>
+<% @abouts = About.all.order('created_at DESC') %>
+<% @services = Service.all.order('created_at DESC') %>
+<% @welcomes = Welcome.all %>
+<% @headers = Header.all %>
+<% @plans = Plan.all %>
+<% @packages = Package.all.order('created_at ASC') %>
+
+
+<div class="page">
+  <!-- preloader start -->
+  <!-- <div id="preloader">
+    <div id="status">&nbsp;</div>
+  </div> -->
+  <!-- preloader end -->
+
+  <%= render "shared/header" %>
+
+  <%= yield %>
+  <%= render "shared/footer" %>
+
+</div>
+
+  <%= javascript_include_tag 'main' %>
+
+
+  </body>
+</html>

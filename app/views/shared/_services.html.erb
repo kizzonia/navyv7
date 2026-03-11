@@ -1,0 +1,178 @@
+
+  <!-- history-section -->
+  <section class="ttm-row history-section bg-img3 ttm-bgcolor-grey ttm-bg ttm-bgimage-yes clearfix">
+      <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+      <div class="container">
+
+        <% if Header.exists? %>
+        <% @headers.take(1).each do |h| %>
+        <div class="row"><!-- row -->
+            <div class="col-lg-8 offset-lg-2">
+                <!-- section title -->
+                <div class="section-title with-desc text-center clearfix">
+                    <div class="title-header">
+                        <h5><%= h.services_title %></h5>
+                        <h2 class="title"><%= h.services_sub_title %></h2>
+                    </div>
+                </div><!-- section title end -->
+            </div>
+        </div>
+        <% end %>
+        <% else %>
+          <div class="row"><!-- row -->
+              <div class="col-lg-8 offset-lg-2">
+                  <!-- section title -->
+                  <div class="section-title with-desc text-center clearfix">
+                      <div class="title-header">
+                          <h5>Our Services</h5>
+                          <h2 class="title">We run all kinds of services in form of <span>Information & Technologies</span></h2>
+                      </div>
+                  </div><!-- section title end -->
+              </div>
+          </div>
+          <% end %>
+
+
+          <!-- row end -->
+          <!-- row -->
+          <div class="row">
+              <div class="history-slide owl-carousel" data-item="4" data-nav="false" data-dots="false" data-auto="true">
+                <% if Service.exists? %>
+                <% @services.take(4).each do |a| %>
+                <div class="ttm-history-box-wrapper"><!-- ttm-history-box-wrapper  -->
+                    <div class="ttm-history-box-icon-wrapper"><!-- ttm-history-box-icon-wrapper  -->
+                        <!--  featured-icon-box -->
+                        <div class="featured-icon-box">
+                            <div class="featured-icon"><!--  featured-icon -->
+                                <div class="ttm-icon ttm-icon_element-bgcolor-white ttm-icon_element-size-md">
+                                    <i class="flaticon flaticon-business-and-finance"></i><!--  ttm-icon -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ttm-history-box-border"></div><!-- ttm-history-box-border  -->
+                    <div class="ttm-history-box-details">
+                        <div class="ttm-historybox-title">
+                          <h5><%= a.title %></h5>
+                        </div><!-- historybox-title  -->
+                        <div class="ttm-historybox-description"><!-- description  -->
+                            <%= a.sub_title %>
+                        </div>
+
+                        <%= link_to a,  class: "ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-20" do %>
+                            Read More <i class="ti ti-angle-double-right"></i>
+                      <% end %>
+                    </div>
+                </div><!-- ttm-history-box-wrapper  END-->
+
+
+                <% end %>
+                <% else %>
+                  <div class="ttm-history-box-wrapper"><!-- ttm-history-box-wrapper  -->
+                      <div class="ttm-history-box-icon-wrapper"><!-- ttm-history-box-icon-wrapper  -->
+                          <!--  featured-icon-box -->
+                          <div class="featured-icon-box">
+                              <div class="featured-icon"><!--  featured-icon -->
+                                  <div class="ttm-icon ttm-icon_element-bgcolor-white ttm-icon_element-size-md">
+                                      <i class="flaticon flaticon-business-and-finance"></i><!--  ttm-icon -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ttm-history-box-border"></div><!-- ttm-history-box-border  -->
+                      <div class="ttm-history-box-details">
+                          <div class="ttm-historybox-title"><h5>IT Consultancy</h5></div><!-- historybox-title  -->
+                          <div class="ttm-historybox-description"><!-- description  -->
+                              Expertise in IT consultancy for the IT companies, for their different working areas Web-app related.
+                          </div>
+                          <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-20" href="#">Read More <i class="ti ti-angle-double-right"></i></a>
+                      </div>
+                  </div><!-- ttm-history-box-wrapper  END-->
+
+                  <div class="ttm-history-box-wrapper"><!-- ttm-history-box-wrapper  -->
+                      <div class="ttm-history-box-icon-wrapper"><!-- ttm-history-box-icon-wrapper  -->
+                          <!--  featured-icon-box -->
+                          <div class="featured-icon-box">
+                              <div class="featured-icon"><!--  featured-icon -->
+                                  <div class="ttm-icon ttm-icon_element-bgcolor-white ttm-icon_element-size-md">
+                                      <i class="flaticon flaticon-computer"></i><!--  ttm-icon -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ttm-history-box-border"></div><!-- ttm-history-box-border  -->
+                      <div class="ttm-history-box-details">
+                          <div class="ttm-historybox-title"><h5>IT Management</h5></div><!-- historybox-title  -->
+                          <div class="ttm-historybox-description"><!-- description  -->
+                              We provide all kind of IT management services of in the according to on their organization prioritie.
+                          </div>
+                          <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-20" href="#">Read More <i class="ti ti-angle-double-right"></i></a>
+                      </div>
+                  </div><!-- ttm-history-box-wrapper  END-->
+                  <div class="ttm-history-box-wrapper"><!-- ttm-history-box-wrapper  -->
+                      <div class="ttm-history-box-icon-wrapper"><!-- ttm-history-box-icon-wrapper  -->
+                          <!--  featured-icon-box -->
+                          <div class="featured-icon-box">
+                              <div class="featured-icon"><!--  featured-icon -->
+                                  <div class="ttm-icon ttm-icon_element-bgcolor-white ttm-icon_element-size-md">
+                                      <i class="flaticon flaticon-data"></i><!--  ttm-icon -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ttm-history-box-border"></div><!-- ttm-history-box-border  -->
+                      <div class="ttm-history-box-details">
+                          <div class="ttm-historybox-title"><h5>Product Design</h5></div><!-- historybox-title  -->
+                          <div class="ttm-historybox-description"><!-- description  -->
+                              Our firm is expert to create an efficient for user interface that makes design user interaction lively.
+                          </div>
+                          <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-20" href="#">Read More <i class="ti ti-angle-double-right"></i></a>
+                      </div>
+                  </div><!-- ttm-history-box-wrapper  END-->
+                  <div class="ttm-history-box-wrapper"><!-- ttm-history-box-wrapper  -->
+                      <div class="ttm-history-box-icon-wrapper"><!-- ttm-history-box-icon-wrapper  -->
+                          <!--  featured-icon-box -->
+                          <div class="featured-icon-box">
+                              <div class="featured-icon"><!--  featured-icon -->
+                                  <div class="ttm-icon ttm-icon_element-bgcolor-white ttm-icon_element-size-md">
+                                      <i class="flaticon flaticon-global-1"></i><!--  ttm-icon -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ttm-history-box-border"></div><!-- ttm-history-box-border  -->
+                      <div class="ttm-history-box-details">
+                          <div class="ttm-historybox-title"><h5>Cloud Services</h5></div><!-- historybox-title  -->
+                          <div class="ttm-historybox-description"><!-- description  -->
+                              We develop, migrate and work on web applications to ensure that they run on capably on clouds.
+                          </div>
+                          <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-20" href="#">Read More <i class="ti ti-angle-double-right"></i></a>
+                      </div>
+                  </div><!-- ttm-history-box-wrapper  END-->
+
+                  <% end %>
+
+              </div>
+          </div><!-- row end-->
+
+          <% @welcomes.take(1).each do |w| %>
+          <div class="row">
+              <div class="col-md-12 text-center mt-45 res-991-mt-30">
+                  <p class="mb-0">Don’t hesitate,
+                    Contact Us <%= w.footer %>
+                     <strong><u>
+                       <%= link_to new_user_registration_path, class: "ttm-textcolor-darkgrey" do %>
+                      Proceed To Your Online Banking
+                      <% end %>
+                    </u>
+                  </strong>
+                </p>
+              </div>
+          </div>
+          <% end %>
+
+
+
+      </div>
+  </section>
+  <!-- history-section end -->

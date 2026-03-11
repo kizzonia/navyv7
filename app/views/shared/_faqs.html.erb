@@ -1,0 +1,222 @@
+
+
+
+
+
+
+
+
+
+
+<% if Faq.exists? %>
+<!-- services-slide-section -->
+<section class="ttm-row faqs-section clearfix">
+    <div class="container">
+        <div class="row"><!-- row -->
+            <div class="col-lg-8 offset-lg-2">
+                <!-- section-title -->
+                <div class="section-title with-desc text-center clearfix">
+                    <div class="title-header">
+                        <h5>Faq's</h5>
+                        <h2 class="title">Do you have any questions?</h2>
+                    </div>
+                </div><!-- section-title end -->
+            </div>
+        </div>
+        <!-- row end -->
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- ttm_single_image-wrapper -->
+                <div class="ttm_single_image-wrapper">
+                    <img class="img-fluid" src="<%= asset_path "single-img-eleven.jpg" %>" title="single-img-eleven" alt="single-img-eleven">
+                </div><!-- ttm_single_image-wrapper end -->
+                <div class="ttm-play-icon-btn ttm-play-icon-btn-center">
+                    <div class="ttm-play-icon-animation">
+                        <a href="https://youtu.be/7e90gBu4pas" target="_self" class="ttm_prettyphoto">
+                            <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-sm ttm-icon_element-style-round">
+                                <i class="ti ti-control-play ml-3"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <!-- acadion -->
+                <div class="accordion res-991-mt-30">
+                  <% @faqs.each do |f| %>
+                    <!-- toggle -->
+                    <div class="toggle">
+                        <div class="toggle-title">
+                            <a data-toggle="collapse" data-parent="#accordion<%= f.title %>" href="#collapseOne<%= f.title %>" ><%= f.title %>?</a>
+                        </div>
+                        <div class="toggle-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="mb-0"><%= raw(f.body) %>      </div>
+                            </div>
+                        </div>
+                    </div><!-- toggle end -->
+                <% end %>
+                </div><!-- acadion  end-->
+
+
+
+            </div>
+        </div>
+        <!-- row end-->
+
+    </div>
+</section>
+<!-- services-slide-section end -->
+
+<% else %>
+
+<!-- services-slide-section -->
+<section class="ttm-row faqs-section clearfix">
+    <div class="container">
+        <div class="row"><!-- row -->
+            <div class="col-lg-8 offset-lg-2">
+                <!-- section-title -->
+                <div class="section-title with-desc text-center clearfix">
+                    <div class="title-header">
+                        <h5>Faq's</h5>
+                        <h2 class="title">Do you have any questions?</h2>
+                    </div>
+                </div><!-- section-title end -->
+            </div>
+        </div>
+        <!-- row end -->
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- ttm_single_image-wrapper -->
+                <div class="ttm_single_image-wrapper">
+                    <img class="img-fluid" src="images/single-img-eleven.jpg" title="single-img-eleven" alt="single-img-eleven">
+                </div><!-- ttm_single_image-wrapper end -->
+                <div class="ttm-play-icon-btn ttm-play-icon-btn-center">
+                    <div class="ttm-play-icon-animation">
+                        <a href="https://youtu.be/7e90gBu4pas" target="_self" class="ttm_prettyphoto">
+                            <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-sm ttm-icon_element-style-round">
+                                <i class="ti ti-control-play ml-3"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <!-- acadion -->
+                <div class="accordion res-991-mt-30">
+                    <!-- toggle -->
+                    <div class="toggle">
+                        <div class="toggle-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" >What does having Managed your services provider?</a>
+                        </div>
+                        <div class="toggle-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="mb-0">Praesentium voluptatum deleniti atque corrupti quos as excepturi sint occaecati cupiditate non provident, similique sunt in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- toggle end -->
+                    <!-- toggle -->
+                    <div class="toggle">
+                        <div class="toggle-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" >What you about say your Business palnning?</a></div>
+                        <div class="toggle-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="mb-0">Praesentium voluptatum deleniti atque corrupti quos as excepturi sint occaecati cupiditate non provident, similique sunt in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- toggle end -->
+                    <!-- toggle -->
+                    <div class="toggle">
+                        <div class="toggle-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapsethree" >What types of systems do you support?</a></div>
+                        <div class="toggle-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="mb-0">Praesentium voluptatum deleniti atque corrupti quos as excepturi sint occaecati cupiditate non provident, similique sunt in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- toggle end -->
+                    <!-- toggle -->
+                    <div class="toggle">
+                        <div class="toggle-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapsethree" >What types of systems do you support?</a></div>
+                        <div class="toggle-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <p class="mb-0">Praesentium voluptatum deleniti atque corrupti quos as excepturi sint occaecati cupiditate non provident, similique sunt in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- toggle end -->
+                </div><!-- acadion  end-->
+            </div>
+        </div>
+        <!-- row end-->
+        <!-- row -->
+        <div class="row mt-70 res-991-mt-30">
+            <div class="col-lg-4">
+                <!--  featured-icon-box -->
+                <div class="featured-icon-box left-icon style7 icon-align-top">
+                    <div class="featured-icon"><!--  featured-icon -->
+                        <div class="ttm-icon ttm-icon_element-color-skincolor ttm-icon_element-size-md">
+                            <i class="flaticon flaticon-system"></i><!--  ttm-icon -->
+                        </div>
+                    </div>
+                    <div class="featured-content"><!--  featured-content -->
+                        <div class="featured-title"><!--  featured-title -->
+                            <h5>Make It Simple</h5>
+                        </div>
+                        <div class="featured-desc"><!--  featured-desc -->
+                            <p>Lorem Ipsum is simply dummy text  ever since of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                </div><!--  featured-icon-box END -->
+            </div>
+            <div class="col-lg-4">
+                <!--  featured-icon-box -->
+                <div class="featured-icon-box left-icon style7 icon-align-top">
+                    <div class="featured-icon"><!--  featured-icon -->
+                        <div class="ttm-icon ttm-icon_element-color-skincolor ttm-icon_element-size-md">
+                            <i class="flaticon flaticon-data"></i><!--  ttm-icon -->
+                        </div>
+                    </div>
+                    <div class="featured-content"><!--  featured-content -->
+                        <div class="featured-title"><!--  featured-title -->
+                            <h5>Unique Strategy</h5>
+                        </div>
+                        <div class="featured-desc"><!--  featured-desc -->
+                            <p>Lorem Ipsum is simply dummy text  ever since of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                </div><!--  featured-icon-box END -->
+            </div>
+            <div class="col-lg-4">
+                <!--  featured-icon-box -->
+                <div class="featured-icon-box left-icon style7 icon-align-top">
+                    <div class="featured-icon"><!--  featured-icon -->
+                        <div class="ttm-icon ttm-icon_element-color-skincolor ttm-icon_element-size-md">
+                            <i class="flaticon flaticon-analytics"></i><!--  ttm-icon -->
+                        </div>
+                    </div>
+                    <div class="featured-content"><!--  featured-content -->
+                        <div class="featured-title"><!--  featured-title -->
+                            <h5>Unique Planning</h5>
+                        </div>
+                        <div class="featured-desc"><!--  featured-desc -->
+                            <p>Lorem Ipsum is simply dummy text  ever since of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                </div><!--  featured-icon-box END -->
+            </div>
+        </div><!-- row end-->
+    </div>
+</section>
+<!-- services-slide-section end -->
+
+
+<% end %>

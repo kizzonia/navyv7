@@ -1,0 +1,245 @@
+<div class="ttm-page-title-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-box text-center">
+          <div class="page-title-heading">
+            <h1 class="title">Contact Us </h1>
+          </div><!-- /.page-title-captions -->
+          <div class="breadcrumb-wrapper">
+            <span>
+              <%= link_to root_path do %><i class="ti ti-home"></i>&nbsp;&nbsp;Home<% end %>
+            </span>
+            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+            <span>Send Us A Message</span>
+          </div>
+        </div>
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div>
+
+<!--site-main start-->
+<div class="site-main">
+
+    <!-- services-slide-section -->
+    <section class="ttm-row zero-padding-section clearfix">
+        <div class="container">
+            <div class="row no-gutters"><!-- row -->
+
+              <% if Welcome.exists? %>
+                <%  @welcomes.take(1).each do |w| %>
+                <div class="col-lg-5">
+                    <div class="spacing-9">
+                        <!-- section title -->
+                        <div class="section-title with-desc clearfix">
+                            <div class="title-header">
+                                <h5><%= w.title %></h5>
+                            </div>
+                        </div><!-- section title end -->
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- featured-icon-box -->
+                                <div class="featured-icon-box style2 left-icon icon-align-top">
+                                    <div class="featured-icon"><!-- featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md ttm-icon_element-style-round">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content">
+                                        <div class="featured-title"><!-- featured title -->
+                                            <h5>Main Office Address</h5>
+                                        </div>
+                                        <div class="featured-desc"><!-- featured desc -->
+                                            <p><%= w.address %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- separator -->
+                        <div class="separator">
+                            <div class="sep-line mt-25 mb-25"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- featured-icon-box -->
+                                <div class="featured-icon-box style2 left-icon icon-align-top">
+                                    <div class="featured-icon"><!-- featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md ttm-icon_element-style-round">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content">
+                                        <div class="featured-title"><!-- featured title -->
+                                            <h5>Branches</h5>
+                                        </div>
+                                        <div class="featured-desc"><!-- featured desc -->
+                                            <p><%= w.address %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+                        <!-- separator -->
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- featured-icon-box -->
+                                <div class="featured-icon-box style2 left-icon icon-align-top">
+                                    <div class="featured-icon"><!-- featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md ttm-icon_element-style-round">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content">
+                                        <div class="featured-title"><!-- featured title -->
+                                            <h5>Our Phone Number</h5>
+                                        </div>
+                                        <div class="featured-desc"><!-- featured desc -->
+                                            <p><%= w.phone %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- separator -->
+                        <div class="separator">
+                            <div class="sep-line mt-25 mb-25"></div>
+                        </div>
+                        <!-- separator -->
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- featured-icon-box -->
+                                <div class="featured-icon-box style2 left-icon icon-align-top">
+                                    <div class="featured-icon"><!-- featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md ttm-icon_element-style-round">
+                                            <i class="ti ti-email"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content">
+                                        <div class="featured-title"><!-- featured title -->
+                                            <h5>Our Email</h5>
+                                        </div>
+                                        <div class="featured-desc"><!-- featured desc -->
+                                            <p><%= w.footer %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <% end %>
+                <% else %>
+                <div class="col-lg-5">
+                    <div class="spacing-9">
+                        <!-- section title -->
+                        <div class="section-title with-desc clearfix">
+                            <div class="title-header">
+                                <h5>Come Visit Us At</h5>
+                                <h2 class="title">Our Address</h2>
+                            </div>
+                        </div><!-- section title end -->
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- featured-icon-box -->
+                                <div class="featured-icon-box style2 left-icon icon-align-top">
+                                    <div class="featured-icon"><!-- featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md ttm-icon_element-style-round">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content">
+                                        <div class="featured-title"><!-- featured title -->
+                                            <h5>Office Address</h5>
+                                        </div>
+                                        <div class="featured-desc"><!-- featured desc -->
+                                            <p>229 Young Street Irwin, PA 15642</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- separator -->
+                        <div class="separator">
+                            <div class="sep-line mt-25 mb-25"></div>
+                        </div>
+                        <!-- separator -->
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- featured-icon-box -->
+                                <div class="featured-icon-box style2 left-icon icon-align-top">
+                                    <div class="featured-icon"><!-- featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md ttm-icon_element-style-round">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content">
+                                        <div class="featured-title"><!-- featured title -->
+                                            <h5>Our Phone Number</h5>
+                                        </div>
+                                        <div class="featured-desc"><!-- featured desc -->
+                                            <p>+12-323-778-4054</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- separator -->
+                        <div class="separator">
+                            <div class="sep-line mt-25 mb-25"></div>
+                        </div>
+                        <!-- separator -->
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- featured-icon-box -->
+                                <div class="featured-icon-box style2 left-icon icon-align-top">
+                                    <div class="featured-icon"><!-- featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md ttm-icon_element-style-round">
+                                            <i class="ti ti-email"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content">
+                                        <div class="featured-title"><!-- featured title -->
+                                            <h5>Our Email</h5>
+                                        </div>
+                                        <div class="featured-desc"><!-- featured desc -->
+                                            <p>info@example.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <% end %>
+                <div class="col-lg-7">
+                    <div class="spacing-10 ttm-bgcolor-grey ttm-bg ttm-col-bgcolor-yes ttm-right-span">
+                        <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                            <div class="ttm-bg-layer-inner"></div>
+                        </div>
+                        <!-- section title -->
+                        <div class="section-title with-desc clearfix">
+                            <div class="title-header">
+                                <h5>Send Message</h5>
+                                <h2 class="title">Drop Us A Line</h2>
+                            </div>
+                        </div><!-- section title end -->
+
+<%= render 'form', contact: @contact %>
+
+</div>
+</div>
+</div>
+<!-- row end -->
+<!-- row -->
+<div class="row">
+
+</div><!-- row end-->
+</div>
+</section>
+<!-- services-slide-section end -->
+</div>

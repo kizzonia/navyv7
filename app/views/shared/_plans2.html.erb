@@ -1,0 +1,165 @@
+  <% if Plan.exists? %>
+  <section class="ttm-row services-section ttm-bgcolor-darkgrey ttm-bg ttm-bgimage-yes bg-img7 clearfix">
+      <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+      <div class="container">
+          <div class="row"><!-- row -->
+              <div class="col-lg-6 offset-lg-3">
+                  <!-- section title -->
+                  <div class="section-title with-desc text-center clearfix">
+                    <% @headers.take(1).each do |h|%>
+
+                      <div class="title-header">
+                          <h5><%= h.plans_title %></h5>
+                          <h2 class="title"><%= h.plans_sub_title %> <span>experience</span></h2>
+                      </div>
+                      <% end %>
+                  </div><!-- section title end -->
+              </div>
+          </div>
+          <!-- row end -->
+          <!-- row -->
+          <div class="row">
+            <% @plans.take(3).each do |b| %>
+
+              <div class="col-lg-4 col-md-4">
+                  <!-- featured-icon-box -->
+                  <div class="featured-icon-box style5 text-left mb-20">
+                      <div class="featured-icon"><!-- featured-icon-->
+                          <div class="ttm-icon ttm-icon_element-color-white ttm-icon_element-size-lg">
+                              <i class="flaticon flaticon-intelligent"></i>
+                          </div>
+                      </div><!-- featured-icon -->
+                      <div class="featured-content"><!-- featured-content -->
+                          <div class="featured-title">
+                              <h5><%=  b.title %></h5><!-- featured-title -->
+                          </div>
+                          <div class="featured-desc"><!-- featured-description -->
+                              <p> <%= b.sub_title %>.</p>
+                          </div>
+                          <%= link_to b, class: "ttm-btn ttm-btn-size-sm ttm-btn-color-white btn-inline ttm-icon-btn-right mt-15" do %>
+                          Read More <i class="ti ti-angle-double-right"></i> <% end %>
+                      </div><!-- featured-content END-->
+                  </div><!-- featured-icon-box -->
+              </div>
+              <% end %>
+
+          </div><!-- row end-->
+      </div>
+  </section>
+
+
+
+    <%= render "shared/plansbottom" %>
+
+  <% else %>
+              <!-- services-section -->
+              <section class="ttm-row services-section ttm-bgcolor-darkgrey ttm-bg ttm-bgimage-yes bg-img7 clearfix">
+                  <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+                  <div class="container">
+                      <div class="row"><!-- row -->
+                          <div class="col-lg-6 offset-lg-3">
+                              <!-- section title -->
+                              <div class="section-title with-desc text-center clearfix">
+                                  <div class="title-header">
+                                      <h5>Our Services</h5>
+                                      <h2 class="title">We run all kinds of IT services with 20 years of <span>experience</span></h2>
+                                  </div>
+                              </div><!-- section title end -->
+                          </div>
+                      </div>
+                      <!-- row end -->
+                      <!-- row -->
+                      <div class="row">
+                          <div class="col-lg-4 col-md-4">
+                              <!-- featured-icon-box -->
+                              <div class="featured-icon-box style5 text-left mb-20">
+                                  <div class="featured-icon"><!-- featured-icon-->
+                                      <div class="ttm-icon ttm-icon_element-color-white ttm-icon_element-size-lg">
+                                          <i class="flaticon flaticon-intelligent"></i>
+                                      </div>
+                                  </div><!-- featured-icon -->
+                                  <div class="featured-content"><!-- featured-content -->
+                                      <div class="featured-title">
+                                          <h5>Experience Design</h5><!-- featured-title -->
+                                      </div>
+                                      <div class="featured-desc"><!-- featured-description -->
+                                          <p>UX team create web solutions that are both intuitively tailored to match our clients’ specific tasks.</p>
+                                      </div>
+                                      <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-white btn-inline ttm-icon-btn-right mt-15" href="#">Read More <i class="ti ti-angle-double-right"></i></a>
+                                  </div><!-- featured-content END-->
+                              </div><!-- featured-icon-box -->
+                          </div>
+                          <div class="col-lg-4 col-md-4">
+                              <!-- featured-icon-box -->
+                              <div class="featured-icon-box style5 text-left mb-20">
+                                  <div class="featured-icon"><!-- featured-icon-->
+                                      <div class="ttm-icon ttm-icon_element-color-white ttm-icon_element-size-lg">
+                                          <i class="flaticon flaticon-analytics"></i>
+                                      </div>
+                                  </div><!-- featured-icon -->
+                                  <div class="featured-content"><!-- featured-content -->
+                                      <div class="featured-title">
+                                          <h5>Digital Services</h5><!-- featured-title -->
+                                      </div>
+                                      <div class="featured-desc"><!-- featured-description -->
+                                          <p>Digital solutions have transformed the world’s customer expectations and the profitable growths.</p>
+                                      </div>
+                                      <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-white btn-inline ttm-icon-btn-right mt-15" href="#">Read More <i class="ti ti-angle-double-right"></i></a>
+                                  </div><!-- featured-content END-->
+                              </div><!-- featured-icon-box -->
+                          </div>
+                          <div class="col-lg-4 col-md-4">
+                              <!-- featured-icon-box -->
+                              <div class="featured-icon-box style5 text-left mb-20">
+                                  <div class="featured-icon"><!-- featured-icon-->
+                                      <div class="ttm-icon ttm-icon_element-color-white ttm-icon_element-size-lg">
+                                          <i class="flaticon flaticon-analysis"></i>
+                                      </div>
+                                  </div><!-- featured-icon -->
+                                  <div class="featured-content"><!-- featured-content -->
+                                      <div class="featured-title">
+                                          <h5>Content Engineering</h5><!-- featured-title -->
+                                      </div>
+                                      <div class="featured-desc"><!-- featured-description -->
+                                          <p>We are here in the fields of organizing bridging the gaps between strategy and the development.</p>
+                                      </div>
+                                      <a class="ttm-btn ttm-btn-size-sm ttm-btn-color-white btn-inline ttm-icon-btn-right mt-15" href="#">Read More <i class="ti ti-angle-double-right"></i></a>
+                                  </div><!-- featured-content END-->
+                              </div><!-- featured-icon-box -->
+                          </div>
+                      </div><!-- row end-->
+                  </div>
+              </section>
+              <!-- services-section end -->
+              <!-- topzero-padding-section -->
+              <section class="ttm-row zero-padding-section mt_95 res-991-mt-0 clearfix">
+                  <div class="container">
+                      <div class="row no-gutters">
+                          <div class="col-lg-3">
+                              <!-- col-bg-img-three -->
+                              <div class="col-bg-img-three ttm-bg ttm-col-bgimage-yes res-991-h-auto">
+                                 <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                                      <div class="ttm-bg-layer-inner"></div>
+                                  </div>
+                              </div>
+                              <!-- Responsive View image -->
+                              <img src="<%= asset_path "bg-image/col-bgimage-3.jpg"%>" class="ttm-equal-height-image" alt="col-bgimage-3">
+                          </div>
+                          <div class="col-lg-9">
+                              <div class="ttm-bgcolor-skincolor ttm-bg ttm-col-bgcolor-yes ttm-right-span">
+                                  <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                                      <div class="ttm-bg-layer-inner"></div>
+                                  </div>
+                                  <div class="layer-content">
+                                      <div class="spacing-6 ttm-textcolor-white">
+                                          <h3 class="mb-5">We Take Care of Your Technology Focus on Your Business</h3>
+                                          <p class="mb-0">Since 2007 we have been a visionary and a reliable software engineering partner for world-class brands. We are a boutique digital transformation consultancy and software development.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+              <!-- topzero-padding-section -->
+  <% end %>

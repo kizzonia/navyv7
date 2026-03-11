@@ -1,0 +1,72 @@
+
+                <div class="container-fluid">
+
+                  <!-- Page-Title -->
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card text-white card-dark">
+                        <div class="card-body">
+                          <blockquote class="card-bodyquote mb-0">
+                            <p> Complete your loan application effortlessly. Secure the funding you need to grow your business with NavyXSeal Federal Credit Union</p>
+                            <footer class="blockquote-footer text-white font-14">
+                              Hello  <%= current_user.first_name %>
+                            </footer>
+                          </blockquote>
+                        </div><!--end card-body-->
+                      </div><!--end card-->
+                      <br>
+                      <div class="page-title-box">
+                        <div class="float-right">
+                          <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><%= link_to "Money Market", loans_path %></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Loan Request</a></li>
+                          </ol>
+                        </div>
+                        <h4 class="page-title">Loans</h4>
+                      </div>
+                      <!--end page-title-box-->
+                    </div>
+                    <!--end col-->
+                  </div>
+
+                  <div class="row">
+
+                    <% @packages.each do |a| %>
+                    <div class="col-lg-4">
+                      <div class="card report-card">
+                        <div class="card-body">
+                          <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
+                          <span class="badge badge-success">Request Now</span>
+                          <div class="row">
+                            <div class="col-8 align-self-center">
+                              <h5 class=""><%= link_to  a.title, a %></h5>
+
+                            </div>
+                            <!--end col-->
+                            <div class="col-4">  <h4><%= a.rate %>
+                              .</h4></div>
+                              <!--end col-->
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                <p class="text-muted mb-0"><%= a.sub_title %>
+                                  <i class="mdi mdi-menu-up text-success font-16"></i>  <%= link_to "View More", a %></p>
+                                </div>
+                                <br>
+                                <%= link_to new_loan_path, class: "btn btn-dark waves-effect waves-light text-center col-12" do %>
+                                Apply now <i class="ti-arrow-right"></i><% end %>
+
+                              </div>
+                              <!--end row-->
+                              <!--end icon-contain-->
+                            </div>
+                            <!--end card-body-->
+                          </div>
+                          <!--end card-->
+                        </div>
+                        <% end %>
+
+
+                      </div>
+
+                    </div>

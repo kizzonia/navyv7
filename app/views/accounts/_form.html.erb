@@ -1,0 +1,71 @@
+
+<%= simple_form_for(@account, html: { class: "form-horizontal" }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="form-group row">
+                  <div class="col-md-12">
+                  <%= f.input :account_type, class: "form-control", :collection => @plans,:label_method => :title, :value_method => :title,:label => "Choose Your Preferred Account Type" ,:include_blank => false %>
+                  </div>
+            <!--end form-group-->
+        </div>
+        </div>
+      </div>
+      <!--end row-->
+      <h3>Personal Details</h3>
+
+        <div class="row form-group">
+
+          <div class="col-md-6">
+            <%= f.input :address, required: true, autofocus: true, class: "form-control", placeholder: "Home Address" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :occupation_address, class: "form-control", placeholder: "Office Address(optional)" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :city, required: true, class: "form-control", placeholder: "city"  %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :state, required: true, class: "form-control", placeholder: "state" %>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :zip_code, required: true, class: "form-control", placeholder: "postal code" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :avatar, as: :file, label: "Click Here To Uplaod Photo", class: "form-control" %>
+          </div>
+        </div>
+        <!--end row-->
+
+        <h3>Security Details</h3>
+        <p>Please fill in private infomation for Verification </p>
+          <div class="row">
+
+
+            <div class="col-md-6">
+              <%= f.input :ssn, required: true, class: "form-control", placeholder: "Social Security number" %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :phone, placeholder: "Phone Number " %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :mmn, label: "Mothers Maiden's Name",
+                                placeholder: "Mothers Maiden's Name", class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :account_pin, as: :password, label: "Account Pin Code",
+                                                      class: "form-control" %>
+            </div>
+            </div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create Account", class: "btn btn-primary" %>
+  </div>
+<% end %>

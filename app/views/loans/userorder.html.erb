@@ -1,0 +1,273 @@
+<div class="container-fluid">
+
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card text-white card-dark">
+        <div class="card-body">
+          <blockquote class="card-bodyquote mb-0">
+            <h4>Welcome to NavyXSeal Federal Credit Union!</h4>
+            <p>
+              We’re excited to have you here and look forward to supporting your business’s financial journey. Our wide range of business loan options is tailored to fit your unique needs, from startup funding to expansion capital.</p>
+              <footer class="blockquote-footer text-white font-14">
+                Hello  <%= current_user.first_name %>
+              </footer>
+            </blockquote>
+          </div><!--end card-body-->
+        </div><!--end card-->
+        <br>
+        <div class="page-title-box">
+          <div class="float-right">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><%= link_to "Money Market", loans_path %></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0);">Loan Request</a></li>
+            </ol>
+          </div>
+          <h4 class="page-title">Loans</h4>
+        </div>
+        <!--end page-title-box-->
+      </div>
+      <!--end col-->
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="header-title mt-0">Active Loans</h4>
+            <div class="">
+              <!-- <div id="ana_dash_1" class="apex-charts"></div> -->
+            </div>
+          </div>
+          <!--end card-body-->
+        </div>
+        <!--end card-->
+
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <% if Loan.where(user_id: current_user.id).exists? %>
+
+      <% @loans.take(1).each do |a| %>
+
+
+      <!--end row-->
+      <div class="col-lg-4">
+        <div class="card report-card">
+          <div class="card-body">
+            <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
+            <span class="badge badge-success">Enterprize Loans</span>
+            <div class="row">
+              <div class="col-8 align-self-center">
+                <h5 class="">Active Loans: <%= Loan.where(user_id: current_user.id).count %></h5>
+                <p class="text-muted mb-0">Total Budget: <%= a.budget %>
+                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
+
+                </div>
+                <!--end col-->
+                <div class="col-4"> <%= link_to "Request Consultation", new_contact_path %> </div>
+                <!--end col-->
+              </div>
+              <!--end row-->
+              <!--end icon-contain-->
+            </div>
+            <!--end card-body-->
+          </div>
+          <!--end card-->
+        </div>
+        <!--end col-->
+        <% end %>
+        <% else %>
+        <div class="col-lg-4">
+          <div class="card report-card">
+            <div class="card-body">
+              <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
+              <span class="badge badge-success">No Loans</span>
+              <div class="row">
+                <div class="col-6 align-self-center">
+                  <h5 class="">Loans </h5>
+
+                </div>
+                <!--end col-->
+                <div class="col-6">  <h4>  no data
+                  .</h4></div>
+                  <!--end col-->
+                </div>
+                <!--end row-->
+                <!--end icon-contain-->
+              </div>
+              <!--end card-body-->
+            </div>
+            <!--end card-->
+          </div>
+          <!--end col-->
+          <% end %>
+          <% @accounts.take(1).each do |a| %>
+
+          <div class="col-lg-4">
+            <div class="card report-card">
+              <div class="card-body">
+                <div class="float-right"><i class="dripicons-meter report-main-icon"></i></div>
+                <span class="badge badge-warning">Overview</span>
+                <div class="row">
+                  <div class="col-12 align-self-center">
+                    <h5 class="">Account Number: <%= a.account_number %></h5>
+                    <p class="text-muted mb-0">Routine Number: <%= a.routine_number %>
+                      <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                    </div>
+                    <!--end col-->
+
+                    <!--end col-->
+                  </div>
+                  <!--end row-->
+                  <!--end icon-contain-->
+                </div>
+                <!--end card-body-->
+              </div>
+              <!--end card-->
+            </div>
+            <div class="col-lg-4">
+              <div class="card report-card">
+                <div class="card-body">
+                  <div class="float-right">
+                    <i class="dripicons-wallet report-main-icon"></i>
+                  </div><span class="badge badge-success">Balance</span>
+
+                  <div class="row">
+                    <div class="col-6 align-self-center">
+                      <h5 class="">Balance</h5>
+                      <p class="text-muted mb-0">Book Balance: $<%=a.lbalance %>
+                        <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                      </div>
+                      <!--end col-->
+                      <div class="col-6">
+                        <h4>    $ <%= a.balance %></h4>
+                      </div>
+                      <!--end col-->
+                    </div>
+                    <!--end row-->
+                    <!--end icon-contain-->
+                  </div>
+                  <!--end card-body-->
+                </div>
+                <!--end card-->
+              </div>
+
+
+            </div>
+            <!--end col-->
+            <!--end row-->
+            <% end %>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <%= link_to loans_path, class: "btn btn-primary px-4 float-right mt-0 mb-3" do %>
+
+
+                      <i class="mdi mdi-plus-circle-outline mr-2" ></i>Request A Loan <% end %>
+                      <h4
+                      class="header-title mt-0"> Recent Activity</h4>
+                      <div class="table-responsive dash-social">
+                        <table id="datatable" class="table">
+                          <thead class="thead-light">
+                            <tr>
+                              <th>Business Name</th>
+                              <th>Budget</th>
+                              <th>Awarded Amount</th>
+                              <th>Description</th>
+                              <th>Intrest Rate</th>
+                              <th>Date</th>
+                              <th>Status</th>
+                              <th colspan="3"></th>
+
+                            </tr>
+
+                          </thead>
+
+                          <tbody>
+                            <% if Loan.where(user_id: current_user.id).exists? %>
+                            <% @loans.each do |l| %>
+                            <tr>
+                              <td><%= l.business_name %></td>
+                              <td><%= l.budget %></td>
+                              <td><%= l.amount %></td>
+                              <td>You have requested a loan  for the project "<%= l.project_name %>".
+                                The project, described as "<%= l.project_desc %>", has a size of <%= l.project_size %>.
+                                Your business, , has a total budget of <%= l.budget %>.
+
+                                The loan will carry an interest rate of <%= l.interest %> and is scheduled for <%= l.date %>.
+                                Applicant details: <%= l.first_name %>  can be reached at <%= current_user.email %>.
+
+                              </td>
+                              <td><%= l.interest%></td>
+                              <td><%= l.date %></td>
+
+                              <td><% if l.status? %> <%= link_to l, class: "badge badge-success" do %> Active  <% end %>
+                                <% else %><%= link_to l, class: "badge badge-danger" do %> Review In Progress <% end %> <% end %></td>
+
+                              </tr>
+                              <% end %>
+                              <% else %>
+                              <!--end tr-->
+                              <tr>
+                                <td>.</td>
+                                <td>No Data</td>
+                              </tr>
+                              <% end %>
+                            </tbody>
+                          </table>
+
+
+
+
+
+
+
+                        </div>
+                      </div>
+                      <!--end card-body-->
+                    </div>
+                    <!--end card-->
+                  </div>
+                  <!--end col-->
+                </div>
+
+              </div>
+
+              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title mt-0" id="myLargeModalLabel">Request Loans</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="card text-white card-dark">
+                            <div class="card-body">
+                              <blockquote class="card-bodyquote mb-0">
+                                <p>
+                                  Welcome to Loan Application! Please fill out the form to begin your
+                                  investment journey. By proceeding, you agree to our terms and conditions.
+                                  Upon completion, a dedicated broker will attend to your account to provide personalized assistance and guidance.
+                                  Thank you for choosing us to help you achieve your financial goals</p>
+                                  <footer class="blockquote-footer text-white font-14">
+                                    Hello  <%= current_user.first_name %>
+                                  </footer>
+                                </blockquote>
+                              </div><!--end card-body-->
+                            </div><!--end card-->
+                          </div>
+                        </div>
+                        <div class="row justify-content-center">
+                          <div class="col-12">
+                            <%# <%= render 'form', loan: @loan %> %>
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->

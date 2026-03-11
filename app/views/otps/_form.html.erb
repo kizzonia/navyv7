@@ -1,0 +1,19 @@
+
+<%= simple_form_for([@transfer, @transfer.otps.build]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-12">
+      <%= f.input :otp, placeholder:"Enter The Code", label:"One Time Password"%>
+
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Verify", class: "btn btn-primary col-12" %>
+  </div>
+<% end %>
+<br>
+<br>
+<p class="card-footer bg-light m-0"><a href="mailto:support@allcbonline.com?subject=feedback">Contact Support</a></p>

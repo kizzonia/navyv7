@@ -1,0 +1,169 @@
+    <% if Board.exists? %>
+
+    <!-- portfolio-section -->
+    <section class="ttm-row bottomzero-padding-section position-relative clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- section title -->
+                    <% @headers.take(1).each do |a| %>
+                    <div class="section-title text-center with-desc clearfix">
+                        <div class="title-header">
+                            <h5><%= a.projects_title %></h5>
+                            <h2 class="title">Check out our <span>Branches</span></h2>
+                        </div>
+                    </div><!-- section title end -->
+                    <% end %>
+                </div>
+            </div>
+            <!-- row -->
+            <div class="row multi-columns-row ttm-boxes-spacing-10px ttm-bgcolor-white">
+
+              <% @boards.each do |a| %>
+                <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6">
+                    <!-- featured-imagebox -->
+                    <div class="featured-imagebox featured-imagebox-portfolio style2">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="<%= a.boardimg_url.to_s %>" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-content">
+                            <div class="category">
+                                <p><%= a.name %></p>
+                            </div>
+                            <div class="featured-title">
+                                <h5><a href="#"><%= a.title %></a></h5>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox -->
+                </div>
+                <% end %>
+
+            </div><!-- row end -->
+        </div>
+    </section>
+    <% else %>
+    <!-- portfolio-section -->
+    <section class="ttm-row bottomzero-padding-section position-relative clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- section title -->
+                    <div class="section-title text-center with-desc clearfix">
+                        <div class="title-header">
+                            <h5>Look At Portfolio</h5>
+                            <h2 class="title">Check out our <span>Portfolio</span></h2>
+                        </div>
+                    </div><!-- section title end -->
+                </div>
+            </div>
+            <!-- row -->
+            <div class="row multi-columns-row ttm-boxes-spacing-10px ttm-bgcolor-white">
+                <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6">
+                    <!-- featured-imagebox -->
+                    <div class="featured-imagebox featured-imagebox-portfolio style2">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="<%= asset_path "portfolio/08.jpg" %>" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-content">
+                            <div class="category">
+                                <p>Business , Campaign</p>
+                            </div>
+                            <div class="featured-title">
+                                <h5><a href="single-style-01.html">Innovative Technology</a></h5>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox -->
+                </div>
+                <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6">
+                    <!-- featured-imagebox -->
+                    <div class="featured-imagebox featured-imagebox-portfolio style2">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="<%= asset_path "portfolio/09.jpg" %>" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-content">
+                            <div class="category">
+                                <p>Campaign , Technology</p>
+                            </div>
+                            <div class="featured-title">
+                                <h5><a href="single-style-01.html">IT Management</a></h5>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox -->
+                </div>
+                <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6">
+                    <!-- featured-imagebox -->
+                    <div class="featured-imagebox featured-imagebox-portfolio style2">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="<%= asset_path "portfolio/09.jpg" %>" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-content">
+                            <div class="category">
+                                <p>Corporate , Workshop</p>
+                            </div>
+                            <div class="featured-title">
+                                <h5><a href="single-style-01.html">Cyber Security Analysis</a></h5>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox -->
+                </div>
+                <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6">
+                    <!-- featured-imagebox -->
+                    <div class="featured-imagebox featured-imagebox-portfolio style2">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="<%= asset_path "portfolio/10.jpg" %>" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-content">
+                            <div class="category">
+                                <p>Innovation , Technology</p>
+                            </div>
+                            <div class="featured-title">
+                                <h5><a href="single-style-01.html">Web Development</a></h5>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox -->
+                </div>
+                <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6">
+                    <!-- featured-imagebox -->
+                    <div class="featured-imagebox featured-imagebox-portfolio style2">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="<%= asset_path "portfolio/11.jpg" %>" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-content">
+                            <div class="category">
+                                <p>Corporate</p>
+                            </div>
+                            <div class="featured-title">
+                                <h5><a href="single-style-01.html">Neural Networking</a></h5>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox -->
+                </div>
+                <div class="ttm-box-col-wrapper col-lg-4 col-md-6 col-sm-6">
+                    <!-- featured-imagebox -->
+                    <div class="featured-imagebox featured-imagebox-portfolio style2">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="<%= asset_path "portfolio/09.jpg" %>" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-content">
+                            <div class="category">
+                                <p>Technology , Workshop</p>
+                            </div>
+                            <div class="featured-title">
+                                <h5><a href="single-style-01.html">Data Management</a></h5>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox -->
+                </div>
+            </div><!-- row end -->
+        </div>
+    </section>
+    <!-- portfolio-section end -->
+
+    <% end %>

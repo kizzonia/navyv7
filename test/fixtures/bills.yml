@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  service: MyString
+  amount: MyString
+  date: 2020-02-29 22:46:57
+  user: one
+  slug: MyString
+
+two:
+  name: MyString
+  service: MyString
+  amount: MyString
+  date: 2020-02-29 22:46:57
+  user: two
+  slug: MyString

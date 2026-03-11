@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @deposit.method %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @deposit.amount %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @deposit.status %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @deposit.date %>
+</p>
+
+<p>
+  <strong>Account name:</strong>
+  <%= @deposit.account_name %>
+</p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @deposit.account_number %>
+</p>
+
+<p>
+  <strong>Swiftcode:</strong>
+  <%= @deposit.swiftcode %>
+</p>
+
+<p>
+  <strong>Routing number:</strong>
+  <%= @deposit.routing_number %>
+</p>
+
+<p>
+  <strong>Btcw:</strong>
+  <%= @deposit.btcw %>
+</p>
+
+<p>
+  <strong>Ethw:</strong>
+  <%= @deposit.ethw %>
+</p>
+
+<p>
+  <strong>Btcnote:</strong>
+  <%= @deposit.btcnote %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @deposit.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_deposit_path(@deposit) %> |
+<%= link_to 'Back', deposits_path %>

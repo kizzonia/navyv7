@@ -1,0 +1,273 @@
+<div class="container-fluid mt-5">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card text-white card-dark">
+        <div class="card-body">
+          <blockquote class="card-bodyquote mb-0">
+            <p> Complete your loan application effortlessly. Secure the funding you need to grow your business with Us</p>
+            <footer class="blockquote-footer text-white font-14">
+              Hello  <%= current_user.first_name %>
+            </footer>
+          </blockquote>
+        </div><!--end card-body-->
+      </div><!--end card-->
+      <br>
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><%= link_to "Money Market", loans_path %></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0);"><%= @loan.business_name %>Request</a></li>
+          </ol>
+        </div>
+        <h4 class="page-title">Loans</h4>
+      </div>
+      <!--end page-title-box-->
+    </div>
+    <!--end col-->
+  </div>
+
+<style media="screen">
+  .activity .activity-info .icon-info-activity i {
+    width: 36px;
+    height: 36px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #7081b9;
+    -webkit-box-shadow: 0 0 1px .25px;
+    box-shadow: 0 0 1px .25px;
+    font-size: 18px;
+    border: 2px solid #fff;
+    margin-left: 2px;
+}
+.bg-soft-primary {
+    background-color: rgba(11, 81, 183, .08) !important;
+    color: #0b51b7 !important;
+}
+.la, .las {
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+}
+.la, .lab, .lad, .lal, .lar, .las {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+.activity .activity-info .activity-info-text {
+    margin-left: 16px;
+    width: 100%;
+}
+
+
+</style>
+
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+                          <div class="card">
+                              <div class="card-header">
+                                  <h5 class="page-title">Loan Processing Progress</h5>
+                              </div><!--end card-header-->
+                              <div class="card-body">
+                                  <div class="slimscroll activity-scroll">
+                                      <div class="activity">
+
+                                        <% if @loan.agreement? %>
+                                              <div class="activity-info mb-4">
+                                                    <div class="icon-info-activity">
+                                                        <i class="ti ti-check-box bg-soft-primary"></i>
+                                                    </div>
+                                                    <div class="activity-info-text">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <h6 class="m-0 pl-3 w-75">Application Submitted</h6>
+                                                            <span class="badge badge-success d-block">Successful</span>
+                                                        </div>
+                                                        <p class="text-muted mt-3">Your loan application has been submitted successfully and a confirmation request has been sent to our Loan Department.
+                                                          and you will be contacted to start our Initial Screening.
+
+                                                            <a href="#" class="text-info">[more info]</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <% else %>
+                                                <div class="activity-info mb-4">
+                                                      <div class="icon-info-activity">
+                                                          <i class="ti ti-direction-alt bg-soft-primary"></i>
+                                                      </div>
+                                                      <div class="activity-info-text">
+                                                          <div class="d-flex justify-content-between align-items-center">
+                                                              <h6 class="m-0 pl-3 w-75">Application Inreview</h6>
+                                                              <span class="badge badge-warning d-block">In Progress</span>
+                                                          </div>
+                                                          <p class="mt-3"> We are currently conducting an initial screening of your provided business details, business plan, and project plan. This step involves a preliminary review to ensure all necessary information has been provided and meets our basic requirements.
+
+                                                              <a href="#" class="text-info">[more info]</a>
+                                                          </p>
+                                                      </div>
+                                                  </div>
+
+                                                  <% end %>
+
+                                                <div class="activity-info mb-4">
+                                                            <div class="icon-info-activity">
+                                                                <i class="ti ti-direction-alt bg-soft-primary"></i>
+                                                            </div>
+                                                            <div class="activity-info-text">
+                                                                <div class="d-flex justify-content-between align-items-center">
+                                                                    <h6 class="m-0 pl-3 w-75">Initial Screening</h6>
+                                                                    <span class="badge badge-warning d-block">In Progress</span>
+                                                                </div>
+                                                                <p class="text-muted mt-3">  We are conducting an initial screening of your business details, business plan, and project plan..
+                                                                    <a href="#" class="text-info">[more info]</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="activity-info mb-4">
+                                                                    <div class="icon-info-activity">
+                                                                        <i class="ti ti-direction-alt bg-soft-primary"></i>
+                                                                    </div>
+                                                                    <div class="activity-info-text">
+                                                                        <div class="d-flex justify-content-between align-items-center">
+                                                                            <h6 class="m-0 pl-3 w-75">Due Diligence</h6>
+                                                                            <span class="badge badge-warning d-block">In Progress</span>
+                                                                        </div>
+                                                                        <p class="text-muted mt-3">A thorough due diligence process is underway to verify all information and evaluate risk..
+                                                                            <a href="#" class="text-info">[more info]</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="activity-info mb-4">
+                                                                            <div class="icon-info-activity">
+                                                                                <i class="ti ti-direction-alt bg-soft-primary"></i>
+                                                                            </div>
+                                                                            <div class="activity-info-text">
+                                                                                <div class="d-flex justify-content-between align-items-center">
+                                                                                    <h6 class="m-0 pl-3 w-75">Approval</h6>
+                                                                                    <span class="badge badge-warning d-block">In Progress</span>
+                                                                                </div>
+                                                                                <p class="text-muted mt-3">Your loan application is being reviewed for final approval based on the due diligence results..
+                                                                                    <a href="#" class="text-info">[more info]</a>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                      </div><!--end activity-->
+                                  </div><!--end activity-scroll-->
+                              </div>  <!--end card-body-->
+                          </div><!--end card-->
+                      </div>
+          <div class="col-6">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <div class="card">
+
+        <div class="card-image" style="height:200px;">
+          <img src="<%= asset_path "proc.svg" %>" style="height:200px !important" class="img-fluid" alt="">
+        </div>
+        <div class="card-body">
+
+          <h5 class="page-title">Application Details </h5>
+        <p>
+          <strong>Business name:</strong>
+          <%= @loan.business_name %>
+        </p>
+
+        <p>
+          <strong>Budget:</strong>
+          <%= @loan.budget %>
+        </p>
+
+        <p>
+          <strong>Amount:</strong>
+          <%= @loan.amount %>
+        </p>
+
+        <p>
+          <strong>Interest:</strong>
+          <%= @loan.interest %>
+        </p>
+
+        <p>
+          <strong>Desc:</strong>
+          <%= @loan.desc %>
+        </p>
+
+        <p>
+          <strong>Project name:</strong>
+          <%= @loan.project_name %>
+        </p>
+
+        <p>
+          <strong>Project size:</strong>
+          <%= @loan.project_size %>
+        </p>
+
+        <p>
+          <strong>Project desc:</strong>
+          <%= @loan.project_desc %>
+        </p>
+
+        <p>
+          <strong>Date:</strong>
+          <%= @loan.date %>
+        </p>
+
+        <p>
+          <strong>Name:</strong>
+          <%= @loan.name %>
+        </p>
+
+        <p>
+          <strong>First name:</strong>
+          <%= @loan.first_name %>
+        </p>
+
+        <p>
+          <strong>Last name:</strong>
+          <%= @loan.last_name %>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <%= @loan.email %>
+        </p>
+
+        <p>
+          <strong>Slug:</strong>
+          <%= @loan.slug %>
+        </p>
+
+        <p>
+          <strong>User:</strong>
+          <%= @loan.user_id %>
+        </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+
+
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>

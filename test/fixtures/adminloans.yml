@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  status: false
+  verified: false
+  user: one
+  title: MyString
+  loan_id: 1
+
+two:
+  body: MyText
+  status: false
+  verified: false
+  user: two
+  title: MyString
+  loan_id: 1

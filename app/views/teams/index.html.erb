@@ -1,0 +1,93 @@
+<!--Page Title-->
+<% @headers.take(1).each do |h| %>
+<section class="page-title" style="background-image:url(<%= h.headerimg_url.to_s %>);">
+    <div class="auto-container clearfix">
+        <h1>  Management Team </h1>
+        <ul class="bread-crumb clearfix">
+          <li><%= link_to "Home", root_path  %></li>
+            <li> Management Team
+</li>
+        </ul>
+    </div>
+</section>
+<% end %>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="auto-container">
+
+
+
+<br><br><br><br>
+        <div class="row">
+
+          <% if Team.exists? %>
+          <% @teams.each do |b| %>
+          <div class="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+              <div class="image-box">
+                  <div class="info-box">
+                      <h4 class="name"><%= link_to b.title, b %></h4>
+                      <span class="designation"><%= b.name %></span>
+
+                  </div>
+              </div>
+          </div>
+          <br><br>
+
+
+          <% end %>
+          <% else %>
+            <!-- Team Block -->
+            <div class="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
+                <div class="image-box">
+                    <div class="info-box">
+                        <h4 class="name">Buffy Edelen</h4>
+                        <span class="designation">Deliver Manager</span>
+                        <ul class="social-links">
+                            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
+                            <li><a href="#"><span class="fab fa-dribbble"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Block -->
+            <div class="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
+                <div class="image-box">
+                    <figure class="image"><img src="<%= asset_path "resource/team-2.jpg"%>" alt=""></figure>
+                    <div class="info-box">
+                        <h4 class="name">Buffy Edelen</h4>
+                        <span class="designation">Deliver Manager</span>
+                        <ul class="social-links">
+                            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
+                            <li><a href="#"><span class="fab fa-dribbble"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Block -->
+            <div class="team-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="600ms">
+                <div class="image-box">
+                    <figure class="image"><img src="<img src="<%= asset_path "resource/team-3.jpg"%>g" alt=""></figure>
+                    <div class="info-box">
+                        <h4 class="name">Jack Monika</h4>
+                        <span class="designation">Technical Specialist</span>
+                        <ul class="social-links">
+                            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
+                            <li><a href="#"><span class="fab fa-dribbble"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <% end %>
+        </div>
+    </div>
+</section>
+<!--End Team Section -->

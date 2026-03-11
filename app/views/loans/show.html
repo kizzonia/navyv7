@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Processing Progress</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-header.completed {
+            text-decoration: line-through;
+        }
+        .card-header.in-progress {
+            background-color: #fff3cd;
+        }
+        .card-header.not-done {
+            background-color: #f8d7da;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-8">
+                <h2>Loan Processing Progress</h2>
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header completed" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Step 1: Application Submitted
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                Your loan application has been submitted successfully.
+                                <button class="btn btn-primary mt-2" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header in-progress" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Step 2: Initial Screening
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                We are conducting an initial screening of your business details, business plan, and project plan.
+                                <button class="btn btn-primary mt-2" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header not-done" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Step 3: Due Diligence
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                A thorough due diligence process is underway to verify all information and evaluate risk.
+                                <button class="btn btn-primary mt-2" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header not-done" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Step 4: Approval
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                Your loan application is being reviewed for final approval based on the due diligence results.
+                                <button class="btn btn-primary mt-2" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header not-done" id="headingFive">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Step 5: Disbursement
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                            <div class="card-body">
+                                Upon approval, the loan amount will be disbursed to your account.
+                                <button class="btn btn-primary mt-2" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header not-done" id="headingSix">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Step 6: Completion
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                            <div class="card-body">
+                                Your loan process is complete. You can now utilize the loan amount for your business needs.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        Loan Application Details
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Business Name</h5>
+                        <p class="card-text">Lorem Ipsum Dolor Sit Amet</p>
+                        <h5 class="card-title">Budget</h5>
+                        <p class="card-text">$100,000</p>
+                        <h5 class="card-title">Amount</h5>
+                        <p class="card-text">$50,000</p>
+                        <h5 class="card-title">Interest</h5>
+                        <p class="card-text">5%</                        <h5 class="card-title">Description</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h5 class="card-title">Project Name</h5>
+                        <p class="card-text">Project Alpha</p>
+                        <h5 class="card-title">Project Size</h5>
+                        <p class="card-text">Medium</p>
+                        <h5 class="card-title">Project Description</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat, urna et convallis tincidunt, enim nulla volutpat est, non sagittis urna turpis ut quam.</p>
+                        <h5 class="card-title">Date</h5>
+                        <p class="card-text">2024-07-12</p>
+                        <h5 class="card-title">Name</h5>
+                        <p class="card-text">John Doe</p>
+                        <h5 class="card-title">Email</h5>
+                        <p class="card-text">john.doe@example.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

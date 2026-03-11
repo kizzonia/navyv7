@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%  @welcomes = Welcome.all  %>
+  <% @welcomes.take(1).each do |w| %>
+  <title><%= w.title %>  || Authentication </title>
+  <meta name="description" content="<%= w.desc %>">
+  <% end %>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= stylesheet_link_tag    'accounts', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <%= javascript_include_tag 'accounts', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_link_tag asset_path('favicon.png') %>
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+<style media="screen">
+  .w50{ width:50%; }
+</style>
+
+</head>
+
+<body class="account-body accountbg">
+
+  <% unless flash.empty? %>
+  <script type="text/javascript">
+    <% flash.each do |f| %>
+    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+    toastr['<%= type %>']('<%= f[1] %>');
+    <% end %>
+  </script>
+  <% end %>
+
+  <% @welcomes = Welcome.all %>
+
+
+      <!-- Log In page -->
+      <div class="row vh-100">
+          <div class="col-12 align-self-center">
+              <div class="auth-page">
+                  <div class="card auth-card shadow-lg">
+                      <div class="card-body">
+                          <div class="px-3">
+                            <% if Welcome.exists? %>
+                            <% @welcomes.take(1).each do |w| %>
+                            <div class="auth-logo-box">
+                              <%= image_tag w.logoimg_url.to_s, class: "img-fluid w50 inline-block" %>
+                            </div>
+                            <br>
+                            <br>
+                            <h3 class="inline-block pull-right no-mrg-vertical pdd-top-15">Register/Login</h3>
+
+                            <% end %>
+                            <% else %>
+                            <div class="mrg-btm-30">
+                              <img class="img-responsive inline-block" src="assets/images/logo/logo.png" alt="">
+                              <h2 class="inline-block pull-right no-mrg-vertical pdd-top-15">Login</h2>
+                            </div>
+                            <% end %>
+
+
+
+                            <%= yield %>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+  <%= javascript_include_tag 'app' %>
+
+</body>
+</html>

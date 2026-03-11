@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  method: MyString
+  amount: MyString
+  status: false
+  date: 2023-07-12 16:08:06
+  account_name: MyString
+  account_number: MyString
+  swiftcode: MyString
+  routing_number: MyString
+  btcw: MyString
+  ethw: MyString
+  btcnote: MyString
+  user: one
+
+two:
+  method: MyString
+  amount: MyString
+  status: false
+  date: 2023-07-12 16:08:06
+  account_name: MyString
+  account_number: MyString
+  swiftcode: MyString
+  routing_number: MyString
+  btcw: MyString
+  ethw: MyString
+  btcnote: MyString
+  user: two

@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@card) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name, placeholder: "Your Card Name" %>
+    <%= f.input :card_type, :collection => ["Prepaid Debit Card", "Credit Card"], placeholder: "Select Card type" %>
+    <%= f.input :card_company, :collection => ["MasterCard", "Visa"], placeholder: "Select Card Company" %>
+
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit,"Request For A Card", class:"btn btn-primary" %>
+  </div>
+<% end %>

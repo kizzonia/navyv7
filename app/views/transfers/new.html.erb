@@ -1,0 +1,71 @@
+<div class="container-fluid">
+
+<div class="row justify-content-center">
+  <div class="col-8">
+    <br><br><br><br><br>
+    <h4 class="text-center mt-0 mb-2  header-title">Select Method Of Transfer </h4>
+
+  </div>
+
+</div>
+<div class="row justify-content-center">
+    <div class="col-10">
+        <div class="row">
+
+
+        <div class="col-md-12">
+            <div class="card card-border">
+                <div class="card-body">
+                    <h4 class="card-title mt-0">Wire Transfer</h4>
+                    <p class="card-subtitle mb-2">Make Quick and Secured  International  & Domestic Transfers  </p>
+                    <p class="card-text text-muted">wires transfer can take a few days.
+                      Many domestic wire transfers can be completed within 24 hours (especially if transfers
+                       occur between accounts at the same financial institution). But international wire transfers may take longer.
+                    </p>
+                    <button type="button" class="btn btn-dark waves-effect waves-light" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg">Click here  to continue</button>
+
+                </div><!--end card -body-->
+            </div><!--end card-->
+    </div>
+      </div>
+      <div class="row">
+
+
+      <div class="col-md-12">
+          <div class="card card-border">
+              <div class="card-body">
+                  <h4 class="card-title mt-0">Inter-Bank & Domestic  Transfer</h4>
+                  <p class="card-subtitle mb-2"> Transfer funds to family and friends domestically  </p>
+                  <p class="card-text text-muted">
+                    Please note that domestic & ACH Transfers may take upto 3 business days to proccess
+                  </p>
+                  <button type="button" class=" card-link btn btn-dark waves-effect waves-light" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg">Click here  to continue</button>
+
+              </div><!--end card -body-->
+          </div><!--end card-->
+  </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="myLargeModalLabel">Transfer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+              <div class="row justify-content-center">
+                <div class="col-10">
+                  <%= render 'form', transfer: @transfer %>
+
+                </div>
+              </div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

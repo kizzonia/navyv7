@@ -1,0 +1,139 @@
+
+
+
+
+<!-- aboutus-section -->
+<section class="ttm-row aboutus-section clearfix">
+  <div class="container">
+    <div class="row"><!-- row -->
+      <div class="col-lg-6">
+
+        <% if Header.exists? %>
+        <% @headers.take(1).each do |h| %>
+        <!-- section title -->
+        <div class="section-title with-desc clearfix">
+          <div class="title-header">
+            <h5>About Us</h5>
+            <h2 class="title"><%= h.abouts_title %></h2>
+          </div>
+          <div class="title-desc">
+            <p><%= h.abouts_sub_title %></p>
+          </div>
+        </div><!-- section title end -->
+        <% end %>
+        <% else %>
+        <!-- section title -->
+        <div class="section-title with-desc clearfix">
+          <div class="title-header">
+            <h5>About us</h5>
+            <h2 class="title">We are here to IT Solution with 20 years of <span>experience</span></h2>
+          </div>
+          <div class="title-desc">
+            <p>Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any website is the first impression on visitors. And the smart design of any website is the starting point.</p>
+            <P>We have a special team for website style who has been involved in designing professional websites of all categories.</P>
+          </div>
+        </div><!-- section title end -->
+        <!-- row -->
+        <% end %>
+
+
+        <% if About.exists? %>
+        <div class="row no-gutters mt-35">
+          <div class="col-md-6 col-lg-6 col-sm-6">
+            <ul class="ttm-list ttm-list-style-icon">
+              <% @abouts.take(6).each do |a| %>
+
+              <li><i class="fa fa-circle-o ttm-textcolor-skincolor"></i>
+                <%= link_to a do %>
+                <span class="ttm-list-li-content">
+                  <%= a.title %> </span>
+                  <% end %>
+                </li>
+                  <% end %>
+
+                </ul>
+              </div>
+
+            </div><!-- row END-->
+
+            <% else %>
+
+            <div class="row no-gutters mt-35">
+              <div class="col-md-6 col-lg-6 col-sm-6">
+                <ul class="ttm-list ttm-list-style-icon">
+                  <li><i class="fa fa-circle-o ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Web And Mobile Application </span></li>
+                  <li><i class="fa fa-circle-o ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">New Domain Registration</span></li>
+                  <li><i class="fa fa-circle-o ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Data Text Synchronization</span></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-lg-6 col-sm-6">
+                <ul class="ttm-list ttm-list-style-icon">
+                  <li><i class="fa fa-circle-o ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Improving Our Website Design</span></li>
+                  <li><i class="fa fa-circle-o ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Web &amp; Email Hosting Services </span></li>
+                  <li><i class="fa fa-circle-o ttm-textcolor-skincolor"></i><span class="ttm-list-li-content">Artificial Intelligence Web App</span></li>
+                </ul>
+              </div>
+            </div><!-- row END-->
+            <% end %>
+            <!-- separator -->
+            <div class="separator">
+              <div class="sep-line mt-25 mb-30"></div>
+            </div>
+            <!-- separator -->
+            <% @welcomes.take(1).each do |w| %>
+            <div class="about-text-box fs-16">
+              <span>Chat to ask <%= link_to new_contact_path, class: "fw-500" do %>
+                <u>any question</u>
+                <% end %></span>
+                <strong class="fs-18">: <%= w.footer %></strong>
+              </div>
+              <% end %>
+
+
+            </div>
+
+<!-- to update to abtsheaderimg at headers -->
+            <% if Header.exists? %>
+
+            <% @headers.take(1).each do |a| %>
+            <div class="col-lg-6">
+              <div class="position-relative res-991-mt-30">
+                <!-- ttm_single_image-wrapper -->
+                <div class="ttm_single_image-wrapper">
+                  <%= image_tag a.abtsectionimg_url.to_s, class: "img-fluid" %>
+                </div><!-- ttm_single_image-wrapper end -->
+                <!--featured-icon-box-->
+                <div class="about-overlay-01">
+                  <p class="mb-0">We Provide Best Service .</p>
+                </div>
+                <!-- featured-icon-box end-->
+              </div>
+            </div>
+            <% end %>
+            <% else %>
+            <div class="col-lg-6">
+              <div class="position-relative res-991-mt-30">
+                <!-- ttm_single_image-wrapper -->
+                <div class="ttm_single_image-wrapper">
+                  <img class="img-fluid lazyload"
+                  data-src="<%= asset_path 'single-img-four.png' %>"
+                   title="single-img-four" alt="single-img-one">
+                </div><!-- ttm_single_image-wrapper end -->
+                <!--featured-icon-box-->
+                <div class="about-overlay-01">
+                  <p class="mb-0">American IT Solutions Association AIA.</p>
+                </div>
+                <!-- featured-icon-box end-->
+              </div>
+            </div>
+            <% end %>
+
+          </div>
+          <!-- row end -->
+          <!-- row -->
+          <div class="row">
+
+          </div><!-- row end-->
+        </div>
+      </section>
+      <!-- aboutus-section end -->

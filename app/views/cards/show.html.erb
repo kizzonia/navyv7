@@ -1,0 +1,182 @@
+<div class="container-fluid">
+
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+          <div class="card text-white card-dark">
+              <div class="card-body">
+                  <blockquote class="card-bodyquote mb-0">
+                      <p> Your Credit/Debit Cards </p>
+                      <footer class="blockquote-footer text-white font-14">
+                        Hello  <%= current_user.first_name %>
+                      </footer>
+                  </blockquote>
+              </div><!--end card-body-->
+          </div><!--end card-->
+          <br>
+            <div class="page-title-box">
+                <div class="float-right">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Account</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Cards</a></li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Account</h4>
+            </div>
+            <!--end page-title-box-->
+        </div>
+        <!--end col-->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0">Current Cards</h4>
+                    <div class="">
+                        <div id="ana_dash_1" class="apex-charts"></div>
+                    </div>
+                </div>
+                <!--end card-body-->
+            </div>
+            <!--end card-->
+
+    </div>
+    </div>
+    <div class="row justify-content-center">
+      <% if Card.where(user_id: current_user.id).exists? %>
+
+    <% @cards.each do |a| %>
+
+
+    <!--end row-->
+        <div class="col-lg-4">
+            <div class="card report-card">
+                <div class="card-body">
+                  <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
+                  <span class="badge badge-success">Cards  details</span>
+                        <div class="row">
+                            <div class="col-8 align-self-center">
+                              <h5 class="">Card Number: <%= a.card_number %></h5>
+                              <p class="text-muted mb-0">Expiry Date: <%= a.date %>
+                                <i class="mdi mdi-menu-up text-success font-16"></i></p>
+
+                            </div>
+                            <!--end col-->
+                            <div class="col-4"> <%= link_to "view details", a %> </div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    <!--end icon-contain-->
+                </div>
+                <!--end card-body-->
+            </div>
+            <!--end card-->
+        </div>
+        <!--end col-->
+        <% end %>
+        <% else %>
+        <div class="col-lg-4">
+            <div class="card report-card">
+                <div class="card-body">
+                  <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
+                  <span class="badge badge-success">Cards</span>
+                        <div class="row">
+                            <div class="col-6 align-self-center">
+                                <h5 class="">Cards </h5>
+
+                            </div>
+                            <!--end col-->
+                            <div class="col-6">  <h4>  no data
+.</h4></div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    <!--end icon-contain-->
+                </div>
+                <!--end card-body-->
+            </div>
+            <!--end card-->
+        </div>
+        <!--end col-->
+        <% end %>
+        <% @accounts.take(1).each do |a| %>
+
+        <div class="col-lg-4">
+            <div class="card report-card">
+                <div class="card-body">
+                    <div class="float-right"><i class="dripicons-meter report-main-icon"></i></div>
+                    <span class="badge badge-warning">Overview</span>
+                        <div class="row">
+                            <div class="col-12 align-self-center">
+                                <h5 class="">Account Number: <%= a.account_number %></h5>
+                                <p class="text-muted mb-0">Routine Number: <%= a.routine_number %>
+                                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                            </div>
+                            <!--end col-->
+
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    <!--end icon-contain-->
+                </div>
+                <!--end card-body-->
+            </div>
+            <!--end card-->
+        </div>
+        <div class="col-lg-4">
+            <div class="card report-card">
+                <div class="card-body">
+                  <div class="float-right">
+                    <i class="dripicons-wallet report-main-icon"></i>
+                  </div><span class="badge badge-success">Balance</span>
+
+                        <div class="row">
+                            <div class="col-6 align-self-center">
+                                <h5 class="">Balance</h5>
+                                <p class="text-muted mb-0">Book Balance: $<%=a.lbalance %>
+                                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                            </div>
+                            <!--end col-->
+                            <div class="col-6">
+                          <h4>    $ <%= a.balance %></h4>
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    <!--end icon-contain-->
+                </div>
+                <!--end card-body-->
+            </div>
+            <!--end card-->
+        </div>
+
+
+        </div>
+        <!--end col-->
+    <!--end row-->
+    <% end %>
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+        <div class="card-body">
+
+
+        </div>
+          <!--end card-body-->
+        </div>
+        <!--end card-->
+      </div>
+      <div class="col-6">
+        <div class="card">
+        <div class="card-body">
+
+
+        </div>
+          <!--end card-body-->
+        </div>
+        <!--end card-->
+      </div>
+      <!--end col-->
+    </div>
+
+</div>

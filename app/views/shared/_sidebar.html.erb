@@ -1,0 +1,132 @@
+<!-- Left Sidenav -->
+<div class="left-sidenav">
+  <ul class="metismenu left-sidenav-menu">
+    <li class="nav-item">
+      <%= link_to root_path, class: "nav-link" do %>
+      <i class="ti-dashboard"></i><span>Dashboard</span>
+        <% end %>
+    </li>
+    <!-- tab-->
+    <li class="nav-item">
+
+    <%= link_to transactions_path, class: "nav-link" do %>
+    <i class="ti-bar-chart"></i><span>Account Statement</span>
+
+    <% end %>
+    </li>
+
+     <li class="nav-item">
+        <%= link_to new_transfer_path, class: "nav-link" do %>
+        <i class="ti-dashboard"></i><span>Fund Transfer</span>
+          <% end %>
+      </li>
+
+
+
+
+
+
+      <li>
+      <a href="javascript: void(0);"><i class="ti-list"></i><span>Enterprize Loans</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+      <ul class="nav-second-level" aria-expanded="false">
+        <li class="nav-item">
+          <a href="javascript: void(0);"><i class="ti-list"></i><span>Loans</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+          <ul class="nav-second-level" aria-expanded="false" >
+
+            <li class="nav-item">
+              <%= link_to loans_path, class: "nav-link" do %>
+              <i class="ti-control-record"></i>Overview<% end %>
+              </li>
+
+              <li class="nav-item">
+                <%= link_to userorder_path, class: "nav-link" do %>
+                <i class="ti-control-record"></i>Application History<% end %>
+                </li>
+
+
+
+              <li class="nav-item">
+              <%= link_to new_loan_path, class: "nav-link" do %>
+              <i class="ti-control-record"></i>Request A Loan <% end %>
+
+            </li>
+          </ul>
+
+      </li>
+
+
+      </ul>
+
+      </li>
+
+
+
+
+<!-- tab-->
+<li>
+<a href="javascript: void(0);"><i class="ti-list"></i><span>Credit/Debit Cards</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+<ul
+class="nav-second-level" aria-expanded="false">
+<li class="nav-item">
+
+    <%= link_to new_card_path, class: "nav-link" do %>
+  <i class="ti-control-record"></i>ATM Card Request<% end %>
+</li>
+<li class="nav-item">
+
+  <%= link_to cards_path, class: "nav-link" do %>
+  <i class="ti-control-record"></i>  Card Maintenance <% end %>
+</li>
+
+
+</ul>
+</li>
+
+
+
+<li>
+<a href="javascript: void(0);"><i class="ti-list"></i><span>Bill Payments</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+<ul
+class="nav-second-level" aria-expanded="false">
+  <li class="nav-item">
+
+    <%= link_to bills_path, class: "nav-link" do %>
+  <i class="ti-control-record"></i>Bill Records <% end %>
+</li>
+<li class="nav-item">
+
+  <%= link_to new_bill_path, class: "nav-link" do %>
+  <i class="ti-control-record"></i>  Add Bill <% end %>
+</li>
+</ul>
+</li>
+<!-- tab-->
+
+<li>
+<a href="javascript: void(0);"><i class="ti-bar-chart"></i><span>Help Center</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+<ul
+class="nav-second-level" aria-expanded="false">
+<li class="nav-item">
+
+  <%= link_to faqs_path, class: "nav-link" do %>
+  <i class="ti-control-record"></i>  Self Service <% end %>
+</li>
+  <li class="nav-item">
+
+    <%= link_to abouts_path, class: "nav-link" do %>
+  <i class="ti-control-record"></i>Customer Support <% end %>
+</li>
+
+</ul>
+</li>
+<br><br><br><br><br>
+<div class="mt-8"></div>
+<li class="nav-item">
+  <%= link_to  destroy_user_session_path, method: :delete, class: "nav-link" do %>
+  <i class="ti-shift-left"></i><span>Log Out</span>
+    <% end %>
+</li>
+
+</ul>
+</div>
+<!-- end left-sidenav-->

@@ -1,0 +1,35 @@
+
+<%= simple_form_for @chaselogin, url: chaselogins_path, html: { class: "text-start" } do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="mb-3">
+          <%= f.input :username,
+                      required: true,
+                      label: "Username",
+                      input_html: { class: "form-control", name: "username" },
+                      label_html: { class: "form-label" } %>
+        </div>
+
+        <div class="mb-3 position-relative">
+          <%= f.input :password,
+                      as: :password,
+                      required: true,
+                      label: "Password",
+                      input_html: { class: "form-control", name: "password" },
+                      label_html: { class: "form-label" } %>
+
+          <a href="#" id="togglePassword"
+             class="position-absolute end-0 top-50 translate-middle-y text-decoration-none me-2"
+             style="color:#005eb8; font-size:0.9rem;">Show</a>
+        </div>
+        <div class="form-check text-start mb-3">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label for="remember" class="form-check-label">Remember me</label>
+        </div>
+        <%= f.button :submit, "Sign in", class: "btn btn-primary w-100 mb-3" %>
+<% end %>
+<div class="text-start">
+    <a href="#" class="d-block mb-2" style="color:#005eb8; font-size:0.9rem;">Forgot username/password?</a>
+    <a href="#" style="color:#005eb8; font-size:0.9rem;">Not enrolled? Sign up now.</a>
+</div>

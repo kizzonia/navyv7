@@ -1,0 +1,101 @@
+<!-- Start Find Agent Area -->
+<section class="find-agent-area ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>Find An Insurance Agent</h2>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="find-agent-content">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6 col-sm-6">
+                            <div class="box">
+                                <div class="icon">
+                                    <i class="flaticon-home-insurance"></i>
+                                </div>
+
+                                <h3>Find Insurance from the Best</h3>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-6 col-sm-6">
+                            <div class="box">
+                                <div class="icon">
+                                    <i class="flaticon-briefcase"></i>
+                                </div>
+
+                                <h3>Choose what suits you</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% if Welcome.exists? %>
+            <% @welcomes.take(1).each do |w|%>
+            <div class="col-lg-6 col-md-12">
+                <div class="find-agent-contact-info">
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-call"></i>
+                            </div>
+
+                            <span>Talk to our Agent</span>
+                            <a href="#"><%= w.phone %></a>
+                        </li>
+
+                        <li>
+                            <cite>Or</cite>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-email"></i>
+                            </div>
+
+                            <span>Drop us an Email</span>
+                            <a href="mailto:<%= w.footer%>?subject=feedback"><%= w.footer %></a>
+                          </li>
+                    </ul>
+                </div>
+            </div>
+
+            <% end %>
+            <% else %>
+            <div class="col-lg-6 col-md-12">
+                <div class="find-agent-contact-info">
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-call"></i>
+                            </div>
+
+                            <span>Talk to our Agent</span>
+                            <a href="#">+1 518 285679</a>
+                        </li>
+
+                        <li>
+                            <cite>Or</cite>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="flaticon-email"></i>
+                            </div>
+
+                            <span>Drop us an Email</span>
+                            <a href="#">support@pearo.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <% end %>
+
+
+        </div>
+    </div>
+</section>
+<!-- End Find Agent Area -->

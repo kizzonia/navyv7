@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application Process</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .nav-pills .nav-link.completed {
+            text-decoration: line-through;
+            background-color: #d3d3d3;
+            color: #6c757d;
+        }
+        .card-center {
+            max-width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card card-center">
+        <div class="card-body">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-step1-tab" data-toggle="pill" href="#pills-step1" role="tab" aria-controls="pills-step1" aria-selected="true">Step 1: Loan Application</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-step2-tab" data-toggle="pill" href="#pills-step2" role="tab" aria-controls="pills-step2" aria-selected="false">Step 2: Supporting Documents</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-step3-tab" data-toggle="pill" href="#pills-step3" role="tab" aria-controls="pills-step3" aria-selected="false">Step 3: Loan Agreement</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <!-- Step 1: Loan Application -->
+                <div class="tab-pane fade show active" id="pills-step1" role="tabpanel" aria-labelledby="pills-step1-tab">
+                    <form id="formStep1">
+                        <h3>Personal Information</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="full_name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="address" placeholder="Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="contact_number" placeholder="Contact Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="social_security_number" placeholder="Social Security Number" required>
+                        </div>
+
+                        <h3>Business Information</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="business_name" placeholder="Business Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="business_address" placeholder="Business Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="business_type" placeholder="Type of Business" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="years_in_operation" placeholder="Years in Operation" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="business_structure" placeholder="Business Structure" required>
+                        </div>
+
+                        <h3>Loan Details</h3>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="loan_amount" placeholder="Loan Amount Requested" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="loan_purpose" placeholder="Purpose of the Loan" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="loan_term" placeholder="Desired Loan Term" required>
+                        </div>
+
+                        <h3>Financial Information</h3>
+                        <div class="form-group">
+                            <label for="financial_statements">Upload Business Financial Statements</label>
+                            <input type="file" class="form-control-file" name="financial_statements" id="financial_statements" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tax_returns">Upload Business Tax Returns</label>
+                            <input type="file" class="form-control-file" name="tax_returns" id="tax_returns" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bank_statements">Upload Bank Statements</label>
+                            <input type="file" class="form-control-file" name="bank_statements" id="bank_statements" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="credit_report">Upload Credit Report</label>
+                            <input type="file" class="form-control-file" name="credit_report" id="credit_report" required>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="markCompleted('pills-step1-tab')">Submit Application</button>
+                    </form>
+                </div>
+
+                <!-- Step 2: Supporting Documents -->
+                <div class="tab-pane fade" id="pills-step2" role="tabpanel" aria-labelledby="pills-step2-tab">
+                    <form id="formStep2">
+                        <h3>Business Plan</h3>
+                        <div class="form-group">
+                            <label for="business_plan">Upload Business Plan</label>
+                            <input type="file" class="form-control-file" name="business_plan" id="business_plan" required>
+                        </div>
+
+                        <h3>Legal Documents</h3>
+                        <div class="form-group">
+                            <label for="legal_documents">Upload Legal Documents</label>
+                            <input type="file" class="form-control-file" name="legal_documents" id="legal_documents" required>
+                        </div>
+
+                        <h3>Personal Financial Statements</h3>
+                        <div class="form-group">
+                            <label for="personal_financial_statements">Upload Personal Financial Statements</label>
+                            <input type="file" class="form-control-file" name="personal_financial_statements" id="personal_financial_statements" required>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="markCompleted('pills-step2-tab')">Submit Documents</button>
+                    </form>
+                </div>
+
+                <!-- Step 3: Loan Agreement -->
+                <div class="tab-pane fade" id="pills-step3" role="tabpanel" aria-labelledby="pills-step3-tab">
+                    <form id="formStep3">
+                        <h3>Loan Agreement</h3>
+                        <p>Loan Amount: [Loan Amount]</p>
+                        <p>Interest Rate: [Interest Rate]</p>
+                        <p>Repayment Schedule: [Repayment Schedule]</p>
+                        <p>Terms and Conditions: [Terms and Conditions]</p>
+
+                        <div class="form-group">
+                            <label for="agree_to_terms">
+                                <input type="checkbox" name="agree_to_terms" id="agree_to_terms" required>
+                                I agree to the terms and conditions.
+                            </label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="markCompleted('pills-step3-tab')">Sign Agreement</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function markCompleted(tabId) {
+        document.getElementById(tabId).classList.add('completed');
+    }
+</script>
+</body>
+</html>

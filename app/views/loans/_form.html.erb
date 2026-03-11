@@ -1,0 +1,209 @@
+
+<%= simple_form_for @loan, html: { multipart: true } do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="row">
+      <div class="col-md-4 sidebara">
+          <ul class="nav nav-pills flex-column" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                  <a class="nav-link active" id="pills-step1-tab" data-toggle="pill" href="#pills-step1" role="tab" aria-controls="pills-step1" aria-selected="true">Step 1: Loan Application</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" id="pills-step2-tab" data-toggle="pill" href="#pills-step2" role="tab" aria-controls="pills-step2" aria-selected="false">Step 2: Supporting Documents</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" id="pills-step3-tab" data-toggle="pill" href="#pills-step3" role="tab" aria-controls="pills-step3" aria-selected="false">Step 3: Loan Agreement</a>
+              </li>
+          </ul>
+      </div>
+      <div class="col-md-8">
+          <div class="tab-content" id="pills-tabContent">
+              <!-- Step 1: Loan Application -->
+              <div class="tab-pane fade show active" id="pills-step1" role="tabpanel" aria-labelledby="pills-step1-tab">
+                  <div id="formStep1">
+                      <h4>Personal Information</h4>
+                      <p class="text-muted">Please fill out the following personal information accurately. This information is crucial for verifying your identity and assessing your eligibility for the loan. Providing complete and accurate details will help expedite the loan application process.</p>
+
+
+                      <div class="row form-group">
+                        <div class="col-md-6">
+                          <%= f.input :first_name, required: true, autofocus: true, class: "form-control", placeholder: "first name" %>
+                        </div>
+                        <div class="col-md-6">
+                          <%= f.input :last_name, class: "form-control", placeholder: "last name" %>
+                        </div>
+
+                        <div class="col-md-6">
+                          <%= f.input :phone, class: "form-control", placeholder: "Contact Phone (with country code)" %>
+                        </div>
+                        <div class="col-md-6">
+                          <%= f.input :email, class: "form-control", placeholder: "Contact Email Address" %>
+                        </div>
+                          <div class="col-md-6">
+                            <%= f.input :ssn, class: "form-control", placeholder: "Social Security Number/ ID Number" %>
+                          </div>
+                          <div class="col-md-6">
+                            <%= f.input :ein_vat, label: "EIV/VAT Number", class: "form-control", placeholder: "EIN/VAT ID Number" %>
+                          </div>
+
+
+
+
+                      <h3>Business Information</h3>
+                      <p class="text-muted">Please fill out the following corporate business information accurately. This information is essential for understanding your business's structure, operations, and financial health. Providing comprehensive and precise details will assist us in evaluating your loan application effectively.</p>
+
+                      <div class="col-md-6">
+                        <%= f.input :business_name, class: "form-control", placeholder: "Business Name", required: true %>
+                      </div>
+
+                      <div class="col-md-6">
+                        <%= f.input :business_years, label: "Years In Operation", as: :select, collection: (1..100).map { |year| [year, year] }, class: "form-control", required: true %>
+                      </div>
+
+                      <div class="col-md-12">
+                        <%= f.input :buisness_type, placeholder: "Choose Business Type", label: "Business Type", include_blank: false,  as: :select, collection: [ "Sole Proprietorship", "partnership", "Corporation", "Limited Liability Company (LLC)", "Cooperative",  "Nonprofit Organization" ], class: "form-control" %>
+
+                      </div>
+
+
+                      <div class="col-md-6">
+
+                      <%= f.input :bfs, as: :attachment_preview, label: "Upload Business Financial Statements" %>
+                      </div>
+
+                      <div class="col-md-6">
+                        <%= f.input :btr, as: :attachment_preview, label: "Upload Business Tax Returns" %>
+
+                      </div>
+
+
+
+                      <button class="btn btn-dark  btn-lg btn-block row col-12"  data-toggle="tab" href="#pills-step2"  role="tab" >
+                      Continue
+                    </button>
+
+                      <!-- <button type="button" class="btn btn-primary" onclick="markCompleted('pills-step1-tab')">Next</button> -->
+                  </div>
+              </div>
+              </div>
+
+
+
+
+              <!-- Step 2: Supporting Documents -->
+              <div class="tab-pane fade" id="pills-step2" role="tabpanel" aria-labelledby="pills-step2-tab">
+                  <div id="formStep2">
+                    <h3>Loan Details</h3>
+                    <p class="text-muted">Please fill out the following loan details accurately. This information is crucial for understanding your specific loan requirements and ensuring we can tailor our services to meet your needs. Providing clear and detailed loan information will assist us in processing your application efficiently.</p>
+
+                    <div class="col-md-12">
+                      <%= f.input :amount, class: "form-control", placeholder: "Amount Requested For" %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.input :loan_type, class: "form-control", :collection => @packages, :label_method => :title, :value_method => :title,:label => "Choose A Type Of Loan" ,:include_blank => false %>
+                    </div>
+
+                    <div class="col-md-12">
+                      <%= f.input :desc, class: "form-control", label: "loan_purpose", placeholder: "Purpose of the Loan" %>
+                    </div>
+
+                    <h3>Background KYC Verification</h3>
+
+                    <p class="text-muted">Please complete the background KYC (Know Your Customer) verification details accurately. This information is vital for verifying your identity and ensuring compliance with regulatory requirements. Supplying thorough and precise KYC information will help us expedite your loan application process.</p>
+
+                    <div class="row">
+                      <div class="col-md-6">
+
+                      <%= f.input :drivers_lfront, as: :attachment_preview, label: "Driver's Licsence Front" %>
+                      </div>
+
+                      <div class="col-md-6">
+                        <%= f.input :drivers_lback, as: :attachment_preview, label: "Driver's Licsence Back" %>
+
+                      </div>
+                    </div>
+
+
+
+
+
+
+                    <h3>Financial Information</h3>
+                    <p class="text-muted">Please provide the necessary financial information documents accurately. This information is critical for assessing your business's financial health, performance, and stability. Supplying thorough and accurate financial details will enable us to evaluate your loan application comprehensively and efficiently.</p>
+
+                    <div class="row">
+                      <div class="col-md-12">
+
+                      <%= f.input :cr, as: :attachment_preview, label: "Upload Credit Report or Bank Statement" %>
+                      </div>
+
+
+                      <button class="btn btn-dark  btn-lg btn-block row col-12"  data-toggle="tab" href="#pills-step3"  role="tab" >
+                      Continue
+                    </button>                  </div>
+              </div>
+              </div>
+
+              <!-- Step 3: Loan Agreement -->
+              <div class="tab-pane fade" id="pills-step3" role="tabpanel" aria-labelledby="pills-step3-tab">
+                  <div id="formStep3">
+                    <h3>Business Plan</h3>
+                    <p class="text-muted">Please provide your business plan accurately and comprehensively. This document is essential for understanding your business's vision, strategy, and growth potential. A detailed and well-prepared business plan will significantly aid in evaluating your loan application effectively.</p>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <%= f.input :bp, as: :attachment_preview, label: "Upload Business Plan" %>
+
+                      </div>
+                    </div>
+
+
+                    <h3>Legal Documents</h3>
+                    <p class="text-muted">Please submit all necessary legal documents accurately. These documents are crucial for verifying your business's legal standing and compliance with relevant laws and regulations. Providing complete and precise legal documentation will assist us in processing your loan application smoothly.</p>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <%= f.input :ld, as: :attachment_preview, label: "Upload Legal Documents" %>
+
+                      </div>
+
+                    </div>
+
+
+                    <h3>Personal Financial Statements</h3>
+                    <p class="text-muted">Please provide the necessary financial reports accurately. These reports are critical for assessing your business's financial performance and stability. Supplying detailed and accurate financial reports will enable us to evaluate your loan application comprehensively and efficiently.</p>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <%= f.input :pfs, as: :attachment_preview, label: "Upload Personal Financial Statements" %>
+
+                      </div>
+
+                    </div>
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <%= f.input :agreement, as: :boolean, label: "I accept the terms and conditions" %>
+                        </div>
+
+                      </div>
+
+
+                      <%= f.button :submit, "Submit Application", class: "btn btn-dark  btn-lg btn-block row col-12" %>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+  </div>
+
+
+
+
+<% end %>
+<script>
+    function markCompleted(tabId) {
+        document.getElementById(tabId).classList.add('completed');
+    }
+</script>

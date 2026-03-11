@@ -1,0 +1,59 @@
+<% @abouts = About.all.order('created_at DESC') %>
+<% @services = Service.all.order('created_at DESC') %>
+<% @welcomes = Welcome.all %>
+<% @headers = Header.all %>
+<% @plans = Plan.all %>
+<% @packages = Package.all.order('created_at ASC') %>
+
+
+  <div class="col-lg-3 widget-area">
+      <aside class="widget widget-search">
+          <form role="search" method="get" class="search-form  box-shadow" action="#">
+              <div class="form-group">
+                  <input name="search" type="text" class="form-control bg-white" placeholder="Search....">
+                  <i class="fa fa-search"></i>
+              </div>
+          </form>
+      </aside>
+      <aside class="widget widget-categories">
+          <h3 class="widget-title">Services</h3>
+          <ul>
+            <% @services.each do |a| %>
+              <li><%= link_to a.title, a %></li>
+              <% end %>
+
+          </ul>
+      </aside>
+
+      <aside class="widget tagcloud-widget">
+          <h3 class="widget-title">Banking Solutions</h3>
+          <div class="tagcloud">
+            <% @plans.each do |a| %>
+            <%= link_to a.title, a, class: "tag-cloud-link" %>
+              <a href="#" class="tag-cloud-link">Business</a>
+              <% end %>
+
+          </div>
+      </aside>
+      <aside class="widget widget-categories">
+          <h3 class="widget-title">Enterprize Loan's</h3>
+          <ul>
+            <% @packages.take(4).each do |a| %>
+              <li><%= link_to a.title, a %></li>
+              <% end %>
+              <li><%= link_to "View More", packages_path %></li>
+
+          </ul>
+      </aside>
+      <aside class="widget widget-categories">
+          <h3 class="widget-title">Help Center </h3>
+          <ul>
+            <% @abouts.each do |a| %>
+              <%= link_to a.title, a %>
+            <% end %>
+              <li> <%= link_to "FAQ's", faqs_path %></li>
+              <li><%= link_to "News & Update", blogs_path %></li>
+
+          </ul>
+      </aside>
+  </div>

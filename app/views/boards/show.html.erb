@@ -1,0 +1,84 @@
+<% if Header.exists? %>
+<% @headers.take(1).each do |h| %>
+<div class="ttm-page-title-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-box text-center">
+          <div class="page-title-heading">
+            <h1 class="title"><%= h.boards_title %></h1>
+          </div><!-- /.page-title-captions -->
+          <div class="breadcrumb-wrapper">
+            <span>
+              <%= link_to root_path do %><i class="ti ti-home"></i>&nbsp;&nbsp;Home<% end %>
+            </span>
+            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+            <span><%= @board.title %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<% else %>
+<div class="ttm-page-title-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-box text-center">
+          <div class="page-title-heading">
+            <h1 class="title">board Of Directors</h1>
+          </div><!-- /.page-title-captions -->
+          <div class="breadcrumb-wrapper">
+            <span>
+              <a title="Homepage" href="index.html"><i class="ti ti-home"></i>&nbsp;&nbsp;Home</a>
+            </span>
+            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+            <span>board Us 01</span>
+          </div>
+        </div>
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div>
+
+<% end %>
+
+
+<!-- boardus-section -->
+<section class="ttm-row aboutus-section clearfix">
+  <div class="container">
+    <div class="row"><!-- row -->
+      <div class="col-lg-6">
+        <!-- section title -->
+        <div class="section-title with-desc clearfix">
+          <div class="title-header">
+            <h2 class="title"><%= @board.name %></h2>
+          </div>
+          <div class="title-desc">
+            <p><%= @board.title %></p>
+          </div>
+        </div><!-- section title end -->
+        <!-- row -->
+        <div class="row no-gutters mt-35 mb-25">
+          <div class="col-md-12">
+            <%= raw(@board.body) %>
+          </div>
+
+        </div><!-- row END-->
+      </div>
+      <div class="col-lg-6">
+        <div class="position-relative res-991-mt-30">
+          <!-- ttm_single_image-wrapper -->
+          <div class="ttm_single_image-wrapper text-sm-center">
+            <%= image_tag (@board.boardimg_url.to_s), class: "img-fluid" %>
+          </div>
+          <!-- ttm_single_image-wrapper end -->
+        </div>
+      </div>
+    </div>
+    <!-- row end -->
+  </div>
+</section>
+<!-- boardus-section end -->

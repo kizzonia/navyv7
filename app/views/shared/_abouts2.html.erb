@@ -1,0 +1,168 @@
+    <!-- aboutus-section -->
+<% if About.exists? %>
+<section class="ttm-row aboutus-section-style2 clearfix">
+    <div class="container">
+        <div class="row no-gutters align-items-center"><!-- row -->
+            <div class="col-lg-6">
+                <!-- ttm_single_image-wrapper -->
+                <% @headers.each do |h| %>
+
+                <div class="ttm_single_image-wrapper">
+                    <img class="img-fluid" src="<%= h.abtsectionimg_url.to_s %> " title="single-img-two" alt="single-img-two">
+                </div><!-- ttm_single_image-wrapper end -->
+                <% end %>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="spacing-4 ttm-bgcolor-grey res-991-mt-30">
+                    <!-- section title -->
+                    <% @headers.each do |h| %>
+                    <div class="section-title with-desc clearfix">
+                        <div class="title-header">
+                            <h5>About Us</h5>
+                            <h2 class="title"><%= h.abouts_title %></h2>
+                        </div>
+                        <div class="title-desc">
+                            <p><%= h.abouts_sub_title %>.</p>
+                        </div>
+                    </div><!-- section title end -->
+                    <% end %>
+                    <!-- row -->
+
+                    <!-- separator -->
+                    <div class="separator">
+                        <div class="sep-line mt-30 mb-15"></div>
+                    </div>
+                    <!-- separator -->
+                    <div class="row">
+                        <div class="col-md-3 col-lg-4 col-sm-6">
+                            <div class="text-left pt-15">
+                                <img src="<%= asset_path "about-sign.png"%>" alt="about-sign">
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-lg-8 col-sm-6">
+                            <!--  featured-icon-box -->
+                            <div class="featured-icon-box without-icon text-left pt-15">
+                                <div class="featured-content"><!--  featured-content -->
+                                    <div class="featured-title"><!--  featured-title -->
+                                        <h5>Navy x Seal Credit Union</h5>
+                                    </div>
+                                    <div class="featured-desc"><!--  featured-desc -->
+                                        <p>Director</p>
+                                    </div>
+                                </div>
+                            </div><!--  featured-icon-box END -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row end -->
+        <!-- row -->
+        <div class="row">
+
+        </div><!-- row end-->
+    </div>
+</section>
+
+<% else %>
+    <section class="ttm-row aboutus-section-style2 clearfix">
+        <div class="container">
+            <div class="row no-gutters align-items-center"><!-- row -->
+                <div class="col-lg-6">
+                    <!-- ttm_single_image-wrapper -->
+                    <div class="ttm_single_image-wrapper">
+                        <img class="img-fluid" src="<%= asset_path "single-img-two.png"%> " title="single-img-two" alt="single-img-two">
+                    </div><!-- ttm_single_image-wrapper end -->
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="spacing-4 ttm-bgcolor-grey res-991-mt-30">
+                        <!-- section title -->
+                        <div class="section-title with-desc clearfix">
+                            <div class="title-header">
+                                <h5>About Us</h5>
+                                <h2 class="title">We deal with the aspects of professional <span>IT Services</span></h2>
+                            </div>
+                            <div class="title-desc">
+                                <p>We listen. We advise. We design, together. Happy customers and ongoing relationships are what we strive for. Success is measured by results, the most important being how our clients feel about their experience with us.</p>
+                            </div>
+                        </div><!-- section title end -->
+                        <!-- row -->
+                        <div class="row no-gutters mt-20">
+                            <div class="col-md-6 col-lg-6 col-sm-6">
+                                <!--  featured-icon-box -->
+                                <div class="featured-icon-box style3 left-icon icon-align-top">
+                                    <div class="featured-icon"><!--  featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-color-skincolor ttm-icon_element-size-lg">
+                                            <i class="ti ti-medall"></i><!--  ttm-icon -->
+                                        </div>
+                                    </div>
+                                    <div class="featured-content"><!--  featured-content -->
+                                        <div class="featured-title"><!--  featured-title -->
+                                            <h5>Award Ceremony</h5>
+                                        </div>
+                                        <div class="featured-desc"><!--  featured-desc -->
+                                            <p>Quickly productivate just in time strategic theme.</p>
+                                        </div>
+                                    </div>
+                                </div><!--  featured-icon-box END -->
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-sm-6">
+                                <!--  featured-icon-box -->
+                                <div class="featured-icon-box style3 left-icon icon-align-top">
+                                    <div class="featured-icon"><!--  featured-icon -->
+                                        <div class="ttm-icon ttm-icon_element-color-skincolor ttm-icon_element-size-lg">
+                                            <i class="ti ti-bookmark-alt"></i><!--  ttm-icon -->
+                                        </div>
+                                    </div>
+                                    <div class="featured-content"><!--  featured-content -->
+                                        <div class="featured-title"><!--  featured-title -->
+                                            <h5>Certified Company</h5>
+                                        </div>
+                                        <div class="featured-desc"><!--  featured-desc -->
+                                            <p>Quickly productivate just in time strategic theme.</p>
+                                        </div>
+                                    </div>
+                                </div><!--  featured-icon-box END -->
+                            </div>
+
+                        </div><!-- row END-->
+                        <!-- separator -->
+                        <div class="separator">
+                            <div class="sep-line mt-30 mb-15"></div>
+                        </div>
+                        <!-- separator -->
+                        <div class="row">
+                            <div class="col-md-3 col-lg-4 col-sm-6">
+                                <div class="text-left pt-15">
+                                    <img src="<%= asset_path "about-sign.png"%>" alt="about-sign">
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-lg-8 col-sm-6">
+                                <!--  featured-icon-box -->
+                                <div class="featured-icon-box without-icon text-left pt-15">
+                                    <div class="featured-content"><!--  featured-content -->
+                                        <div class="featured-title"><!--  featured-title -->
+                                            <h5>Jhon Martin</h5>
+                                        </div>
+                                        <div class="featured-desc"><!--  featured-desc -->
+                                            <p>Chairman &amp; Founder Altech</p>
+                                        </div>
+                                    </div>
+                                </div><!--  featured-icon-box END -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+            <!-- row -->
+            <div class="row">
+
+            </div><!-- row end-->
+        </div>
+    </section>
+
+    <% end %>
+    <!-- aboutus-section end -->

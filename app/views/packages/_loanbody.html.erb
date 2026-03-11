@@ -1,0 +1,186 @@
+<!-- services-section -->
+<section id="services" class="ttm-row services_2-section res-991-pt-0 clearfix">
+    <div class="container">
+        <div class="row"><!-- row -->
+            <div class="col-lg-7 col-md-7 col-sm-10 m-auto">
+                <!-- section title -->
+                <div class="section-title with-desc text-center clearfix">
+                    <div class="title-header">
+                        <h5>Our Loans</h5>
+                        <h2 class="title">Loans, Lines Of Credit <span> & Business Financing  </span</h2>
+                    </div>
+                </div><!-- section title end -->
+            </div>
+        </div>
+        <!-- row end -->
+        <div class="row">
+
+          <% if Package.exists? %>
+          <% @packages.each do |p| %>
+          <!-- featured-imagebox-services -->
+          <div class="featured-imagebox col-md-4 col-sm-12 featured-imagebox-blog">
+              <div class="featured-thumbnail"><!-- featured-thumbnail -->
+                  <img class="img-fluid" src="<%= p.pkimg_url.to_s %>" alt="">
+                  <div class="ttm-blog-overlay-iconbox">
+                    <%= link_to new_loan_path do %>
+                  <i class="ti ti-plus"></i><% end %>
+                  </div>
+                  <div class="ttm-box-view-overlay"></div>
+              </div>
+              <div class="featured-content"><!-- featured-content -->
+                  <div class="ttm-box-post-date"><!-- ttm-box-post-date -->
+                      <span class="ttm-entry-date">
+                          <time class="entry-date" <span class="entry-month entry-year"><%= p.rate %></span></time>
+                      </span>
+                  </div>
+                  <div class="featured-title"><!-- featured-title -->
+                    <%= link_to p do %>  <h5>  <%= p.title %> </h5><% end %>
+                  </div>
+                  <div class="post-meta"><!-- post-meta -->
+                      <span class="ttm-meta-line"><i class="fa fa-comments"></i>Easy Processing</span>
+                      <span class="ttm-meta-line"><i class="fa fa-user"></i>Admin</span>
+
+                  </div>
+                  <div class="featured-desc"><!-- featured-description -->
+      <p><%= p.sub_title %></p>
+                  </div>
+
+                  <%= link_to new_loan_path, class: "ttm-btn ttm-btn-size-sm ttm-btn-color-skincolor btn-inline ttm-icon-btn-right mt-20" do %> Request Now <i class="ti ti-angle-double-right"></i> <% end %>
+              </div>
+          </div><!-- featured-imagebox-blog end -->
+          <!-- featured-imagebox-services end-->
+
+          <% end %>
+          <% else %>
+
+            <!-- featured-imagebox-services -->
+            <div class="featured-imagebox col-4 col-md-4  featured-imagebox-services style2">
+                <div class="featured-thumbnail"><!-- featured-thumbnail -->
+                    <img class="img-fluid" src="<%= asset_path "services/01.jpg" %>" alt="image">
+                    <div class="ttm-box-view-overlay"></div>
+                    <div class="ttm-overlay-iconbox">
+                        <a href="it-consultancy.html"><i class="ti ti-plus"></i></a>
+                    </div>
+                </div>
+                <div class="featured-content box-shadow">
+                    <div class="featured-title"><!-- featured-title -->
+                        <h5>
+                            <a href="it-consultancy.html">
+                                <span class="ttm-icon ttm-icon_element-fill ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md m-0">
+                                    <i class="flaticon flaticon-call"></i>
+                                </span>IT Consultancy
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="featured-desc"><!-- featured-title -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipis incididunt ut labore dolore magna believe the idea aliqua.</p>
+                    </div>
+                    <a class="ttm-btn ttm-btn-size-md ttm-btn-color-dark btn-inline ttm-icon-btn-right mt-10" href="it-consultancy.html">Read More <i class="ti ti-angle-double-right"></i></a>
+                </div>
+            </div>
+            <!-- featured-imagebox-services end-->
+            <!-- featured-imagebox-services -->
+            <div class="featured-imagebox  col-4 col-md-4  featured-imagebox-services style2">
+                <div class="featured-thumbnail"><!-- featured-thumbnail -->
+                    <img class="img-fluid" src="<%= asset_path "services/02.jpg" %>" alt="image">
+                    <div class="ttm-box-view-overlay"></div>
+                    <div class="ttm-overlay-iconbox">
+                        <a href="digital-services.html"><i class="ti ti-plus"></i></a>
+                    </div>
+                </div>
+                <div class="featured-content box-shadow">
+                    <div class="featured-title"><!-- featured-title -->
+                        <h5><a href="digital-services.html">
+                            <span class="ttm-icon ttm-icon_element-fill ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md m-0">
+                                    <i class="flaticon flaticon-global"></i>
+                                </span>Digital Services
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="featured-desc"><!-- featured-title -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipis incididunt ut labore dolore magna believe the idea aliqua.</p>
+                    </div>
+                    <a class="ttm-btn ttm-btn-size-md ttm-btn-color-dark btn-inline ttm-icon-btn-right mt-10" href="digital-services.html">Read More <i class="ti ti-angle-double-right"></i></a>
+                </div>
+            </div>
+            <!-- featured-imagebox-services end-->
+            <!-- featured-imagebox-services -->
+            <div class="featured-imagebox col-4 col-md-4 featured-imagebox-services style2">
+                <div class="featured-thumbnail"><!-- featured-thumbnail -->
+                    <img class="img-fluid" src="<%= asset_path "services/03.jpg" %>" alt="image">
+                    <div class="ttm-box-view-overlay"></div>
+                    <div class="ttm-overlay-iconbox">
+                        <a href="advisory-services.html"><i class="ti ti-plus"></i></a>
+                    </div>
+                </div>
+                <div class="featured-content box-shadow">
+                    <div class="featured-title"><!-- featured-title -->
+                        <h5><a href="advisory-services.html">
+                                <span class="ttm-icon ttm-icon_element-fill ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md m-0">
+                                    <i class="flaticon flaticon-data"></i>
+                                </span>Advisory Services
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="featured-desc"><!-- featured-title -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipis incididunt ut labore dolore magna believe the idea aliqua.</p>
+                    </div>
+                    <a class="ttm-btn ttm-btn-size-md ttm-btn-color-dark btn-inline ttm-icon-btn-right mt-10" href="advisory-services.html">Read More <i class="ti ti-angle-double-right"></i></a>
+                </div>
+            </div>
+            <!-- featured-imagebox-services end-->
+            <!-- featured-imagebox-services -->
+            <div class="featured-imagebox  col-4 col-md-4  featured-imagebox-services style2">
+                <div class="featured-thumbnail"><!-- featured-thumbnail -->
+                    <img class="img-fluid" src="<%= asset_path "services/04.jpg" %>" alt="image">
+                    <div class="ttm-box-view-overlay"></div>
+                    <div class="ttm-overlay-iconbox">
+                        <a href="data-structuring.html"><i class="ti ti-plus"></i></a>
+                    </div>
+                </div>
+                <div class="featured-content box-shadow">
+                    <div class="featured-title"><!-- featured-title -->
+                        <h5><a href="data-structuring.html">
+                                <span class="ttm-icon ttm-icon_element-fill ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md m-0">
+                                    <i class="flaticon flaticon-computer-1"></i>
+                                </span>Data Structuring
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="featured-desc"><!-- featured-title -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipis incididunt ut labore dolore magna believe the idea aliqua.</p>
+                    </div>
+                    <a class="ttm-btn ttm-btn-size-md ttm-btn-color-dark btn-inline ttm-icon-btn-right mt-10" href="data-structuring.html">Read More <i class="ti ti-angle-double-right"></i></a>
+                </div>
+            </div>
+            <!-- featured-imagebox-services end-->
+            <!-- featured-imagebox-services -->
+            <div class="featured-imagebox col-4 col-md-4  featured-imagebox-services style2">
+                <div class="featured-thumbnail box-shadow"><!-- featured-thumbnail -->
+                    <img class="img-fluid" src="<%= asset_path "services/05.jpg" %>" alt="image">
+                    <div class="ttm-box-view-overlay"></div>
+                    <div class="ttm-overlay-iconbox">
+                        <a href="experience-design.html"><i class="ti ti-plus"></i></a>
+                    </div>
+                </div>
+                <div class="featured-content box-shadow">
+                    <div class="featured-title"><!-- featured-title -->
+                        <h5><a href="experience-design.html">
+                                <span class="ttm-icon ttm-icon_element-fill ttm-icon_element-bgcolor-skincolor ttm-icon_element-size-md m-0">
+                                    <i class="flaticon flaticon-server"></i>
+                                </span>Experience Design
+                            </a>
+                        </h5>
+                    </div>
+                    <div class="featured-desc"><!-- featured-title -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipis incididunt ut labore dolore magna believe the idea aliqua.</p>
+                    </div>
+                    <a class="ttm-btn ttm-btn-size-md ttm-btn-color-dark btn-inline ttm-icon-btn-right mt-10" href="experience-design.html">Read More <i class="ti ti-angle-double-right"></i></a>
+                </div>
+            </div>
+            <!-- featured-imagebox-services end -->
+            <% end %>
+        </div>
+    </div>
+</section>
+<!-- services-section end -->

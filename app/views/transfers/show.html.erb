@@ -1,0 +1,182 @@
+
+
+<div class="container-fluid">
+  <% if @transfer.otps.exists? %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card text-white card-dark">
+        <div class="card-body">
+          <blockquote class="card-bodyquote mb-0">
+            <h3>Transfer Confirmed</h3>
+            <p>Your Payment Request was successful <strong><%= current_user.email %></strong> Please allow 2-3 Business days For your payment to be completed</p>
+
+            <footer class="blockquote-footer text-white font-14">
+              Hello  <%= current_user.first_name %>
+            </footer>
+          </blockquote>
+        </div><!--end card-body-->
+      </div><!--end card-->
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+
+    <div class="col-lg-4 ">
+      <div class="card card-body text-center">
+        <h4 class="card-title mt-0">Payment Sent</h4>
+        <h2><strong>Amount:</strong><%= @transfer.amount %></h2>
+        <br>
+        <h3>TO</h3>
+        <br>
+        <h4><strong>Beneficiary's Name:</strong><%= @transfer.account_name %> </h4>
+        <h4><strong>Account Number:</strong><%= @transfer.account_number %> </h4>
+        <h5><strong>Routing Number:</strong><%= @transfer.routine_number%> </h5>
+        <br>
+        <h3>Notes</h3>
+        <br>
+        <p><%= @transfer.notes%> </p>
+        <br><br>
+        <%= link_to "Return To DashBoard", root_path, class: "btn btn-dark waves-effect waves-light" %>
+
+      </div><!--end card-->
+    </div><!--end col-->
+    <% else %>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card text-white card-dark">
+          <div class="card-body">
+            <blockquote class="card-bodyquote mb-0">
+              <h3>Transfer Confirmation</h3>
+              <p>Please check your email <strong><%= current_user.email %></strong> for your <strong>One Time Password </strong>to confirm your transfer</p>
+
+              <footer class="blockquote-footer text-white font-14">
+                Hello  <%= current_user.first_name %>
+              </footer>
+            </blockquote>
+          </div><!--end card-body-->
+        </div><!--end card-->
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+
+      <% @accounts.take(1).each do |a| %>
+
+      <div class="col-lg-4">
+        <div class="card report-card">
+          <div class="card-body">
+            <div class="float-right"><i class="dripicons-meter report-main-icon"></i></div>
+            <span class="badge badge-warning"><%= a.account_type %>t</span>
+            <div class="row">
+              <div class="col-12 align-self-center">
+                <h5 class="">Account Number: <%= a.account_number %></h5>
+                <p class="text-muted mb-0">Routing Number: <%= a.routine_number %>
+                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                </div>
+                <!--end col-->
+
+                <!--end col-->
+              </div>
+              <!--end row-->
+              <!--end icon-contain-->
+            </div>
+            <!--end card-body-->
+          </div>
+          <!--end card-->
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card report-card">
+            <div class="card-body">
+              <div class="float-right">
+                <i class="dripicons-wallet report-main-icon"></i>
+              </div><span class="badge badge-success">Amount</span>
+
+              <div class="row">
+                <div class="col-6 align-self-center">
+                  <h5 class="">Amount</h5>
+                  <p class="text-muted mb-0"> <%= current_user.first_name %> current Balance: $<%=a.balance %>
+                    <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                  </div>
+                  <% end %>
+                  <!--end col-->
+                  <div class="col-6">
+                    <h4>    $   <%= @transfer.amount %>
+                    </h4>
+                  </div>
+                  <!--end col-->
+                </div>
+                <!--end row-->
+                <!--end icon-contain-->
+              </div>
+              <!--end card-body-->
+            </div>
+            <!--end card-->
+          </div>
+          <div class="col-lg-4">
+            <div class="card report-card">
+              <div class="card-body">
+                <div class="float-right"><i class="dripicons-arrow-thin-right report-main-icon"></i></div>
+                <span class="badge badge-warning"><%= @transfer.transfer_type %>t</span>
+                <div class="row">
+                  <div class="col-12 align-self-center">
+                    <h5 class=""> Beneficiary Name:   <%= @transfer.account_name %></h5>
+                    <h6 class="">Account Number: <%= @transfer.account_number %></h6>
+                    <p class="text-muted mb-0">Routing Number: <%= @transfer.routine_number %>
+                    </p>
+                  </div>
+                  <!--end col-->
+
+                  <!--end col-->
+                </div>
+                <!--end row-->
+                <!--end icon-contain-->
+              </div>
+              <!--end card-body-->
+            </div>
+            <!--end card-->
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row justify-content-center">
+
+        <% if current_user.status? %>
+        <div class="col-lg-4 ">
+          <div class="card card-body text-center">
+            <h4 class="card-title mt-0">Transfer Verification</h4>
+            <button type="button" class="btn btn-dark waves-effect waves-light" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-sm">Verify</button>
+
+          </div><!--end card-->
+        </div><!--end col-->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title mt-0" id="mySmallModalLabel">One Time Password Verification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+              <div class="modal-body">
+
+                <%=  render "otps/form" %>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <% else %>
+
+        <div class="card">
+          <h5 class="card-header bg-danger text-white mt-0">OOP's Transfer Verification Failed</h5>
+          <div class="card-body">
+            <p class="card-text text-muted">Something went wrong while processing your transaction. Please Contact support to complete your transaction .</p>
+          </div><!--end card-body-->
+
+          <p class="card-footer bg-light m-0"><a href="mailto:support@navyscredit.com?subject=feedback">Contact Support</a></p>
+        </div><!--end card-->
+      </div><!--end col-->
+    </div><!--end row-->
+
+    <% end %>
+    <% end %>

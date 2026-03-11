@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_name: MyString
+  budget: MyString
+  amount: MyString
+  interest: MyString
+  desc: MyString
+  project_name: MyString
+  project_size: MyString
+  project_desc: MyString
+  date: 2024-07-01 19:02:25
+  name: MyString
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  slug: MyString
+  user: one
+
+two:
+  business_name: MyString
+  budget: MyString
+  amount: MyString
+  interest: MyString
+  desc: MyString
+  project_name: MyString
+  project_size: MyString
+  project_desc: MyString
+  date: 2024-07-01 19:02:25
+  name: MyString
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  slug: MyString
+  user: two

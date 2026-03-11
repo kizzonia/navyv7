@@ -1,0 +1,22 @@
+<p class="mrg-btm-15 font-size-13">Please enter your user name and password to login</p>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email" } %>
+    <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password" } %>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </div>
+
+  <div class="mrg-top-20 text-right">
+    <%= f.button :submit, "Log in", class: "btn btn-info" %>
+  </div>
+<% end %>
+<div class="pull-right">
+
+<%= render "devise/shared/links" %>
+</div>

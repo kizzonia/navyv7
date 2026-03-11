@@ -1,0 +1,41 @@
+<div class="container-fluid mt-5">
+  <!-- Page-Title -->
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card text-white card-dark">
+        <div class="card-body">
+          <blockquote class="card-bodyquote mb-0">
+            <p> Complete your loan application effortlessly. Secure the funding you need to grow your business with NavyXSeal Federal Credit Union</p>
+            <footer class="blockquote-footer text-white font-14">
+              Hello  <%= current_user.first_name %>
+            </footer>
+          </blockquote>
+        </div><!--end card-body-->
+      </div><!--end card-->
+      <br>
+      <div class="page-title-box">
+        <div class="float-right">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><%= link_to "Money Market", loans_path %></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0);">Loan Request</a></li>
+          </ol>
+        </div>
+        <h4 class="page-title">Loans</h4>
+      </div>
+      <!--end page-title-box-->
+    </div>
+    <!--end col-->
+  </div>
+    <div class="card card-center">
+        <div class="card-body">
+          <%= render 'form', loan: @loan %>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function markCompleted(tabId) {
+        document.getElementById(tabId).classList.add('completed');
+    }
+</script>

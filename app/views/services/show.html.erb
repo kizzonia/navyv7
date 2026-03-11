@@ -1,0 +1,96 @@
+
+<div class="ttm-page-title-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-box text-center">
+          <div class="page-title-heading">
+            <h1 class="title"><%= @service.title %></h1>
+          </div><!-- /.page-title-captions -->
+          <div class="breadcrumb-wrapper">
+            <span>
+              <%= link_to root_path do %><i class="ti ti-home"></i>&nbsp;&nbsp;Home<% end %>
+            </span>
+            <span class="ttm-bread-sep">&nbsp; : : &nbsp;</span>
+            <span><%= @service.title %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="site-main">
+  <!-- sidebar -->
+  <div class="sidebar ttm-bgcolor-white clearfix">
+      <div class="container">
+          <!-- row -->
+          <div class="row">
+              <div class="col-lg-9 content-area">
+                  <!-- ttm-service-single-content-are -->
+                  <article class="post ttm-blog-single clearfix">
+                      <!-- post-featured-wrapper -->
+                      <div class="ttm-post-featured-wrapper">
+                          <div class="ttm-post-featured">
+                            <%= image_tag (@service.serviceimg_url.to_s), class: "img-fluid" %>
+
+                          </div>
+                      </div><!-- post-featured-wrapper end -->
+                      <!-- ttm-blog-classic-content -->
+                      <div class="ttm-blog-single-content">
+                          <div class="entry-content">
+                              <div class="ttm-post-entry-header">
+                                  <div class="post-meta">
+                                      <span class="ttm-meta-line byline"><i class="fa fa-user"></i>By Admin</span>
+                                            </div>
+                              </div>
+                              <!-- separator -->
+                              <div class="separator">
+                                  <div class="sep-line mt-15 mb-25"></div>
+                              </div>
+                              <!-- separator -->
+                              <blockquote>
+                                  <p class="mb-20"><%= @service.sub_title %></p>
+                              </blockquote>
+                              <div class="separator">
+                                  <div class="sep-line mt-25 mb-25"></div>
+                              </div>
+                              <p>          <%= raw(@service.body) %>
+                                .</p>
+
+
+
+
+                              <!-- separator -->
+                              <div class="clearfix">
+                                  <div class="ttm-tag-list float-md-left">
+                                      <span>
+                                          <a href="#">Banking</a>
+                                          <a href="#">Business</a>
+                                          <a href="#">Solution</a>
+                                          <a href="#">Security</a>
+                                      </span>
+                                  </div>
+                                  <div class="social-icons square float-md-right">
+                                      <ul class="list-inline mb-0 d-inline-block">
+                                          <li class="social-facebook"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                          <li class="social-twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                          <li class="social-linkedin"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div><!-- ttm-blog-classic-content end -->
+                  </article>
+                  <!-- ttm-service-single-content-are end -->
+              </div>
+
+
+            <%= render "shared/genwidget" %>
+          </div><!-- row end -->
+      </div>
+  </div>
+  <!-- sidebar end -->
+</div>

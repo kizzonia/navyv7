@@ -1,0 +1,80 @@
+<% @accounts.take(1).each do |a| %>
+
+<!--end row-->
+<div class="row justify-content-center">
+    <div class="col-lg-4">
+        <div class="card report-card">
+            <div class="card-body">
+              <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
+              <span class="badge badge-success">Account</span>
+                    <div class="row">
+                        <div class="col-8 align-self-center">
+                            <h5 class=""><%= a.account_type %></h5>
+                            <p class="text-muted mb-0"><%= link_to "Edit Account Information", edit_account_path(a) %>
+                              <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                        </div>
+                        <!--end col-->
+                        <div class="col-4">  <h4><%= Account.where(user_id: current_user.id).count %>
+.</h4></div>
+                        <!--end col-->
+                    </div>
+                    <!--end row-->
+                <!--end icon-contain-->
+            </div>
+            <!--end card-body-->
+        </div>
+        <!--end card-->
+    </div>
+    <!--end col-->
+    <div class="col-lg-4">
+        <div class="card report-card">
+            <div class="card-body">
+                <div class="float-right"><i class="dripicons-meter report-main-icon"></i></div>
+                <span class="badge badge-warning">Overview</span>
+                    <div class="row">
+                        <div class="col-12 align-self-center">
+                            <h5 class="">Account Number: <%= a.account_number %></h5>
+                            <p class="text-muted mb-0">Routing Number: <%= a.routine_number %>
+                              <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                        </div>
+                        <!--end col-->
+
+                        <!--end col-->
+                    </div>
+                    <!--end row-->
+                <!--end icon-contain-->
+            </div>
+            <!--end card-body-->
+        </div>
+        <!--end card-->
+    </div>
+    <div class="col-lg-4">
+        <div class="card report-card">
+            <div class="card-body">
+              <div class="float-right">
+                <i class="dripicons-wallet report-main-icon"></i>
+              </div><span class="badge badge-success">Balance</span>
+
+                    <div class="row">
+                        <div class="col-6 align-self-center">
+                            <h5 class="">Balance</h5>
+                            <p class="text-muted mb-0">Book Balance: $<%=a.lbalance %>
+                              <i class="mdi mdi-menu-up text-success font-16"></i></p>
+                        </div>
+                        <!--end col-->
+                        <div class="col-6">
+                          <h5>    $ <%=a.lbalance %></h5>
+                        </div>
+                        <!--end col-->
+                    </div>
+                    <!--end row-->
+                <!--end icon-contain-->
+            </div>
+            <!--end card-body-->
+        </div>
+        <!--end card-->
+    </div>
+
+
+</div>
+<% end %>

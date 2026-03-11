@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @adminloan.body %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @adminloan.status %>
+</p>
+
+<p>
+  <strong>Verified:</strong>
+  <%= @adminloan.verified %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @adminloan.user_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @adminloan.title %>
+</p>
+
+<p>
+  <strong>Loan:</strong>
+  <%= @adminloan.loan_id %>
+</p>
+
+<%= link_to 'Edit', edit_adminloan_path(@adminloan) %> |
+<%= link_to 'Back', adminloans_path %>

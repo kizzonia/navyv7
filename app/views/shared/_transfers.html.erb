@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+              <%= link_to new_transfer_path, class: "btn btn-primary px-4 float-right mt-0 mb-3" do %>
+
+              <<i class="mdi mdi-plus-circle-outline mr-2"></i>Make A Transfer<% end %>
+                <h4
+                    class="header-title mt-0">Recent Transactions</h4>
+                    <div class="table-responsive dash-social">
+                        <table id="datatable" class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                  <th>Date</th>
+                                  <th>Record</th>
+                                  <th>Method</th>
+                                  <th>Amount</th>
+                                  <th>Details</th>
+                                  <th>Status</th>
+
+                                </tr>
+                                <!--end tr-->
+                            </thead>
+                            <tbody>
+
+                                            <% if Transfer.where(user_id: current_user.id).exists? %>
+                                            <% @transfers.each do |t| %>
+                                            <tr>
+                                              <td><%= t.created_at.to_datetime.strftime('%b %d %Y %I:%M%p') %></td>
+                                              <td> Debit</td>
+                                              <td> <%= t.transfer_type %></td>
+                                              <td> <%= t.amount %> </td>
+                                              <td> <%= t.account_name %></td>
+                                              <td><% if current_user.status? %>
+                                                 <% if t.status? %>
+                                                 <%= link_to t, class: "btn btn-success" do %>
+                                                  View receipt <% end %>
+                                                <% else %>
+                                                 <%= link_to t, class: "btn btn-warning" do %>
+                                                Transfer processing <% end %>
+                                                <% end %>
+                                                <% else %>
+                                                <%= link_to "#", class: "btn btn-danger" do %> Transfer Cancelled <% end %> <% end %></td>
+
+                                            </tr>
+                                            <% end %>
+                                            <% else %>
+                                            <!--end tr-->
+                                            <tr>
+                                              <td>.</td>
+                                              <td>No Data</td>
+                                            </tr>
+                                            <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+            <!--end card-body-->
+        </div>
+        <!--end card-->
+    </div>
+    <!--end col-->
+</div>

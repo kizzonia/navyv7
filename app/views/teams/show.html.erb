@@ -1,0 +1,39 @@
+<!--Page Title-->
+<% @headers.take(1).each do |h| %>
+<section class="page-title" style="background-image:url(<%= h.headerimg_url.to_s %>);">
+    <div class="auto-container clearfix">
+        <h1>  <%= @team.name %> </h1>
+        <ul class="bread-crumb clearfix">
+          <li><%= link_to "Home", root_path  %></li>
+            <li> <%= @team.title %>
+</li>
+        </ul>
+    </div>
+</section>
+<% end %>
+
+
+
+<!-- About Us -->
+<section class="about-us">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!-- Content Column -->
+            <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <h2><%= @team.title %></h2>
+                    </div>
+                    <div class="text-box">
+                      <%= @team.name %>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div class="row clearfix">
+              <%= raw(@team.body) %>
+
+            </div>
+        </div>
+        </section>

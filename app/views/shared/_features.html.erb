@@ -1,0 +1,173 @@
+
+
+<!-- topzero-padding-section -->
+<section class="ttm-row zero-padding-section mt_80 res-991-mt-0 clearfix">
+    <div class="container">
+        <div class="row no-gutters">
+          <% if Header.exists? %>
+          <% @headers.take(1).each do |h| %>
+
+            <div class="col-lg-6">
+                <!-- col-bg-img-one -->
+                <div class="col-bg-img-one ttm-bg ttm-col-bgimage-yes ttm-left-span">
+                   <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                        <div class="ttm-bg-layer-inner"></div>
+                    </div>
+                </div>
+                <!-- Responsive View image -->
+                <img data-src="<%= asset_path 'bg-image/col-bgimage-1.jpg' %>" class="ttm-equal-height-image lazyload" alt="col-bgimage-1">
+            </div>
+            <% end %>
+            <% else %>
+            <div class="col-lg-6">
+                <!-- col-bg-img-one -->
+                <div class="col-bg-img-one ttm-bg ttm-col-bgimage-yes ttm-left-span">
+                   <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                        <div class="ttm-bg-layer-inner"></div>
+                    </div>
+                </div>
+                <!-- Responsive View image -->
+                <img data-src="<%= asset_path 'bg-image/col-bgimage-1.jpg' %>" class="ttm-equal-height-image lazyload" alt="col-bgimage-1">
+            </div>
+            <% end %>
+
+            <div class="col-lg-6">
+                <div class="ttm-bgcolor-skincolor ttm-bg ttm-col-bgcolor-yes z-11 position-relative ttm-right-span">
+                    <div class="ttm-col-wrapper-bg-layer ttm-bg-layer">
+                        <div class="ttm-bg-layer-inner"></div>
+                    </div>
+                    <div class="layer-content">
+                        <div class="spacing-1">
+                            <!-- section title -->
+                            <% if Header.exists? %>
+                            <% @headers.take(1).each do |h| %>
+                            <div class="section-title with-desc clearfix">
+                                <div class="title-header">
+                                    <h5>Our Features</h5>
+                                    <h2 class="title"><%= h.features_title %> </h2>
+                                </div>
+                                <div class="title-desc">
+                                  <p><%= h.features_sub_title %></p>                                </div>
+                            </div>
+                            <% end %>
+
+                            <% else %>
+                            <div class="section-title with-desc clearfix">
+                                <div class="title-header">
+                                    <h5>Why Altech</h5>
+                                    <h2 class="title">We deal with the aspects of professional <span>IT Services</span></h2>
+                                </div>
+                                <div class="title-desc">
+                                    <p>Our IT services converge business and technology experts to help to manage business processes of all categories.</p>
+                                </div>
+                            </div>
+                            <% end %>
+
+
+                            <% if Feature.exists? %>
+                            <% @features.take(4).each do |f| %>
+                            <div class="row mt-40">
+                                <div class="col-12">
+                                    <!-- featured-icon-box -->
+                                    <div class="featured-icon-box style2 left-icon icon-align-top">
+                                        <div class="featured-icon"><!-- featured-icon -->
+                                            <div class="ttm-icon ttm-icon_element-border ttm-icon_element-color-white ttm-icon_element-size-md">
+                                                <i class="flaticon flaticon-process"></i>
+                                            </div>
+                                        </div>
+                                        <div class="featured-content">
+                                            <div class="featured-title"><!-- featured title -->
+                                                <h5><%= f.title %></h5>
+                                            </div>
+                                            <div class="featured-desc"><!-- featured desc -->
+<p><%= f.sub_title %></p>                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- separator -->
+                            <div class="separator">
+                                <div class="sep-line mt-25 mb-25"></div>
+                            </div>
+                              <% end %>
+                              <% else %>
+                            <div class="row mt-40">
+                                <div class="col-12">
+                                    <!-- featured-icon-box -->
+                                    <div class="featured-icon-box style2 left-icon icon-align-top">
+                                        <div class="featured-icon"><!-- featured-icon -->
+                                            <div class="ttm-icon ttm-icon_element-border ttm-icon_element-color-white ttm-icon_element-size-md">
+                                                <i class="flaticon flaticon-process"></i>
+                                            </div>
+                                        </div>
+                                        <div class="featured-content">
+                                            <div class="featured-title"><!-- featured title -->
+                                                <h5>Product Designs</h5>
+                                            </div>
+                                            <div class="featured-desc"><!-- featured desc -->
+                                                <p>Our firm is expert to create an efficient user interface that makes user interaction is lively.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- separator -->
+                            <div class="separator">
+                                <div class="sep-line mt-25 mb-25"></div>
+                            </div>
+                            <!-- separator -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- featured-icon-box -->
+                                    <div class="featured-icon-box style2 left-icon icon-align-top">
+                                        <div class="featured-icon"><!-- featured-icon -->
+                                            <div class="ttm-icon ttm-icon_element-border ttm-icon_element-color-white ttm-icon_element-size-md">
+                                                <i class="flaticon flaticon-system"></i>
+                                            </div>
+                                        </div>
+                                        <div class="featured-content">
+                                            <div class="featured-title"><!-- featured title -->
+                                                <h5>Big Data &amp; Analytics</h5>
+                                            </div>
+                                            <div class="featured-desc"><!-- featured desc -->
+                                                <p>Statistical analysis to help an organization to gain insights from large information web sets.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- separator -->
+                            <div class="separator">
+                                <div class="sep-line mt-25 mb-25"></div>
+                            </div>
+                            <!-- separator -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- featured-icon-box -->
+                                    <div class="featured-icon-box style2 left-icon icon-align-top">
+                                        <div class="featured-icon"><!-- featured-icon -->
+                                            <div class="ttm-icon ttm-icon_element-border ttm-icon_element-color-white ttm-icon_element-size-md">
+                                                <i class="flaticon flaticon-data"></i>
+                                            </div>
+                                        </div>
+                                        <div class="featured-content">
+                                            <div class="featured-title"><!-- featured title -->
+                                                <h5>Maintain App Data</h5>
+                                            </div>
+                                            <div class="featured-desc"><!-- featured desc -->
+                                                <p>We Create the optimal platform to develop and run digital applications for our clients app.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- topzero-padding-section -->

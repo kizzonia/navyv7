@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  pkimg: MyString
+  sub_title: MyString
+  body: MyText
+  slug: MyString
+  duration: 2024-06-27 18:00:19
+  rate: MyString
+  droi: MyString
+  icon: MyString
+
+two:
+  title: MyString
+  pkimg: MyString
+  sub_title: MyString
+  body: MyText
+  slug: MyString
+  duration: 2024-06-27 18:00:19
+  rate: MyString
+  droi: MyString
+  icon: MyString
