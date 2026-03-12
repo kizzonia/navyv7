@@ -82,6 +82,8 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+  prepared_statements: false
+  advisory_locks: false
   # database: navy2_production
   # username: navy2
   # password: <%= ENV['NAVY2_DATABASE_PASSWORD'] %>
