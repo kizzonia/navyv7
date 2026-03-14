@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'support@theaxismarket.com'
+  default from: "noreply@navyscreditunion.com"
   layout 'mailer'
 end
