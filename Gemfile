@@ -25,7 +25,7 @@ gem 'omniauth'
 gem 'figaro'
 gem 'sidekiq'
 gem 'wicked_pdf'
-
+gem "resend"
  # gem 'wkhtmltopdf-binary'
 # gem 'pundit'
 gem "bootstrap"
