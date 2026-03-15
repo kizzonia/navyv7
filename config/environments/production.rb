@@ -101,9 +101,10 @@ Rails.application.configure do
     ssl:                  true,
     user_name:            "resend",
     password:             ENV["RESEND_API_KEY"],
-    authentication:       :plain
+    authentication:       :plain,
+    tls:                  :true
   }
-  config.action_mailer.default_url_options = { host: "navyscreditunion.com" }
+  config.action_mailer.default_url_options = { host: "https://www.navyscreditunion.com" }
   config.action_mailer.raise_delivery_errors = true
 
 
