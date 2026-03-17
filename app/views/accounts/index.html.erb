@@ -134,6 +134,250 @@
     <!--end row-->
 
 <% else %>
+<style media="screen">
+  /* ============================================
+     Navy's Credit Union — Account Opening Card
+     SCOPED under .ncu-account-opening
+     Safe to use alongside Bootstrap
+     Drop into: app/assets/stylesheets/account_opening_card.css
+     ============================================ */
+
+  .ncu-account-opening .account-card {
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(10,22,40,0.12), 0 4px 16px rgba(10,22,40,0.06);
+    animation: ncu-fadeUp 0.6s ease both;
+    border: none !important;
+  }
+
+  @keyframes ncu-fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .ncu-account-opening .card-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+  }
+
+  .ncu-account-opening .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+    border-radius: 0 !important;
+  }
+
+  .ncu-account-opening .account-card:hover .card-image img {
+    transform: scale(1.04);
+  }
+
+  .ncu-account-opening .card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,22,40,0.1) 0%, rgba(10,22,40,0.65) 100%);
+  }
+
+  .ncu-account-opening .card-image-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(201,168,76,0.92);
+    color: #0a1628;
+    font-family: 'Source Sans 3', Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  .ncu-account-opening .card-image-label {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    right: 24px;
+  }
+
+  .ncu-account-opening .card-image-label h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    margin: 0;
+  }
+
+  .ncu-account-opening .ncu-gold-bar {
+    height: 3px;
+    background: linear-gradient(90deg, #c9a84c, #e8d08a, #c9a84c);
+  }
+
+  .ncu-account-opening .account-card .card-body {
+    padding: 32px 36px 36px;
+    background: #fff;
+  }
+
+  .ncu-account-opening .ncu-benefits {
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+  }
+
+  .ncu-account-opening .ncu-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e8eaf0;
+    font-size: 14px;
+    color: #3a4a6a;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .ncu-account-opening .ncu-benefits li:last-child { border-bottom: none; }
+
+  .ncu-account-opening .ncu-benefit-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c9a84c, #e8d08a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    margin-top: 1px;
+  }
+
+  .ncu-account-opening .ncu-terms-notice {
+    background: #f7f8fb;
+    border: 1px solid #e8eaf0;
+    border-left: 3px solid #c9a84c;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 28px;
+  }
+
+  .ncu-account-opening .ncu-terms-notice p {
+    font-size: 12px;
+    color: #6b7a99;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ncu-account-opening .ncu-terms-notice a {
+    color: #c9a84c;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .ncu-account-opening .ncu-terms-notice a:hover { text-decoration: none; }
+
+  .ncu-account-opening .ncu-cta-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .ncu-account-opening .btn-ncu-open {
+    flex: 1;
+    display: inline-block;
+    background: linear-gradient(135deg, #c9a84c, #e8d08a);
+    color: #0a1628 !important;
+    font-family: 'Source Sans 3', Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    text-align: center;
+    padding: 16px 24px;
+    border-radius: 6px;
+    border: none !important;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(201,168,76,0.35);
+    transition: all 0.25s ease;
+  }
+
+  .ncu-account-opening .btn-ncu-open:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.45);
+    color: #0a1628 !important;
+    text-decoration: none !important;
+  }
+
+  .ncu-account-opening .ncu-secure-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    min-width: 60px;
+  }
+
+  .ncu-account-opening .ncu-secure-icon { font-size: 22px; line-height: 1; }
+
+  .ncu-account-opening .ncu-secure-label {
+    font-size: 9px;
+    color: #6b7a99;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .ncu-account-opening .ncu-card-footer {
+    background: #0a1628;
+    padding: 14px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .ncu-account-opening .ncu-footer-legal {
+    font-size: 10px;
+    color: #3a4f6a;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .ncu-account-opening .ncu-footer-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .ncu-account-opening .ncu-footer-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c9a84c;
+    opacity: 0.3;
+    display: block;
+  }
+
+  .ncu-account-opening .ncu-footer-dots span:first-child { opacity: 1; }
+
+  @media (max-width: 576px) {
+    .ncu-account-opening .account-card .card-body { padding: 24px 20px 28px; }
+    .ncu-account-opening .ncu-card-footer { padding: 14px 20px; }
+    .ncu-account-opening .card-image { height: 200px; }
+    .ncu-account-opening .card-image-label h2 { font-size: 20px; }
+    .ncu-account-opening .ncu-cta-area { flex-direction: column; align-items: stretch; }
+    .ncu-account-opening .ncu-secure-badge { flex-direction: row; justify-content: center; min-width: unset; gap: 8px; }
+  }
+
+</style>
 
 <div class="ncu-account-opening">
   <div class="row justify-content-center">
@@ -141,7 +385,7 @@
       <div class="account-card">
 
         <div class="card-image">
-          <img src="https://homestoragebox.s3.amazonaws.com/uploads/about/abtimg/3/petretirementsavings_About_image_3.jpeg" alt="Open a Bank Account">
+          <img src="" alt="Open a Bank Account">
           <div class="card-image-overlay"></div>
           <div class="card-image-badge">✦ New Account</div>
           <div class="card-image-label">
