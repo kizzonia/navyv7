@@ -1,119 +1,150 @@
 <div class="row">
   <div class="col-12">
-    <div class="card">
-      <div class="card-body">
-      <h4
-        class="header-title mt-0">Recent Transactions</h4>
-        <div class="table-responsive dash-social">
-          <table id="datatable" class="table">
-            <thead class="thead-light">
-              <tr>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Transaction</th>
-                <th>Amount</th>
-                <th>Status</th>
+    <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #eef1f6;">
 
-              </tr>
-              <!--end tr-->
-            </thead>
-            <tbody>
-
-                                                          <% if Transfer.where(user_id: current_user.id).exists? %>
-                                                          <% @transfers.each do |t| %>
-                                                          <tr>
-                                                            <td><%= t.created_at.to_datetime.strftime('%b %d %Y %I:%M%p') %></td>
-
-                                                          <td>  **A Debit transfer of $<%= t.amount %> has been deducted from your account to <%= t.account_name %>
-                                                            **account_number: <%= t.account_number %> **Ref:<%= t.tref %>
-
-                                                              </td>
-
-
-                                                            <td> <span class="badge badge-danger">Debit</span></td>
-
-                                                            <td> $<%= t.amount %> </td>
-
-                                                            <td><% if current_user.status? %>
-
-                                                               <% if t.status? %>
-                                                               <%= link_to t, class: "badge badge-success" do %>
-                                                              View receipt <% end %>
-                                                              <% else %>
-                                                               <%= link_to t, class: "badge badge-warning" do %>
-                                                              Transfer processing <% end %>
-                                                              <% end %>
-
-
-                                                              <% else %>
-                                                              <%= link_to "#", class: "badge badge-danger" do %> Transfer Cancelled <% end %> <% end %></td>
-
-                                                          </tr>
-                                                          <% end %>
-                                                          <% else %>
-              <!--end tr-->
-              <tr>
-                <td>.</td>
-                <td>No Data</td>
-              </tr>
-              <% end %>
-
-              <% if Transaction.where(user_id: current_user.id).exists? %>
-              <% @transactions.each do |t| %>
-              <tr>
-                <td><%= t.date.to_datetime.strftime('%b %d %Y %I:%M%p') %></td>
-
-                <td>
-                  <% if  t.bal_type == "Credit" %>
-                  **Fund Credit transfer of $<%= t.amount %> was made into your account by <%= t.sender %>
-                  via **<%= t.transac_type %>
-
-                  <% elsif t.bal_type == "Debit" %>
-
-                  **A Debit transfer of $<%= t.amount %> has been deducted from your account to <%= t.sender %>
-                  via **<%= t.transac_type %>
-                  <% else %>
-                  **A  transaction of $<%= t.amount %> has been recorded, Details:  <%= t.sender %>
-                  via **<%= t.transac_type %>
-                  <% end %>
-
-                </td>
-
-                <td>
-                <% if  t.bal_type == "Credit" %>
-
-                  <span class="badge badge-success">Credit</span>
-
-                  <% elsif t.bal_type == "Debit" %>
-                  <span class="badge badge-danger">Debit</span>
-
-                  <% end %>
-
-
-                </td>
-                <td> $<%= t.amount %> </td>
-
-                <td><% if t.status? %> <%= link_to "#", class: "badge badge-success" do %> View receipt <% end %>
-                  <% else %><%= link_to "#", class: "badge badge-danger" do %> Pending <% end %> <% end %></td>
-
-              </tr>
-              <% end %>
-              <% else %>
-              <!--end tr-->
-              <tr>
-                <td>.</td>
-                <td>No Data</td>
-              </tr>
-              <% end %>
-
-
-            </tbody>
-          </table>
+      <!-- Header -->
+      <div style="padding:20px 24px; border-bottom:2px solid #f0f2f5; display:flex; align-items:center; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#c9a84c,#e8d08a); display:flex; align-items:center; justify-content:center;">
+            <i class="mdi mdi-swap-horizontal" style="font-size:18px; color:#0a1628;"></i>
+          </div>
+          <div>
+            <h5 style="font-family:'Playfair Display',Georgia,serif; font-size:17px; color:#0a1628; font-weight:700; margin:0;">Recent Transactions</h5>
+            <p style="font-size:11px; color:#8a9bbf; margin:0;">All account activity</p>
+          </div>
         </div>
+        <%= link_to transactions_path, style: "font-size:12px; font-weight:700; color:#c9a84c; text-decoration:none; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:6px 14px; border-radius:6px;" do %>
+          <i class="mdi mdi-eye-outline" style="font-size:13px; margin-right:4px;"></i>View All
+        <% end %>
       </div>
-      <!--end card-body-->
+
+      <!-- Table -->
+      <div style="overflow-x:auto;">
+        <table class="table mb-0" style="font-size:13px;">
+          <thead>
+            <tr style="background:#f7f8fb;">
+              <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Date</th>
+              <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Description</th>
+              <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Type</th>
+              <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Amount</th>
+              <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <%# ── Wire Transfers ── %>
+            <% if Transfer.where(user_id: current_user.id).exists? %>
+              <% @transfers.each do |t| %>
+              <tr style="border-bottom:1px solid #f0f2f5;">
+                <td style="padding:14px 20px; color:#5a6d8c; font-size:12px; white-space:nowrap;">
+                  <i class="mdi mdi-calendar-outline" style="color:#c9a84c; margin-right:4px;"></i>
+                  <%= t.created_at.strftime('%b %d, %Y %I:%M%p') %>
+                </td>
+                <td style="padding:14px 20px; max-width:280px;">
+                  <p style="font-size:13px; color:#1a2a42; font-weight:600; margin:0 0 3px;">Wire Transfer — <%= t.account_name %></p>
+                  <p style="font-size:11px; color:#8a9bbf; margin:0;">Acct: <%= t.account_number %> &nbsp;·&nbsp; Ref: <%= t.tref %></p>
+                </td>
+                <td style="padding:14px 20px;">
+                  <span style="background:#fdf3f2; color:#c0392b; font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px; border:1px solid rgba(231,76,60,0.2); display:inline-flex; align-items:center; gap:4px;">
+                    <i class="mdi mdi-arrow-top-right" style="font-size:12px;"></i> Debit
+                  </span>
+                </td>
+                <td style="padding:14px 20px;">
+                  <span style="font-size:14px; font-weight:700; color:#c0392b;">- $<%= number_with_delimiter(t.amount) %></span>
+                </td>
+                <td style="padding:14px 20px;">
+                  <% if current_user.status? %>
+                    <% if t.status? %>
+                      <%= link_to t, style: "background:#eafaf1; color:#1e8449; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; border:1px solid rgba(46,204,113,0.25); text-decoration:none; display:inline-flex; align-items:center; gap:4px;" do %>
+                        <i class="mdi mdi-receipt" style="font-size:12px;"></i> View Receipt
+                      <% end %>
+                    <% else %>
+                      <span style="background:#fef9ec; color:#d68910; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; border:1px solid rgba(230,176,15,0.25); display:inline-flex; align-items:center; gap:4px;">
+                        <i class="mdi mdi-clock-outline" style="font-size:12px;"></i> Processing
+                      </span>
+                    <% end %>
+                  <% else %>
+                    <span style="background:#fdf3f2; color:#c0392b; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; border:1px solid rgba(231,76,60,0.2); display:inline-flex; align-items:center; gap:4px;">
+                      <i class="mdi mdi-close-circle-outline" style="font-size:12px;"></i> Cancelled
+                    </span>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            <% end %>
+
+            <%# ── Transactions ── %>
+            <% if Transaction.where(user_id: current_user.id).exists? %>
+              <% @transactions.each do |t| %>
+              <tr style="border-bottom:1px solid #f0f2f5;">
+                <td style="padding:14px 20px; color:#5a6d8c; font-size:12px; white-space:nowrap;">
+                  <i class="mdi mdi-calendar-outline" style="color:#c9a84c; margin-right:4px;"></i>
+                  <%= t.date.strftime('%b %d, %Y %I:%M%p') %>
+                </td>
+                <td style="padding:14px 20px; max-width:280px;">
+                  <% if t.bal_type == "Credit" %>
+                    <p style="font-size:13px; color:#1a2a42; font-weight:600; margin:0 0 3px;">Credit from <%= t.sender %></p>
+                  <% elsif t.bal_type == "Debit" %>
+                    <p style="font-size:13px; color:#1a2a42; font-weight:600; margin:0 0 3px;">Debit to <%= t.sender %></p>
+                  <% else %>
+                    <p style="font-size:13px; color:#1a2a42; font-weight:600; margin:0 0 3px;">Transaction — <%= t.sender %></p>
+                  <% end %>
+                  <p style="font-size:11px; color:#8a9bbf; margin:0;">via <%= t.transac_type %></p>
+                </td>
+                <td style="padding:14px 20px;">
+                  <% if t.bal_type == "Credit" %>
+                    <span style="background:#eafaf1; color:#1e8449; font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px; border:1px solid rgba(46,204,113,0.2); display:inline-flex; align-items:center; gap:4px;">
+                      <i class="mdi mdi-arrow-bottom-left" style="font-size:12px;"></i> Credit
+                    </span>
+                  <% elsif t.bal_type == "Debit" %>
+                    <span style="background:#fdf3f2; color:#c0392b; font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px; border:1px solid rgba(231,76,60,0.2); display:inline-flex; align-items:center; gap:4px;">
+                      <i class="mdi mdi-arrow-top-right" style="font-size:12px;"></i> Debit
+                    </span>
+                  <% end %>
+                </td>
+                <td style="padding:14px 20px;">
+                  <% if t.bal_type == "Credit" %>
+                    <span style="font-size:14px; font-weight:700; color:#1e8449;">+ $<%= number_with_delimiter(t.amount) %></span>
+                  <% else %>
+                    <span style="font-size:14px; font-weight:700; color:#c0392b;">- $<%= number_with_delimiter(t.amount) %></span>
+                  <% end %>
+                </td>
+                <td style="padding:14px 20px;">
+                  <% if t.status? %>
+                    <%= link_to "#", style: "background:#eafaf1; color:#1e8449; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; border:1px solid rgba(46,204,113,0.25); text-decoration:none; display:inline-flex; align-items:center; gap:4px;" do %>
+                      <i class="mdi mdi-receipt" style="font-size:12px;"></i> View Receipt
+                    <% end %>
+                  <% else %>
+                    <span style="background:#fef9ec; color:#d68910; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; border:1px solid rgba(230,176,15,0.25); display:inline-flex; align-items:center; gap:4px;">
+                      <i class="mdi mdi-clock-outline" style="font-size:12px;"></i> Pending
+                    </span>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            <% end %>
+
+            <%# ── Empty state ── %>
+            <% unless Transfer.where(user_id: current_user.id).exists? || Transaction.where(user_id: current_user.id).exists? %>
+            <tr>
+              <td colspan="5" style="padding:48px 20px; text-align:center;">
+                <i class="mdi mdi-swap-horizontal" style="font-size:40px; color:#dde2ec; display:block; margin-bottom:12px;"></i>
+                <p style="font-size:14px; color:#8a9bbf; margin:0; font-weight:600;">No transactions yet</p>
+                <p style="font-size:12px; color:#b0bdd4; margin:4px 0 0;">Your transaction history will appear here</p>
+              </td>
+            </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Footer -->
+      <div style="padding:14px 24px; border-top:1px solid #f0f2f5; display:flex; align-items:center; justify-content:space-between; background:#f7f8fb;">
+        <p style="font-size:12px; color:#8a9bbf; margin:0;"><i class="mdi mdi-shield-check-outline" style="color:#c9a84c; margin-right:4px;"></i> All transactions are encrypted and secure</p>
+        <p style="font-size:11px; color:#8a9bbf; margin:0; letter-spacing:1px; text-transform:uppercase; font-weight:600;">Navy's Credit Union</p>
+      </div>
+
     </div>
-    <!--end card-->
   </div>
-  <!--end col-->
 </div>

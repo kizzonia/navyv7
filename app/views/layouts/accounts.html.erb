@@ -3,7 +3,7 @@
   <head>
     <%  @welcomes = Welcome.all  %>
     <% @welcomes.take(1).each do |w| %>
-    <title> <%=w.title %> || <%= w.desc %> </title>
+    <title><%= w.title %> || <%= w.desc %></title>
     <meta name="description" content="<%= w.desc %>">
     <% end %>
     <%= csrf_meta_tags %>
@@ -12,41 +12,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
-    <%= stylesheet_link_tag    'accounts', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'accounts', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!-- ── Icon Libraries ── -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <%= javascript_include_tag 'accounts' %>
+
+    <!-- ── MDI Icons (required for sidebar, cards, footer, table) ── -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
+
+    <!-- ── Google Fonts (required for premium card/email designs) ── -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <%= javascript_include_tag 'accounts', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Google Translate -->
     <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+        }, 'google_translate_element');
+      }
     </script>
-    <!-- Place the first <script> tag in your HTML's <head> -->
-
-
-
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <style>
-        .nav-pills .nav-link.completed {
-            text-decoration: line-through;
-            background-color: #d3d3d3;
-            color: #6c757d;
-        }
-        .card-center {
-            max-width: 80%;
-            margin: auto;
-        }
-        .sidebara {
-            min-height: 100vh;
-            position: sticky;
-            top: 0;
-        }
+
+  <style>
+    /* ── Sidebar toggle ── */
+  .left-sidenav {
+    transition: transform 0.25s ease, width 0.25s ease;
+  }
+
+  /* Desktop — always visible */
+  @media (min-width: 992px) {
+    .left-sidenav {
+      transform: translateX(0) !important;
+      position: relative;
+    }
+    .sidebar-overlay { display: none !important; }
+  }
+
+  /* Mobile — hidden by default, shown when NOT collapsed */
+  @media (max-width: 991px) {
+    .left-sidenav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1050;
+      transform: translateX(-100%);
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    body:not(.sidebar-collapsed) .left-sidenav {
+      transform: translateX(0);
+    }
+  }
+
+  /* Overlay behind sidebar on mobile */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 22, 40, 0.5);
+    z-index: 1049;
+  }
+
+  /* Active nav link */
+  .left-sidenav .nav-link.ncu-active {
+    color: #c9a84c !important;
+    background: rgba(201, 168, 76, 0.08) !important;
+    border-left-color: #c9a84c !important;
+    font-weight: 600 !important;
+  }
+
+  .left-sidenav .nav-link.ncu-active span {
+    color: #c9a84c !important;
+  }
     </style>
   </head>
 
-  <body class="accountbg">
+  <body class="account-body accountbg">
 
 <%= custom_bootstrap_flash %>
 
@@ -57,24 +105,26 @@
 
   <% if current_user.verified? %>
 
-  <% if Account.where(user_id: current_user.id).exists?%>
-  <%= render "shared/menu" %>
-
-  <div class="page-wrapper">
-
-  <%= render "shared/sidebar2update" %>
+  <% if Account.where(user_id: current_user.id).exists? %>
+    <%= render "shared/menu" %>
+    <div class="page-wrapper">
+      <%= render "shared/sidebar2update" %>
+      <div class="page-content">
+        <%= yield %>
+      </div>
+      <!-- end page content -->
+    </div>
+    <!-- end page-wrapper -->
+    <%= render "shared/dashboardfooter" %>
 
   <% else %>
-  <%end %>
+  <div class="page-wrapper">
 
-  <div class="page-content">
-
-    <%= yield %>
-
+    <div class="page-content">
+      <%= yield %>
+    </div>
   </div>
-  <!-- end page content -->
-</div>
-<%= render "shared/dashboardfooter" %>
+  <% end %>
 
 <% else %>
 <!-- Log In page -->
@@ -173,7 +223,6 @@
 <% end %>
 
 <!-- end page-wrapper -->
-    <%= javascript_include_tag 'app' %>
 
     <!-- SCROLL UP -->
 

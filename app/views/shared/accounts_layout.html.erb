@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%  @welcomes = Welcome.all  %>
+    <% @welcomes.take(1).each do |w| %>
+    <title><%= w.title %> || <%= w.desc %></title>
+    <meta name="description" content="<%= w.desc %>">
+    <% end %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <%= stylesheet_link_tag 'accounts', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!-- ── Icon Libraries ── -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- ── MDI Icons (required for sidebar, cards, footer, table) ── -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
+
+    <!-- ── Google Fonts (required for premium card/email designs) ── -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <%= javascript_include_tag 'accounts', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+      .nav-pills .nav-link.completed {
+        text-decoration: line-through;
+        background-color: #d3d3d3;
+        color: #6c757d;
+      }
+      .card-center {
+        max-width: 80%;
+        margin: auto;
+      }
+      .sidebara {
+        min-height: 100vh;
+        position: sticky;
+        top: 0;
+      }
+      /* Hover effects for upgraded cards */
+      [data-ncu-card]:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px rgba(10,22,40,0.13) !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      /* Sidebar nav link hover */
+      .left-sidenav .nav-link:hover,
+      .left-sidenav a:hover {
+        color: #fff !important;
+        background: rgba(201,168,76,0.06) !important;
+        border-left-color: #c9a84c !important;
+      }
+    </style>
+  </head>
+
+  <body class="accountbg">
+
+    <%= custom_bootstrap_flash %>
+
+    <%  @welcomes = Welcome.all  %>
+
+    <% if current_user.verified? %>
+
+      <% if Account.where(user_id: current_user.id).exists? %>
+        <%= render "shared/menu" %>
+        <div class="page-wrapper">
+          <%= render "shared/sidebar2update" %>
+          <div class="page-content">
+            <%= yield %>
+          </div>
+          <!-- end page content -->
+        </div>
+        <!-- end page-wrapper -->
+        <%= render "shared/dashboardfooter" %>
+
+      <% else %>
+        <div class="page-content">
+          <%= yield %>
+        </div>
+      <% end %>
+
+    <% else %>
+      <!-- Account Suspended -->
+      <div class="row vh-100">
+        <div class="col-12 align-self-center">
+          <div class="d-flex justify-content-center align-items-center" style="padding:40px 16px;">
+
+            <div style="width:100%; max-width:520px; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 20px 60px rgba(10,22,40,0.12), 0 4px 16px rgba(10,22,40,0.06);">
+
+              <!-- Header -->
+              <div style="background:#0d1f3c; border-top:4px solid #c9a84c; border-radius:16px 16px 0 0; padding:24px 32px; display:flex; align-items:center; justify-content:space-between;">
+                <% if Welcome.exists? %>
+                  <% @welcomes.take(1).each do |w| %>
+                    <%= image_tag w.logoimg_url.to_s, style: "max-width:130px; height:auto; display:block;", alt: "Logo" %>
+                  <% end %>
+                <% end %>
+                <span style="font-size:10px; color:#8a9bbf; letter-spacing:2px; text-transform:uppercase; font-weight:700;">Account Notice</span>
+              </div>
+
+              <!-- Gold bar -->
+              <div style="height:3px; background:linear-gradient(90deg,#c9a84c,#e8d08a,#c9a84c);"></div>
+
+              <!-- Hero -->
+              <div style="background:#0d1f3c; padding:40px 32px 36px; text-align:center;">
+                <div style="width:72px; height:72px; border-radius:50%; background:rgba(192,57,43,0.12); border:2px solid rgba(231,76,60,0.4); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:32px;">🔴</div>
+                <h1 style="font-family:'Playfair Display',Georgia,serif; font-size:26px; color:#fff; font-weight:700; margin:0 0 10px;">Account Suspended</h1>
+                <p style="font-size:12px; color:#e74c3c; letter-spacing:3px; text-transform:uppercase; font-weight:700; margin:0;">Action Required</p>
+              </div>
+
+              <!-- Body -->
+              <div style="padding:32px 32px 0; background:#fff;">
+
+                <!-- Alert -->
+                <div style="background:#fdf3f2; border:1px solid #f5c6c2; border-left:4px solid #e74c3c; border-radius:6px; padding:16px 18px; margin-bottom:24px;">
+                  <div style="display:flex; align-items:flex-start; gap:10px;">
+                    <i class="mdi mdi-alert-circle" style="color:#e74c3c; font-size:18px; margin-top:1px; flex-shrink:0;"></i>
+                    <div>
+                      <p style="font-size:12px; font-weight:700; color:#a93226; letter-spacing:1px; text-transform:uppercase; margin:0 0 6px;">Notice from Navy's Credit Union</p>
+                      <p style="font-size:13.5px; color:#5a1a1a; line-height:1.7; margin:0;"><%= raw(current_user.body) %></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- What to do -->
+                <div style="margin-bottom:28px;">
+                  <p style="font-size:11px; color:#c9a84c; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin:0 0 14px;">✦ &nbsp;What to do next</p>
+                  <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="display:flex; align-items:flex-start; gap:10px; padding:10px 0; border-bottom:1px solid #f0f2f5; font-size:13px; color:#3a4a6a; line-height:1.5;">
+                      <i class="mdi mdi-email-outline" style="color:#c9a84c; font-size:16px; margin-top:1px;"></i>
+                      Email us at <strong style="color:#0a1628;">&nbsp;support@navyscreditunion.com</strong>
+                    </li>
+                    <li style="display:flex; align-items:flex-start; gap:10px; padding:10px 0; border-bottom:1px solid #f0f2f5; font-size:13px; color:#3a4a6a; line-height:1.5;">
+                      <i class="mdi mdi-file-document-outline" style="color:#c9a84c; font-size:16px; margin-top:1px;"></i>
+                      Reference your account ID in your message
+                    </li>
+                    <li style="display:flex; align-items:flex-start; gap:10px; padding:10px 0; font-size:13px; color:#3a4a6a; line-height:1.5;">
+                      <i class="mdi mdi-clock-outline" style="color:#c9a84c; font-size:16px; margin-top:1px;"></i>
+                      Our team will respond within 1–2 business days
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- CTA -->
+                <div style="padding-bottom:32px;">
+                  <a href="mailto:support@navyscreditunion.com?subject=Account Suspension - Support Request"
+                     style="display:block; background:linear-gradient(135deg,#c9a84c,#e8d08a); color:#0a1628; font-size:14px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; text-align:center; padding:15px 24px; border-radius:6px; box-shadow:0 4px 16px rgba(201,168,76,0.3);">
+                    <i class="mdi mdi-headset" style="font-size:16px; margin-right:8px; vertical-align:middle;"></i>
+                    Contact Support
+                  </a>
+                </div>
+
+                <!-- Security notice -->
+                <div style="background:#f7f8fb; border:1px solid #e8eaf0; border-left:3px solid #c9a84c; border-radius:6px; padding:12px 16px; margin-bottom:28px;">
+                  <p style="font-size:12px; color:#6b7a99; line-height:1.6; margin:0;">
+                    <i class="mdi mdi-lock-outline" style="color:#c9a84c; margin-right:4px;"></i>
+                    <strong style="color:#3a4a6a;">Security Notice:</strong> Navy's Credit Union will never ask for your password or full account number. If you believe this is an error, please contact us immediately.
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- Footer strip -->
+              <div style="background:#0a1628; border-radius:0 0 16px 16px; padding:14px 32px; display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-size:10px; color:#3a4f6a; letter-spacing:1.5px; text-transform:uppercase; font-weight:600;">Member FDIC &nbsp;·&nbsp; Equal Housing Lender</span>
+                <div style="display:flex; gap:6px;">
+                  <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; display:block;"></span>
+                  <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; opacity:0.3; display:block;"></span>
+                  <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; opacity:0.3; display:block;"></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <%= javascript_include_tag 'app' %>
+
+  </body>
+</html>
