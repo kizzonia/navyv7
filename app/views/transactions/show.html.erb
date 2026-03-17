@@ -1,49 +1,197 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
 
-<p>
-  <strong>Amount:</strong>
-  <%= @transaction.amount %>
-</p>
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+          <div class="card text-white card-dark">
+              <div class="card-body">
+                  <blockquote class="card-bodyquote mb-0">
+                      <p>Here you can view your transaction history and bank statements </p>
+                      <footer class="blockquote-footer text-white font-14">
+                        Hello  <%= current_user.first_name %>
+                      </footer>
+                  </blockquote>
+              </div><!--end card-body-->
+          </div><!--end card-->
+          <br>
+            <div class="page-title-box">
+                <div class="float-right">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Account</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Transactions</a></li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Account</h4>
+            </div>
+            <!--end page-title-box-->
+        </div>
+        <!--end col-->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0">Transactions History</h4>
+                    <div class="">
+                        <div id="ana_dash_1" class="apex-charts"></div>
+                    </div>
+                </div>
+                <!--end card-body-->
+            </div>
+            <!--end card-->
 
-<p>
-  <strong>Transac type:</strong>
-  <%= @transaction.transac_type %>
-</p>
+    </div>
+    </div>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @transaction.amount %>
-</p>
+    <%# app/views/transactions/show.html.erb %>
 
-<p>
-  <strong>Date:</strong>
-  <%= @transaction.date %>
-</p>
+    <style>
+      .receipt-wrap { max-width:620px; margin:0 auto; }
+      .receipt-actions { display:flex; gap:10px; margin-bottom:20px; justify-content:flex-end; }
+      .btn-receipt { display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border-radius:6px; font-size:13px; font-weight:700; cursor:pointer; border:none; text-decoration:none; transition:all 0.2s ease; }
+      .btn-print { background:linear-gradient(135deg,#c9a84c,#e8d08a); color:#0a1628; }
+      .btn-download { background:linear-gradient(135deg,#0d1f3c,#1a3a6c); color:#c9a84c; }
+      .btn-back { background:#fff; color:#5a6d8c; border:1px solid #dde2ec; }
+      .receipt { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(10,22,40,0.1); }
+      .receipt-header { background:#0d1f3c; padding:32px 40px 28px; border-top:4px solid #c9a84c; text-align:center; }
+      .receipt-header .logo-text { font-size:9px; color:#c9a84c; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; margin:0 0 16px; display:block; }
+      .receipt-header h1 { font-family:'Playfair Display',Georgia,serif; font-size:22px; color:#fff; font-weight:700; margin:0 0 4px; }
+      .receipt-header p { font-size:10px; color:#8a9bbf; letter-spacing:2px; text-transform:uppercase; margin:0; }
+      .gold-bar { height:3px; background:linear-gradient(90deg,#c9a84c,#e8d08a,#c9a84c); }
+      .receipt-amount { background:#f7f8fb; padding:28px 40px; text-align:center; border-bottom:1px solid #f0f2f5; }
+      .receipt-amount .label { font-size:10px; color:#8a9bbf; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin:0 0 8px; }
+      .receipt-amount .amount { font-family:'Playfair Display',Georgia,serif; font-size:42px; font-weight:700; margin:0; }
+      .receipt-details { padding:28px 40px; }
+      .detail-row { display:flex; align-items:flex-start; justify-content:space-between; padding:12px 0; border-bottom:1px solid #f0f2f5; }
+      .detail-row:last-child { border-bottom:none; }
+      .detail-label { font-size:11px; font-weight:700; color:#8a9bbf; letter-spacing:1px; text-transform:uppercase; min-width:140px; }
+      .detail-value { font-size:13px; color:#1a2a42; font-weight:600; text-align:right; }
+      .receipt-ref { margin:0 40px 28px; background:#f7f8fb; border:1px solid #e8eaf0; border-left:3px solid #c9a84c; border-radius:6px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; }
+      .receipt-ref .ref-label { font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 4px; }
+      .receipt-ref .ref-value { font-size:13px; font-weight:700; color:#0a1628; font-family:monospace; letter-spacing:1px; }
+      .receipt-footer { background:#0a1628; padding:16px 40px; display:flex; align-items:center; justify-content:space-between; }
+      .receipt-footer span { font-size:10px; color:#3a4f6a; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
+      .watermark { text-align:center; padding:16px 40px; font-size:11px; color:#b0bdd4; border-top:1px dashed #e8eaf0; }
+      @media print {
+        body * { visibility:hidden; }
+        .receipt-wrap, .receipt-wrap * { visibility:visible; }
+        .receipt-wrap { position:absolute; left:0; top:0; width:100%; }
+        .receipt-actions { display:none !important; }
+        .receipt { box-shadow:none; border-radius:0; }
+      }
+    </style>
 
-<p>
-  <strong>Purpose:</strong>
-  <%= @transaction.purpose %>
-</p>
+    <div class="receipt-wrap">
 
-<p>
-  <strong>Sender:</strong>
-  <%= @transaction.sender %>
-</p>
+      <!-- Action Buttons -->
+      <div class="receipt-actions">
+        <%= link_to transactions_path, class: "btn-receipt btn-back" do %>
+          <i class="mdi mdi-arrow-left"></i> Back
+        <% end %>
+        <button class="btn-receipt btn-print" onclick="window.print()">
+          <i class="mdi mdi-printer-outline"></i> Print Receipt
+        </button>
+        <button class="btn-receipt btn-download" onclick="window.print()">
+          <i class="mdi mdi-download-outline"></i> Save as PDF
+        </button>
+      </div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @transaction.status %>
-</p>
+      <div class="receipt" id="receipt-content">
 
-<p>
-  <strong>User:</strong>
-  <%= @transaction.user %>
-</p>
+        <!-- Header -->
+        <div class="receipt-header">
+          <span class="logo-text">✦ &nbsp;Navy SEAL Credit Union</span>
+          <h1>Transaction Receipt</h1>
+          <p>Official Payment Confirmation</p>
+          <div style="margin-top:16px;">
+            <% if @transaction.status? %>
+              <span style="display:inline-flex; align-items:center; gap:6px; background:rgba(46,204,113,0.12); color:#1e8449; font-size:11px; font-weight:700; padding:6px 16px; border-radius:20px; border:1px solid rgba(46,204,113,0.25);">
+                <i class="mdi mdi-check-circle" style="font-size:14px;"></i> Completed
+              </span>
+            <% else %>
+              <span style="display:inline-flex; align-items:center; gap:6px; background:rgba(243,199,77,0.12); color:#d68910; font-size:11px; font-weight:700; padding:6px 16px; border-radius:20px; border:1px solid rgba(243,199,77,0.25);">
+                <i class="mdi mdi-clock-outline" style="font-size:14px;"></i> Pending
+              </span>
+            <% end %>
+          </div>
+        </div>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @transaction.slug %>
-</p>
+        <div class="gold-bar"></div>
+
+        <!-- Amount -->
+        <div class="receipt-amount">
+          <p class="label">Transaction Amount</p>
+          <h2 class="amount" style="color:<%= @transaction.bal_type == 'Credit' ? '#1e8449' : '#c0392b' %>;">
+            <%= @transaction.bal_type == 'Credit' ? '+' : '-' %> $<%= number_with_delimiter(@transaction.amount) %>
+          </h2>
+          <p style="font-size:12px; color:#8a9bbf; margin:6px 0 0;">
+            <i class="mdi <%= @transaction.bal_type == 'Credit' ? 'mdi-arrow-bottom-left' : 'mdi-arrow-top-right' %>" style="color:<%= @transaction.bal_type == 'Credit' ? '#1e8449' : '#c0392b' %>; margin-right:4px;"></i>
+            <%= @transaction.transac_type %> — <%= @transaction.bal_type %>
+          </p>
+        </div>
+
+        <!-- Details -->
+        <div class="receipt-details">
+          <div class="detail-row">
+            <span class="detail-label">Date & Time</span>
+            <span class="detail-value"><%= @transaction.date.strftime('%b %d, %Y &nbsp;·&nbsp; %I:%M %p').html_safe %></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Sender / From</span>
+            <span class="detail-value"><%= @transaction.sender %></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Transaction Type</span>
+            <span class="detail-value"><%= @transaction.transac_type %></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Purpose</span>
+            <span class="detail-value"><%= @transaction.purpose %></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Account</span>
+            <span class="detail-value" style="font-family:monospace;"><%= current_user.accounts.first&.account_number %></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="detail-value">
+              <% if @transaction.status? %>
+                <span style="background:#eafaf1; color:#1e8449; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid rgba(46,204,113,0.25);">Completed</span>
+              <% else %>
+                <span style="background:#fef9ec; color:#d68910; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid rgba(230,176,15,0.25);">Pending</span>
+              <% end %>
+            </span>
+          </div>
+        </div>
+
+        <!-- Reference -->
+        <div class="receipt-ref">
+          <div>
+            <p class="ref-label">Transaction Reference</p>
+            <p class="ref-value"><%= @transaction.slug %></p>
+          </div>
+          <i class="mdi mdi-barcode" style="font-size:28px; color:#dde2ec;"></i>
+        </div>
+
+        <!-- Watermark -->
+        <div class="watermark">
+          🔒 This is an official transaction receipt from Navy SEAL Credit Union. &nbsp;·&nbsp; navyscreditunion.com
+        </div>
+
+        <!-- Footer -->
+        <div class="receipt-footer">
+          <span>Member FDIC &nbsp;·&nbsp; Equal Housing Lender</span>
+          <div style="display:flex; gap:6px;">
+            <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; display:block;"></span>
+            <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; opacity:0.3; display:block;"></span>
+            <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; opacity:0.3; display:block;"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 <%= link_to 'Edit', edit_transaction_path(@transaction) %> |
 <%= link_to 'Back', transactions_path %>
+
+</div>
