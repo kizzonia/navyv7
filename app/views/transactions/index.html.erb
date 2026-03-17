@@ -44,92 +44,88 @@
     </div>
 
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center g-3">
 
-
-
-  <!--end row-->
-        <div class="col-lg-4">
-            <div class="card report-card">
-                <div class="card-body">
-                  <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
-                  <span class="badge badge-success">Transactions</span>
-                        <div class="row">
-                            <div class="col-8 align-self-center">
-                                <h5 class="">Account Transactions</h5>
-
-                            </div>
-                            <!--end col-->
-                            <div class="col-4">  <h4><%= Transaction.where(user_id: current_user.id).count %>
-.</h4></div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    <!--end icon-contain-->
-                </div>
-                <!--end card-body-->
+      <!-- Transactions -->
+      <div class="col-lg-4 col-md-6">
+        <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #eef1f6; position:relative; transition:transform 0.2s ease;">
+          <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#2ecc71,#58d68d);"></div>
+          <div style="padding:24px;">
+            <div class="d-flex align-items-start justify-content-between mb-3">
+              <span style="background:rgba(46,204,113,0.1); color:#1e8449; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; border-radius:20px; border:1px solid rgba(46,204,113,0.2);">✦ Transactions</span>
+              <div style="width:40px; height:40px; border-radius:10px; background:rgba(46,204,113,0.08); border:1px solid rgba(46,204,113,0.15); display:flex; align-items:center; justify-content:center;">
+                <i class="mdi mdi-swap-horizontal" style="font-size:20px; color:#2ecc71;"></i>
+              </div>
             </div>
-            <!--end card-->
+            <p style="font-size:11px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 6px;">Total Transactions</p>
+            <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:36px; color:#0a1628; font-weight:700; margin:0 0 10px;"><%= Transaction.where(user_id: current_user.id).count %></h3>
+            <p style="font-size:12px; color:#8a9bbf; margin:0;">
+              <i class="mdi mdi-check-circle-outline" style="color:#2ecc71; margin-right:4px;"></i>
+              Account activity recorded
+            </p>
+          </div>
         </div>
-        <!--end col-->
+      </div>
 
-        <% @accounts.take(1).each do |a| %>
+      <% @accounts.take(1).each do |a| %>
 
-        <div class="col-lg-4">
-            <div class="card report-card">
-                <div class="card-body">
-                    <div class="float-right"><i class="dripicons-meter report-main-icon"></i></div>
-                    <span class="badge badge-warning">Overview</span>
-                        <div class="row">
-                            <div class="col-12 align-self-center">
-                                <h5 class="">Account Number: <%= a.account_number %></h5>
-                                <p class="text-muted mb-0">Routing Number: <%= a.routine_number %>
-                                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
-                            </div>
-                            <!--end col-->
-
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    <!--end icon-contain-->
-                </div>
-                <!--end card-body-->
+      <!-- Account Overview -->
+      <div class="col-lg-4 col-md-6">
+        <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #eef1f6; position:relative; transition:transform 0.2s ease;">
+          <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#3498db,#5dade2);"></div>
+          <div style="padding:24px;">
+            <div class="d-flex align-items-start justify-content-between mb-3">
+              <span style="background:rgba(52,152,219,0.1); color:#2980b9; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; border-radius:20px; border:1px solid rgba(52,152,219,0.2);">✦ Overview</span>
+              <div style="width:40px; height:40px; border-radius:10px; background:rgba(52,152,219,0.08); border:1px solid rgba(52,152,219,0.15); display:flex; align-items:center; justify-content:center;">
+                <i class="mdi mdi-card-account-details-outline" style="font-size:20px; color:#3498db;"></i>
+              </div>
             </div>
-            <!--end card-->
-        </div>
-        <div class="col-lg-4">
-            <div class="card report-card">
-                <div class="card-body">
-                  <div class="float-right">
-                    <i class="dripicons-wallet report-main-icon"></i>
-                  </div><span class="badge badge-success">Balance</span>
-
-                        <div class="row">
-                            <div class="col-6 align-self-center">
-                                <h5 class="">Balance</h5>
-                                <p class="text-muted mb-0">Book Balance: $<%=a.lbalance %>
-                                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
-                            </div>
-                            <!--end col-->
-                            <div class="col-6">
-                          <h4>    $ <%= a.balance %></h4>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    <!--end icon-contain-->
-                </div>
-                <!--end card-body-->
+            <p style="font-size:11px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 6px;">Account Number</p>
+            <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:20px; color:#0a1628; font-weight:700; margin:0 0 14px; letter-spacing:1px;"><%= a.account_number %></h4>
+            <div style="background:#f7f8fb; border:1px solid #e8eaf0; border-radius:8px; padding:10px 14px; display:flex; align-items:center; justify-content:space-between;">
+              <div>
+                <p style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1px; text-transform:uppercase; margin:0 0 2px;">Routing Number</p>
+                <p style="font-size:14px; font-weight:700; color:#3498db; margin:0; letter-spacing:1px;"><%= a.routine_number %></p>
+              </div>
+              <i class="mdi mdi-bank-outline" style="font-size:20px; color:#dde2ec;"></i>
             </div>
-            <!--end card-->
+          </div>
         </div>
+      </div>
+
+      <!-- Balance -->
+      <div class="col-lg-4 col-md-6">
+        <div style="background:#0d1f3c; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.18); border:1px solid #152238; position:relative; transition:transform 0.2s ease;">
+          <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#c9a84c,#e8d08a);"></div>
+          <div style="padding:24px;">
+            <div class="d-flex align-items-start justify-content-between mb-3">
+              <span style="background:rgba(201,168,76,0.15); color:#c9a84c; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; border-radius:20px; border:1px solid rgba(201,168,76,0.3);">✦ Balance</span>
+              <div style="width:40px; height:40px; border-radius:10px; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); display:flex; align-items:center; justify-content:center;">
+                <i class="mdi mdi-wallet-outline" style="font-size:20px; color:#c9a84c;"></i>
+              </div>
+            </div>
+            <p style="font-size:11px; font-weight:700; color:#5a6d8c; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 6px;">Available Balance</p>
+            <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:32px; color:#fff; font-weight:700; margin:0 0 14px;">$<%= number_with_delimiter(a.balance) %></h3>
+            <div style="border-top:1px solid #1a2a42; padding-top:14px; display:flex; align-items:center; justify-content:space-between;">
+              <div>
+                <p style="font-size:10px; color:#5a6d8c; letter-spacing:1px; text-transform:uppercase; font-weight:600; margin:0 0 2px;">Book Balance</p>
+                <p style="font-size:15px; color:#c9a84c; font-weight:700; margin:0;">$<%= number_with_delimiter(a.lbalance) %></p>
+              </div>
+              <span style="background:rgba(46,204,113,0.12); color:#2ecc71; font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px; border:1px solid rgba(46,204,113,0.2);">
+                <i class="mdi mdi-trending-up" style="font-size:12px;"></i> Active
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+    </div>
 
 
-        </div>
+
+
         <!--end col-->
     </div>
     <!--end row-->
-    <% end %>
   <%= render "shared/transactions" %>
-
-</div>
