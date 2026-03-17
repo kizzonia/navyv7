@@ -15,7 +15,6 @@
 //= require jquery.ana_customers.inity
 //= require jquery.apexcharts.init
 //= require irregular-data-series
-//= require app
 
 
 $(document).ready(function() {
