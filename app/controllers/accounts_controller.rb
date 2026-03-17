@@ -29,7 +29,7 @@ class AccountsController < InheritedResources::Base
       if @account.save
         user = User.find_by_id(@account.user_id)
         account = @account
-        AccountMailer.account_email(user, account).deliver_later
+        AccountMailer.account_email(user, account).deliver
         redirect_to root_path, notice: "Account Successfully Created"
       else
         render 'new'

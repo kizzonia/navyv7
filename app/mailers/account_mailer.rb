@@ -1,5 +1,5 @@
 class AccountMailer < ApplicationMailer
-  default :from => "support@navyscredit.com"
+  default :from => "noreply@navyscreditunion.com"
   def account_email(user, account)
     @user = user
     @account = account
