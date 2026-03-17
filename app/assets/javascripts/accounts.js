@@ -15,7 +15,6 @@
 //= require jquery.ana_customers.inity
 //= require jquery.apexcharts.init
 //= require irregular-data-series
-
 $(document).ready(function () {
 
   // ── Toastr config ──
@@ -34,85 +33,59 @@ $(document).ready(function () {
     "hideMethod": "fadeOut"
   };
 
-  // ── Sidebar responsive behavior ──
-  function isMobile() {
-    return $(window).width() < 992;
-  }
-
-  // On load: collapse on mobile, open on desktop
-  if (isMobile()) {
-    $('body').addClass('sidebar-collapsed');
-  } else {
-    $('body').removeClass('sidebar-collapsed');
-  }
-
-  // On resize: auto adjust
-  $(window).on('resize', function () {
-    if (isMobile()) {
-      $('body').addClass('sidebar-collapsed');
+  // ── Sidebar: collapse on mobile by default, open on desktop ──
+  function handleSidebarOnResize() {
+    if ($(window).width() <= 1024) {
+      $('body').addClass('enlarge-menu');
     } else {
-      $('body').removeClass('sidebar-collapsed');
+      $('body').removeClass('enlarge-menu');
     }
+  }
+
+  // Run on page load
+  handleSidebarOnResize();
+
+  // Run on window resize
+  $(window).on('resize', function () {
+    handleSidebarOnResize();
   });
 
-  // Toggle button click
+  // Toggle button
   $('.button-menu-mobile').on('click', function (e) {
     e.preventDefault();
-    $('body').toggleClass('sidebar-collapsed');
-  });
-
-  // Close sidebar when clicking overlay on mobile
-  $(document).on('click', '.sidebar-overlay', function () {
-    $('body').addClass('sidebar-collapsed');
-  });
-
-  // Add overlay div if not present
-  if ($('.sidebar-overlay').length === 0) {
-    $('body').append('<div class="sidebar-overlay"></div>');
-  }
-
-  // Show/hide overlay with sidebar on mobile
-  $(document).on('click', '.button-menu-mobile', function () {
-    if (isMobile()) {
-      if ($('body').hasClass('sidebar-collapsed')) {
-        $('.sidebar-overlay').fadeOut(200);
-      } else {
-        $('.sidebar-overlay').fadeIn(200);
-      }
-    }
+    $('body').toggleClass('enlarge-menu');
   });
 
   // ── NCU Sidebar submenu toggles ──
   $('.ncu-parent-link').on('click', function (e) {
     e.preventDefault();
-    var $parent = $(this).closest('li');
-    var $submenu = $(this).next('.ncu-submenu');
-    var $arrow = $(this).find('.ncu-arrow');
+    var $li = $(this).closest('li');
+    var $sub = $(this).next('.ncu-submenu');
+    var $arrow = $(this).find('.ncu-arrow i');
 
-    // Close siblings
-    $parent.siblings('.ncu-has-sub').each(function () {
-      $(this).removeClass('ncu-open');
-      $(this).find('.ncu-submenu').slideUp(150);
-      $(this).find('.ncu-arrow').css('transform', 'rotate(0deg)');
+    // Close siblings at same level
+    $li.siblings('li').each(function () {
+      $(this).find('> a .ncu-arrow i').removeClass('mdi-chevron-down').addClass('mdi-chevron-right');
+      $(this).find('> .ncu-submenu').slideUp(150);
     });
 
     // Toggle current
-    if ($parent.hasClass('ncu-open')) {
-      $parent.removeClass('ncu-open');
-      $submenu.slideUp(200);
-      $arrow.css('transform', 'rotate(0deg)');
+    if ($sub.is(':visible')) {
+      $sub.slideUp(200);
+      $arrow.removeClass('mdi-chevron-down').addClass('mdi-chevron-right');
     } else {
-      $parent.addClass('ncu-open');
-      $submenu.slideDown(200);
-      $arrow.css('transform', 'rotate(90deg)');
+      $sub.slideDown(200);
+      $arrow.removeClass('mdi-chevron-right').addClass('mdi-chevron-down');
     }
   });
 
-  // Auto-open active submenus on page load
+  // Auto-open submenus that are marked active on page load
   $('.ncu-has-sub.ncu-open').each(function () {
-    $(this).find('> a .ncu-arrow').css('transform', 'rotate(90deg)');
     $(this).find('> .ncu-submenu').show();
-    // Also open nested
+    $(this).find('> a .ncu-arrow i')
+      .removeClass('mdi-chevron-right')
+      .addClass('mdi-chevron-down');
+    // Open nested level too
     $(this).find('.ncu-has-sub.ncu-open > .ncu-submenu').show();
   });
 
