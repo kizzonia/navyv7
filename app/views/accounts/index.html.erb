@@ -2,6 +2,8 @@
 
 <div class="container-fluid">
   <!-- Page-Title -->
+
+  <% if Account.where(user_id: current_user.id).exists? %>
   <div class="row">
       <div class="col-sm-12">
         <div class="card text-white card-dark">
@@ -28,8 +30,6 @@
       </div>
       <!--end col-->
   </div>
-  <% if Account.where(user_id: current_user.id).exists? %>
-
 
     <div class="row">
         <div class="col-lg-12">
@@ -135,18 +135,50 @@
 
 <% else %>
 
-<div class="row justify-content-center">
+<div class="ncu-account-opening">
+  <div class="row justify-content-center">
     <div class="col-lg-7 col-md-12 col-sm-12">
-        <div class="card card-border">
-            <img src="https://homestoragebox.s3.amazonaws.com/uploads/about/abtimg/3/petretirementsavings_About_image_3.jpeg" class=" card-img-top img-fluid"  style="height:auto;"  alt="">
+      <div class="account-card">
 
-            <div class="card-body">
-                <h4 class="card-title mt-0">Please Continue To Account Opening </h4>
-                <p class="card-text text-muted ">Opening An Account With Us Means i have read and agreed to the terms of this institution.</p>
-                <%= link_to "Open An Account", new_account_path, class: "btn btn-primary" %>
-            </div><!--end card -body-->
-        </div><!--end card-->
-    </div><!--end col-->
+        <div class="card-image">
+          <img src="https://homestoragebox.s3.amazonaws.com/uploads/about/abtimg/3/petretirementsavings_About_image_3.jpeg" alt="Open a Bank Account">
+          <div class="card-image-overlay"></div>
+          <div class="card-image-badge">✦ New Account</div>
+          <div class="card-image-label">
+            <h2>Begin Your Banking Journey With Us</h2>
+          </div>
+        </div>
+
+        <div class="ncu-gold-bar"></div>
+
+        <div class="card-body">
+          <ul class="ncu-benefits">
+            <li><div class="ncu-benefit-icon">🏦</div><div>No monthly maintenance fees for qualified members with direct deposit</div></li>
+            <li><div class="ncu-benefit-icon">🛡</div><div>FDIC insured up to $250,000 — your funds are fully protected</div></li>
+            <li><div class="ncu-benefit-icon">📱</div><div>24/7 access via online banking, mobile app, and ATM network</div></li>
+            <li><div class="ncu-benefit-icon">⚡</div><div>Fast approval — open your account in as little as 5 minutes</div></li>
+          </ul>
+
+          <div class="ncu-terms-notice">
+            <p>By proceeding, you confirm that you have read and agreed to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a> of Navy's Credit Union.</p>
+          </div>
+
+          <div class="ncu-cta-area">
+            <%= link_to "Open My Account", new_account_path, class: "btn-ncu-open" %>
+            <div class="ncu-secure-badge">
+              <span class="ncu-secure-icon">🔒</span>
+              <span class="ncu-secure-label">256-bit Secure</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ncu-card-footer">
+          <span class="ncu-footer-legal">Member FDIC &nbsp;·&nbsp; Equal Housing Lender</span>
+          <div class="ncu-footer-dots"><span></span><span></span><span></span></div>
+        </div>
+
+      </div>
+    </div>
   </div>
-
+</div>
     <% end %>
