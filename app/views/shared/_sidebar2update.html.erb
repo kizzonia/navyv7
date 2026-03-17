@@ -1,0 +1,169 @@
+<!-- Left Sidenav -->
+<div class="left-sidenav" style="width:240px; min-height:100vh; background:#0a1628; border-right:1px solid #0d1f3c; display:flex; flex-direction:column; padding:0 0 24px; font-family:'Source Sans 3',Helvetica,Arial,sans-serif;">
+
+  <!-- Brand Strip -->
+  <div style="padding:20px 20px 16px; border-bottom:1px solid #152238; margin-bottom:8px;">
+    <p style="font-size:9px; color:#c9a84c; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; margin:0;">✦ &nbsp;Navy's Credit Union</p>
+  </div>
+
+  <span style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#3a4f6a; padding:16px 20px 6px; display:block;">Main Menu</span>
+
+  <ul class="metismenu left-sidenav-menu" style="list-style:none; padding:0; margin:0; flex:1;">
+
+    <!-- Dashboard -->
+    <li class="nav-item" style="list-style:none;">
+      <%= link_to root_path, class: "nav-link",
+          style: "display:flex; align-items:center; gap:10px; padding:10px 20px; color:#8a9bbf; font-size:13.5px; font-weight:500; text-decoration:none; border-left:3px solid transparent;" do %>
+        <i class="mdi mdi-view-dashboard-outline" style="font-size:15px; width:18px; text-align:center;"></i>
+        <span>Dashboard</span>
+      <% end %>
+    </li>
+
+    <!-- Account Statement -->
+    <li class="nav-item" style="list-style:none;">
+      <%= link_to transactions_path, class: "nav-link",
+          style: "display:flex; align-items:center; gap:10px; padding:10px 20px; color:#8a9bbf; font-size:13.5px; font-weight:500; text-decoration:none; border-left:3px solid transparent;" do %>
+        <i class="mdi mdi-file-chart-outline" style="font-size:15px; width:18px; text-align:center;"></i>
+        <span>Account Statement</span>
+      <% end %>
+    </li>
+
+    <!-- Fund Transfer -->
+    <li class="nav-item" style="list-style:none;">
+      <%= link_to new_transfer_path, class: "nav-link",
+          style: "display:flex; align-items:center; gap:10px; padding:10px 20px; color:#8a9bbf; font-size:13.5px; font-weight:500; text-decoration:none; border-left:3px solid transparent;" do %>
+        <i class="mdi mdi-bank-transfer" style="font-size:15px; width:18px; text-align:center;"></i>
+        <span>Fund Transfer</span>
+      <% end %>
+    </li>
+
+    <!-- Divider -->
+    <li style="list-style:none;"><div style="height:1px; background:#152238; margin:8px 20px;"></div></li>
+    <li style="list-style:none;"><span style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#3a4f6a; padding:10px 20px 6px; display:block;">Services</span></li>
+
+    <!-- Enterprise Loans -->
+    <li style="list-style:none;">
+      <a href="javascript:void(0);" style="display:flex; align-items:center; gap:10px; padding:10px 20px; color:#8a9bbf; font-size:13.5px; font-weight:500; text-decoration:none; border-left:3px solid transparent;">
+        <i class="mdi mdi-currency-usd" style="font-size:15px; width:18px; text-align:center;"></i>
+        <span>Enterprise Loans</span>
+        <span class="menu-arrow" style="margin-left:auto;"><i class="mdi mdi-chevron-right"></i></span>
+      </a>
+      <ul class="nav-second-level" aria-expanded="false" style="list-style:none; padding:0; margin:0; background:rgba(0,0,0,0.15);">
+        <li style="list-style:none;">
+          <a href="javascript:void(0);" style="display:flex; align-items:center; gap:10px; padding:8px 20px 8px 44px; color:#6a7d9e; font-size:12.5px; text-decoration:none; border-left:3px solid transparent;">
+            <i class="mdi mdi-format-list-bulleted" style="font-size:14px; width:16px; text-align:center;"></i>
+            <span>Loans</span>
+            <span class="menu-arrow" style="margin-left:auto;"><i class="mdi mdi-chevron-right"></i></span>
+          </a>
+          <ul class="nav-second-level" aria-expanded="false" style="list-style:none; padding:0; margin:0; background:rgba(0,0,0,0.1);">
+            <li class="nav-item" style="list-style:none;">
+              <%= link_to loans_path, class: "nav-link",
+                  style: "display:flex; align-items:center; gap:8px; padding:7px 20px 7px 56px; color:#5a6d8c; font-size:12px; text-decoration:none; border-left:3px solid transparent;" do %>
+                <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>Overview
+              <% end %>
+            </li>
+            <li class="nav-item" style="list-style:none;">
+              <%= link_to userorder_path, class: "nav-link",
+                  style: "display:flex; align-items:center; gap:8px; padding:7px 20px 7px 56px; color:#5a6d8c; font-size:12px; text-decoration:none; border-left:3px solid transparent;" do %>
+                <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>Application History
+              <% end %>
+            </li>
+            <li class="nav-item" style="list-style:none;">
+              <%= link_to new_loan_path, class: "nav-link",
+                  style: "display:flex; align-items:center; gap:8px; padding:7px 20px 7px 56px; color:#5a6d8c; font-size:12px; text-decoration:none; border-left:3px solid transparent;" do %>
+                <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>Request A Loan
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Credit/Debit Cards -->
+    <li style="list-style:none;">
+      <a href="javascript:void(0);" style="display:flex; align-items:center; gap:10px; padding:10px 20px; color:#8a9bbf; font-size:13.5px; font-weight:500; text-decoration:none; border-left:3px solid transparent;">
+        <i class="mdi mdi-credit-card-outline" style="font-size:15px; width:18px; text-align:center;"></i>
+        <span>Credit/Debit Cards</span>
+        <span class="menu-arrow" style="margin-left:auto;"><i class="mdi mdi-chevron-right"></i></span>
+      </a>
+      <ul class="nav-second-level" aria-expanded="false" style="list-style:none; padding:0; margin:0; background:rgba(0,0,0,0.15);">
+        <li class="nav-item" style="list-style:none;">
+          <%= link_to new_card_path, class: "nav-link",
+              style: "display:flex; align-items:center; gap:8px; padding:8px 20px 8px 44px; color:#6a7d9e; font-size:12.5px; text-decoration:none; border-left:3px solid transparent;" do %>
+            <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>ATM Card Request
+          <% end %>
+        </li>
+        <li class="nav-item" style="list-style:none;">
+          <%= link_to cards_path, class: "nav-link",
+              style: "display:flex; align-items:center; gap:8px; padding:8px 20px 8px 44px; color:#6a7d9e; font-size:12.5px; text-decoration:none; border-left:3px solid transparent;" do %>
+            <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>Card Maintenance
+          <% end %>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Bill Payments -->
+    <li style="list-style:none;">
+      <a href="javascript:void(0);" style="display:flex; align-items:center; gap:10px; padding:10px 20px; color:#8a9bbf; font-size:13.5px; font-weight:500; text-decoration:none; border-left:3px solid transparent;">
+        <i class="mdi mdi-receipt" style="font-size:15px; width:18px; text-align:center;"></i>
+        <span>Bill Payments</span>
+        <span class="menu-arrow" style="margin-left:auto;"><i class="mdi mdi-chevron-right"></i></span>
+      </a>
+      <ul class="nav-second-level" aria-expanded="false" style="list-style:none; padding:0; margin:0; background:rgba(0,0,0,0.15);">
+        <li class="nav-item" style="list-style:none;">
+          <%= link_to bills_path, class: "nav-link",
+              style: "display:flex; align-items:center; gap:8px; padding:8px 20px 8px 44px; color:#6a7d9e; font-size:12.5px; text-decoration:none; border-left:3px solid transparent;" do %>
+            <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>Bill Records
+          <% end %>
+        </li>
+        <li class="nav-item" style="list-style:none;">
+          <%= link_to new_bill_path, class: "nav-link",
+              style: "display:flex; align-items:center; gap:8px; padding:8px 20px 8px 44px; color:#6a7d9e; font-size:12.5px; text-decoration:none; border-left:3px solid transparent;" do %>
+            <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>Add Bill
+          <% end %>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Divider -->
+    <li style="list-style:none;"><div style="height:1px; background:#152238; margin:8px 20px;"></div></li>
+    <li style="list-style:none;"><span style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#3a4f6a; padding:10px 20px 6px; display:block;">Support</span></li>
+
+    <!-- Help Center -->
+    <li style="list-style:none;">
+      <a href="javascript:void(0);" style="display:flex; align-items:center; gap:10px; padding:10px 20px; color:#8a9bbf; font-size:13.5px; font-weight:500; text-decoration:none; border-left:3px solid transparent;">
+        <i class="mdi mdi-help-circle-outline" style="font-size:15px; width:18px; text-align:center;"></i>
+        <span>Help Center</span>
+        <span class="menu-arrow" style="margin-left:auto;"><i class="mdi mdi-chevron-right"></i></span>
+      </a>
+      <ul class="nav-second-level" aria-expanded="false" style="list-style:none; padding:0; margin:0; background:rgba(0,0,0,0.15);">
+        <li class="nav-item" style="list-style:none;">
+          <%= link_to faqs_path, class: "nav-link",
+              style: "display:flex; align-items:center; gap:8px; padding:8px 20px 8px 44px; color:#6a7d9e; font-size:12.5px; text-decoration:none; border-left:3px solid transparent;" do %>
+            <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>Self Service
+          <% end %>
+        </li>
+        <li class="nav-item" style="list-style:none;">
+          <%= link_to abouts_path, class: "nav-link",
+              style: "display:flex; align-items:center; gap:8px; padding:8px 20px 8px 44px; color:#6a7d9e; font-size:12.5px; text-decoration:none; border-left:3px solid transparent;" do %>
+            <span style="width:5px; height:5px; border-radius:50%; background:#c9a84c; opacity:0.5; flex-shrink:0;"></span>Customer Support
+          <% end %>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Divider -->
+    <li style="list-style:none;"><div style="height:1px; background:#152238; margin:8px 20px;"></div></li>
+
+    <!-- Logout -->
+    <li class="nav-item" style="list-style:none;">
+      <%= link_to destroy_user_session_path, method: :delete, class: "nav-link",
+          style: "display:flex; align-items:center; gap:10px; padding:10px 20px; color:#c0392b; font-size:13.5px; font-weight:500; text-decoration:none; border-left:3px solid transparent;" do %>
+        <i class="mdi mdi-logout-variant" style="font-size:15px; width:18px; text-align:center;"></i>
+        <span>Log Out</span>
+      <% end %>
+    </li>
+
+  </ul>
+</div>
+<!-- end left-sidenav -->
