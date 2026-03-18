@@ -1,2 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Navy SEAL Credit Union</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:none; box-sizing:border-box; }
+    body { margin:0; padding:0; background-color:#0a1628; font-family:'Source Sans 3', Helvetica, Arial, sans-serif; }
+    a { color:#c9a84c; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    @media only screen and (max-width:600px) {
+      .outer { width:100% !important; }
+      .inner { padding:30px 20px !important; }
+      .hero-pad { padding:40px 20px !important; }
+      .footer-pad { padding:30px 20px !important; }
+      .hide { display:none !important; }
+      h1 { font-size:26px !important; line-height:32px !important; }
+    }
+  </style>
+</head>
+<body bgcolor="#0a1628" style="margin:0;padding:0;background-color:#0a1628;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#0a1628" style="background-color:#0a1628;">
+    <tr>
+      <td align="center" style="padding:40px 16px 0;">
+
+        <table class="outer" width="620" cellpadding="0" cellspacing="0" style="width:620px;">
+
+          <!-- ═══ HEADER ═══ -->
+          <tr>
+            <td style="background-color:#fff; border-top:4px solid #c9a84c; border-radius:8px 8px 0 0; padding:28px 48px;" bgcolor="#0d1f3c">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <img src="https://zoniahome.s3.us-east-2.amazonaws.com/uploads/welcome/logoimg/1/newtry%282%29.png"
+                         alt="Navy SEAL Union" width="150" style="display:block; max-width:150px; height:auto;">
+                  </td>
+                  <td align="right" style="font-family:'Source Sans 3',Helvetica,Arial,sans-serif; font-size:11px; color:#8a9bbf; letter-spacing:2px; text-transform:uppercase; font-weight:600;">
+                    Welcome
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══ GOLD DIVIDER ═══ -->
+          <tr>
+            <td style="background:linear-gradient(90deg,#c9a84c 0%,#e8d08a 50%,#c9a84c 100%); height:2px; font-size:0; line-height:0;">&nbsp;</td>
+          </tr>
+
+
+
 
 <%= yield %>
+
+
+<!-- ═══ FOOTER ═══ -->
+<tr>
+  <td class="footer-pad" style="background-color:#060f1e; border-radius:0 0 8px 8px; padding:36px 48px;" bgcolor="#060f1e">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center" style="padding-bottom:20px;">
+          <p style="font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#c9a84c; font-weight:700; letter-spacing:1px; margin:0 0 4px;">
+            Navy SEAL Union
+          </p>
+          <p style="font-family:'Source Sans 3',Helvetica,Arial,sans-serif; font-size:10px; color:#3a4f6a; letter-spacing:2px; text-transform:uppercase; margin:0;">
+            Member FDIC &nbsp;·&nbsp; Equal Housing Lender
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="border-top:1px solid #1a2a42; font-size:0; line-height:0; padding-bottom:20px;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center">
+          <p style="font-family:'Source Sans 3',Helvetica,Arial,sans-serif; font-size:12px; color:#3a4f6a; line-height:22px; margin:0 0 8px;">
+            180 Water St, New York, NY 10038
+          </p>
+          <p style="font-family:'Source Sans 3',Helvetica,Arial,sans-serif; font-size:12px; margin:0 0 16px; line-height:22px;">
+            <a href="mailto:support@navyscreditunion.com" style="color:#5a6d8c; text-decoration:none;">support@navyscreditunion.com</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.navyscreditunion.com" style="color:#5a6d8c; text-decoration:none;">navyscreditunion.com</a>
+          </p>
+          <p style="font-family:'Source Sans 3',Helvetica,Arial,sans-serif; font-size:11px; color:#2a3a52; line-height:18px; margin:0;">
+            © <%= Time.now.year %> Navy SEAL Union. All rights reserved.<br>
+            This email was sent to <%= @user.email %> upon successful account registration.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+<tr><td style="height:40px;">&nbsp;</td></tr>
+</table>
+
+</body>
+</html>
