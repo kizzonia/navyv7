@@ -16,7 +16,7 @@
   .transfer-form-wrap .form-control:focus, .transfer-form-wrap .form-select:focus { border-color:#c9a84c !important; box-shadow:0 0 0 3px rgba(201,168,76,0.12) !important; }
   .transfer-form-wrap label { font-size:11px !important; font-weight:700 !important; color:#5a6d8c !important; letter-spacing:1.2px !important; text-transform:uppercase !important; margin-bottom:6px !important; }
   .tf-amount-wrap { position:relative; }
-  .tf-amount-wrap .tf-currency { position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:15px; font-weight:700; color:#c9a84c; pointer-events:none; z-index:1; }
+  .tf-amount-wrap .tf-currency { position:absolute; left:4px; top:50%; transform:translateY(-50%); font-size:15px; font-weight:400; color:#c9a84c; pointer-events:none; z-index:1; }
   .tf-amount-wrap input { padding-left:30px !important; font-size:18px !important; font-weight:700 !important; }
   .tf-pin-wrap { position:relative; }
   .tf-pin-wrap i { position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:16px; color:#c9a84c; pointer-events:none; z-index:1; }
@@ -37,16 +37,7 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <!-- Header -->
-    <div class="tf-header">
-      <div>
-        <h1>Fund Transfer</h1>
-        <p>Navy's Credit Union &nbsp;·&nbsp; Secure Transfer</p>
-      </div>
-      <div class="tf-header-badge">
-        <span style="display:block; font-size:20px;">🔒</span>
-        <span style="font-size:9px; color:#c9a84c; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">256-bit SSL</span>
-      </div>
-    </div>
+
     <div class="tf-gold-bar"></div>
 
     <div class="tf-body">
@@ -120,7 +111,7 @@
         <div class="form-group mb-3">
           <label style="font-size:11px; font-weight:700; color:#5a6d8c; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:6px; display:block;">Amount <span style="color:#c9a84c;">*</span></label>
           <div class="tf-amount-wrap">
-            <span class="tf-currency">$</span>
+            <span class="tf-currency p">$</span>
             <%= f.input :amount, label: false,
                 input_html: { class: "form-control", placeholder: "0.00" },
                 wrapper_html: { style: "margin:0;" } %>
@@ -142,7 +133,7 @@
           <div><h5>Security Authorisation</h5><p>Enter your PIN to authorise this transfer</p></div>
         </div>
         <div class="tf-security-notice">
-          🛡 Never share your PIN with anyone. Navy's Credit Union will never ask for your PIN via email or phone.
+          🛡 Never share your PIN with anyone. Navy SEAL credit Union will never ask for your PIN via email or phone.
         </div>
         <div class="tf-pin-wrap">
           <i class="mdi mdi-lock-outline"></i>
