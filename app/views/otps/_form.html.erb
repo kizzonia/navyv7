@@ -1,19 +1,67 @@
-
 <%= simple_form_for([@transfer, @transfer.otps.build]) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="row">
-    <div class="col-12">
-      <%= f.input :otp, placeholder:"Enter The Code", label:"One Time Password"%>
-
-    </div>
+  <%# Timer %>
+  <div style="font-size:11px; color:#8a9bbf; text-align:center; margin-bottom:16px;">
+    <i class="mdi mdi-clock-outline" style="margin-right:4px;"></i>
+    OTP expires in <span id="otp-countdown" style="color:#c9a84c; font-weight:700;">10:00</span>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Verify", class: "btn btn-primary col-12" %>
+  <%# OTP Input %>
+  <div style="position:relative; margin-bottom:20px;">
+    <i class="mdi mdi-shield-key-outline" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:18px; color:#c9a84c; pointer-events:none; z-index:1;"></i>
+    <%= f.input :otp,
+        label: "One Time Password",
+        placeholder: "Enter OTP Code",
+        input_html: {
+          class: "form-control otp-field",
+          style: "padding-left:44px; font-size:18px; font-weight:700; letter-spacing:6px; text-align:center; border:2px solid #dde2ec; border-radius:8px; height:54px;",
+          maxlength: 8,
+          autocomplete: "one-time-code",
+          inputmode: "numeric"
+        }
+    %>
   </div>
+
+  <%# Submit %>
+  <div class="form-group">
+    <%= f.button :submit, class: "btn btn-warning btn-block font-weight-bold text-dark",
+        style: "letter-spacing:1.5px; text-transform:uppercase; padding:14px; font-size:14px; border-radius:8px; box-shadow:0 4px 16px rgba(201,168,76,0.35);" do %>
+      <i class="mdi mdi-check-circle-outline mr-2" style="font-size:16px;"></i>
+      Verify &amp; Complete Transfer
+    <% end %>
+  </div>
+
+  <%# Support link %>
+  <div class="text-center mt-3">
+    <a href="mailto:support@navyscreditunion.com?subject=OTP Support"
+       class="text-warning font-weight-bold"
+       style="font-size:12px; text-decoration:none;">
+      <i class="mdi mdi-headset mr-1"></i>
+      Need help? Contact Support
+    </a>
+  </div>
+
 <% end %>
-<br>
-<br>
-<p class="card-footer bg-light m-0"><a href="mailto:support@allcbonline.com?subject=feedback">Contact Support</a></p>
+
+<script>
+  (function() {
+    let secs = 600;
+    const el = document.getElementById('otp-countdown');
+    if (!el) return;
+    const t = setInterval(() => {
+      secs--;
+      if (secs <= 0) { clearInterval(t); el.textContent = '00:00'; el.style.color = '#e74c3c'; return; }
+      const m = Math.floor(secs/60).toString().padStart(2,'0');
+      const s = (secs%60).toString().padStart(2,'0');
+      el.textContent = m + ':' + s;
+    }, 1000);
+
+    const input = document.querySelector('.otp-field');
+    if (input) {
+      input.addEventListener('focus', () => { input.style.borderColor = '#c9a84c'; input.style.boxShadow = '0 0 0 3px rgba(201,168,76,0.12)'; });
+      input.addEventListener('blur',  () => { input.style.borderColor = '#dde2ec'; input.style.boxShadow = 'none'; });
+    }
+  })();
+</script>

@@ -2,181 +2,333 @@
 
 <div class="container-fluid">
   <% if @transfer.otps.exists? %>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="card text-white card-dark">
-        <div class="card-body">
-          <blockquote class="card-bodyquote mb-0">
-            <h3>Transfer Confirmed</h3>
-            <p>Your Payment Request was successful <strong><%= current_user.email %></strong> Please allow 2-3 Business days For your payment to be completed</p>
 
-            <footer class="blockquote-footer text-white font-14">
-              Hello  <%= current_user.first_name %>
-            </footer>
-          </blockquote>
-        </div><!--end card-body-->
-      </div><!--end card-->
+  <style>
+    .receipt-wrap { max-width:640px; margin:0 auto; }
+    .receipt-actions { display:flex; gap:10px; margin-bottom:20px; justify-content:flex-end; flex-wrap:wrap; }
+    .btn-receipt { display:inline-flex; align-items:center; gap:6px; padding:10px 20px; border-radius:6px; font-size:13px; font-weight:700; cursor:pointer; border:none; text-decoration:none; transition:all 0.2s ease; }
+    .btn-print { background:linear-gradient(135deg,#c9a84c,#e8d08a); color:#0a1628; }
+    .btn-download { background:linear-gradient(135deg,#0d1f3c,#1a3a6c); color:#c9a84c; }
+    .btn-back { background:#fff; color:#5a6d8c; border:1px solid #dde2ec; }
+    .receipt { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(10,22,40,0.1); }
+    .receipt-banner { background:linear-gradient(135deg,#0a1628,#0d1f3c); padding:36px 40px 28px; border-top:4px solid #c9a84c; text-align:center; }
+    .receipt-banner .logo-text { font-size:9px; color:#c9a84c; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; margin:0 0 20px; display:block; }
+    .success-circle { width:72px; height:72px; border-radius:50%; background:rgba(46,204,113,0.12); border:2px solid rgba(46,204,113,0.4); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:32px; }
+    .receipt-banner h1 { font-family:'Playfair Display',Georgia,serif; font-size:24px; color:#fff; font-weight:700; margin:0 0 8px; }
+    .receipt-banner p { font-size:13px; color:#8a9bbf; margin:0 auto; line-height:1.6; max-width:380px; }
+    .gold-bar { height:3px; background:linear-gradient(90deg,#c9a84c,#e8d08a,#c9a84c); }
+    .receipt-amount { background:#f7f8fb; padding:28px 40px; text-align:center; border-bottom:2px dashed #e8eaf0; }
+    .receipt-amount .label { font-size:10px; color:#8a9bbf; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin:0 0 8px; }
+    .receipt-amount .amount { font-family:'Playfair Display',Georgia,serif; font-size:44px; font-weight:700; color:#c0392b; margin:0; }
+    .receipt-to { background:#0d1f3c; padding:20px 40px; display:flex; align-items:center; gap:14px; }
+    .receipt-to .arrow-badge { width:40px; height:40px; border-radius:50%; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .receipt-to .to-label { font-size:10px; color:#5a6d8c; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin:0 0 3px; }
+    .receipt-to .to-name { font-family:'Playfair Display',Georgia,serif; font-size:18px; color:#fff; font-weight:700; margin:0; }
+    .receipt-details { padding:24px 40px; }
+    .detail-row { display:flex; align-items:flex-start; justify-content:space-between; padding:11px 0; border-bottom:1px solid #f0f2f5; }
+    .detail-row:last-child { border-bottom:none; }
+    .detail-label { font-size:11px; font-weight:700; color:#8a9bbf; letter-spacing:1px; text-transform:uppercase; min-width:150px; }
+    .detail-value { font-size:13px; color:#1a2a42; font-weight:600; text-align:right; }
+    .receipt-notes { margin:0 40px 24px; background:#f7f8fb; border:1px solid #e8eaf0; border-left:3px solid #c9a84c; border-radius:6px; padding:14px 16px; }
+    .receipt-notes .notes-label { font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 6px; }
+    .receipt-notes .notes-text { font-size:13px; color:#3a4a6a; line-height:1.6; margin:0; }
+    .receipt-timeline { margin:0 40px 24px; padding:16px; background:rgba(201,168,76,0.04); border-radius:8px; border:1px solid rgba(201,168,76,0.12); }
+    .receipt-timeline p { font-size:12px; color:#8a9bbf; margin:0; line-height:1.7; }
+    .receipt-timeline p i { color:#c9a84c; margin-right:6px; }
+    .receipt-cta { padding:0 40px 32px; text-align:center; }
+    .btn-dashboard { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#c9a84c,#e8d08a); color:#0a1628; font-size:14px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:14px 32px; border-radius:6px; text-decoration:none; box-shadow:0 4px 16px rgba(201,168,76,0.3); }
+    .watermark { text-align:center; padding:14px 40px; font-size:11px; color:#b0bdd4; border-top:1px dashed #e8eaf0; }
+    .receipt-footer { background:#0a1628; padding:14px 40px; display:flex; align-items:center; justify-content:space-between; }
+    .receipt-footer span { font-size:10px; color:#3a4f6a; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
+    @media print {
+      body * { visibility:hidden; }
+      .receipt-wrap, .receipt-wrap * { visibility:visible; }
+      .receipt-wrap { position:absolute; left:0; top:0; width:100%; }
+      .receipt-actions, .btn-dashboard { display:none !important; }
+      .receipt { box-shadow:none; }
+    }
+  </style>
+
+  <div class="receipt-wrap">
+
+    <!-- Buttons -->
+    <div class="receipt-actions">
+      <%= link_to root_path, class: "btn-receipt btn-back" do %>
+        <i class="mdi mdi-arrow-left"></i> Dashboard
+      <% end %>
+      <button class="btn-receipt btn-print" onclick="window.print()">
+        <i class="mdi mdi-printer-outline"></i> Print
+      </button>
+      <button class="btn-receipt btn-download" onclick="window.print()">
+        <i class="mdi mdi-download-outline"></i> Save PDF
+      </button>
+    </div>
+
+    <div class="receipt">
+
+      <!-- Banner -->
+      <div class="receipt-banner">
+        <span class="logo-text">✦ &nbsp;Navy's Credit Union</span>
+        <div class="success-circle">✅</div>
+        <h1>Transfer Confirmed</h1>
+        <p>Your payment request was successful, <strong style="color:#c9a84c;"><%= current_user.email %></strong>. Please allow 2–3 business days for your payment to be completed.</p>
+      </div>
+
+      <div class="gold-bar"></div>
+
+      <!-- Amount -->
+      <div class="receipt-amount">
+        <p class="label">Amount Sent</p>
+        <h2 class="amount">- $<%= number_with_delimiter(@transfer.amount) %></h2>
+        <p style="font-size:12px; color:#8a9bbf; margin:6px 0 0;">
+          <i class="mdi mdi-arrow-top-right" style="color:#c0392b; margin-right:4px;"></i>
+          Wire Transfer — Debit
+        </p>
+      </div>
+
+      <!-- To -->
+      <div class="receipt-to">
+        <div class="arrow-badge">
+          <i class="mdi mdi-account-arrow-right-outline" style="font-size:18px; color:#c9a84c;"></i>
+        </div>
+        <div>
+          <p class="to-label">Sent To</p>
+          <p class="to-name"><%= @transfer.account_name %></p>
+        </div>
+      </div>
+
+      <!-- Details -->
+      <div class="receipt-details">
+        <div class="detail-row">
+          <span class="detail-label">Account Number</span>
+          <span class="detail-value" style="font-family:monospace;"><%= @transfer.account_number %></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Routing Number</span>
+          <span class="detail-value" style="font-family:monospace;"><%= @transfer.routine_number %></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Transfer Date</span>
+          <span class="detail-value"><%= @transfer.created_at.strftime('%b %d, %Y &nbsp;·&nbsp; %I:%M %p').html_safe %></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Reference</span>
+          <span class="detail-value" style="font-family:monospace;"><%= @transfer.tref %></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Status</span>
+          <span class="detail-value">
+            <% if @transfer.status? %>
+              <span style="background:#eafaf1; color:#1e8449; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid rgba(46,204,113,0.25);">Completed</span>
+            <% else %>
+              <span style="background:#fef9ec; color:#d68910; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid rgba(230,176,15,0.25);"><i class="mdi mdi-clock-outline"></i> Processing</span>
+            <% end %>
+          </span>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <% if @transfer.notes.present? %>
+      <div class="receipt-notes">
+        <p class="notes-label"><i class="mdi mdi-note-text-outline" style="margin-right:4px;"></i> Transfer Notes</p>
+        <p class="notes-text"><%= @transfer.notes %></p>
+      </div>
+      <% end %>
+
+      <!-- Timeline -->
+      <div class="receipt-timeline">
+        <p><i class="mdi mdi-calendar-clock"></i> <strong style="color:#1a2a42;">Processing Timeline:</strong> Transfers typically complete within 2–3 business days. You will receive a confirmation once funds have been delivered.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="receipt-cta">
+        <%= link_to root_path, class: "btn-dashboard" do %>
+          <i class="mdi mdi-view-dashboard-outline"></i> Return to Dashboard
+        <% end %>
+      </div>
+
+      <div class="watermark">
+        🔒 Official transfer receipt — Navy's Credit Union &nbsp;·&nbsp; navyscreditunion.com
+      </div>
+
+      <div class="receipt-footer">
+        <span>Member FDIC &nbsp;·&nbsp; Equal Housing Lender</span>
+        <div style="display:flex; gap:6px;">
+          <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; display:block;"></span>
+          <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; opacity:0.3; display:block;"></span>
+          <span style="width:6px; height:6px; border-radius:50%; background:#c9a84c; opacity:0.3; display:block;"></span>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="row justify-content-center">
-
-    <div class="col-lg-4 ">
-      <div class="card card-body text-center">
-        <h4 class="card-title mt-0">Payment Sent</h4>
-        <h2><strong>Amount:</strong><%= @transfer.amount %></h2>
-        <br>
-        <h3>TO</h3>
-        <br>
-        <h4><strong>Beneficiary's Name:</strong><%= @transfer.account_name %> </h4>
-        <h4><strong>Account Number:</strong><%= @transfer.account_number %> </h4>
-        <h5><strong>Routing Number:</strong><%= @transfer.routine_number%> </h5>
-        <br>
-        <h3>Notes</h3>
-        <br>
-        <p><%= @transfer.notes%> </p>
-        <br><br>
-        <%= link_to "Return To DashBoard", root_path, class: "btn btn-dark waves-effect waves-light" %>
-
-      </div><!--end card-->
-    </div><!--end col-->
     <% else %>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="card text-white card-dark">
-          <div class="card-body">
-            <blockquote class="card-bodyquote mb-0">
-              <h3>Transfer Confirmation</h3>
-              <p>Please check your email <strong><%= current_user.email %></strong> for your <strong>One Time Password </strong>to confirm your transfer</p>
 
-              <footer class="blockquote-footer text-white font-14">
-                Hello  <%= current_user.first_name %>
-              </footer>
-            </blockquote>
-          </div><!--end card-body-->
-        </div><!--end card-->
+    <%# Transfer Verification Page %>
+
+    <!-- OTP Alert Banner -->
+    <div style="background:#0d1f3c; border-top:4px solid #c9a84c; border-radius:12px; padding:24px 32px; margin-bottom:24px; display:flex; align-items:center; gap:16px;">
+      <div style="width:48px; height:48px; min-width:48px; border-radius:50%; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); display:flex; align-items:center; justify-content:center; font-size:22px;">📧</div>
+      <div>
+        <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:18px; color:#fff; font-weight:700; margin:0 0 4px;">Transfer Confirmation Required</h4>
+        <p style="font-size:13px; color:#8a9bbf; margin:0; line-height:1.6;">
+          Hello <strong style="color:#c9a84c;"><%= current_user.first_name %></strong>, please check your email
+          <strong style="color:#e8d08a;"><%= current_user.email %></strong> for your
+          <strong style="color:#c9a84c;">One Time Password</strong> to confirm this transfer.
+        </p>
       </div>
     </div>
 
-    <div class="row justify-content-center">
+    <!-- Summary Cards -->
+    <div class="row g-3 mb-4">
 
+      <!-- Your Account -->
       <% @accounts.take(1).each do |a| %>
-
-      <div class="col-lg-4">
-        <div class="card report-card">
-          <div class="card-body">
-            <div class="float-right"><i class="dripicons-meter report-main-icon"></i></div>
-            <span class="badge badge-warning"><%= a.account_type %>t</span>
-            <div class="row">
-              <div class="col-12 align-self-center">
-                <h5 class="">Account Number: <%= a.account_number %></h5>
-                <p class="text-muted mb-0">Routing Number: <%= a.routine_number %>
-                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
-                </div>
-                <!--end col-->
-
-                <!--end col-->
+      <div class="col-lg-4 col-md-6">
+        <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #eef1f6; position:relative;">
+          <div style="height:3px; background:linear-gradient(90deg,#3498db,#5dade2);"></div>
+          <div style="padding:20px 24px;">
+            <div class="d-flex align-items-start justify-content-between mb-3">
+              <span style="background:rgba(52,152,219,0.1); color:#2980b9; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid rgba(52,152,219,0.2);">Your Account</span>
+              <div style="width:40px; height:40px; border-radius:10px; background:rgba(52,152,219,0.08); border:1px solid rgba(52,152,219,0.15); display:flex; align-items:center; justify-content:center;">
+                <i class="mdi mdi-bank-outline" style="font-size:20px; color:#3498db;"></i>
               </div>
-              <!--end row-->
-              <!--end icon-contain-->
             </div>
-            <!--end card-body-->
-          </div>
-          <!--end card-->
-        </div>
-
-        <div class="col-lg-4">
-          <div class="card report-card">
-            <div class="card-body">
-              <div class="float-right">
-                <i class="dripicons-wallet report-main-icon"></i>
-              </div><span class="badge badge-success">Amount</span>
-
-              <div class="row">
-                <div class="col-6 align-self-center">
-                  <h5 class="">Amount</h5>
-                  <p class="text-muted mb-0"> <%= current_user.first_name %> current Balance: $<%=a.balance %>
-                    <i class="mdi mdi-menu-up text-success font-16"></i></p>
-                  </div>
-                  <% end %>
-                  <!--end col-->
-                  <div class="col-6">
-                    <h4>    $   <%= @transfer.amount %>
-                    </h4>
-                  </div>
-                  <!--end col-->
-                </div>
-                <!--end row-->
-                <!--end icon-contain-->
-              </div>
-              <!--end card-body-->
+            <p style="font-size:11px; font-weight:700; color:#8a9bbf; letter-spacing:1px; text-transform:uppercase; margin:0 0 4px;">Account Number</p>
+            <h5 style="font-family:'Playfair Display',Georgia,serif; font-size:17px; color:#0a1628; font-weight:700; margin:0 0 10px;"><%= a.account_number %></h5>
+            <div style="background:#f7f8fb; border:1px solid #e8eaf0; border-radius:6px; padding:8px 12px;">
+              <p style="font-size:10px; font-weight:700; color:#8a9bbf; text-transform:uppercase; letter-spacing:1px; margin:0 0 2px;">Routing Number</p>
+              <p style="font-size:13px; font-weight:700; color:#3498db; font-family:monospace; margin:0;"><%= a.routine_number %></p>
             </div>
-            <!--end card-->
-          </div>
-          <div class="col-lg-4">
-            <div class="card report-card">
-              <div class="card-body">
-                <div class="float-right"><i class="dripicons-arrow-thin-right report-main-icon"></i></div>
-                <span class="badge badge-warning"><%= @transfer.transfer_type %>t</span>
-                <div class="row">
-                  <div class="col-12 align-self-center">
-                    <h5 class=""> Beneficiary Name:   <%= @transfer.account_name %></h5>
-                    <h6 class="">Account Number: <%= @transfer.account_number %></h6>
-                    <p class="text-muted mb-0">Routing Number: <%= @transfer.routine_number %>
-                    </p>
-                  </div>
-                  <!--end col-->
-
-                  <!--end col-->
-                </div>
-                <!--end row-->
-                <!--end icon-contain-->
-              </div>
-              <!--end card-body-->
-            </div>
-            <!--end card-->
           </div>
         </div>
       </div>
 
+      <!-- Transfer Amount -->
+      <div class="col-lg-4 col-md-6">
+        <div style="background:#0d1f3c; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.18); border:1px solid #152238; position:relative;">
+          <div style="height:3px; background:linear-gradient(90deg,#c9a84c,#e8d08a);"></div>
+          <div style="padding:20px 24px;">
+            <div class="d-flex align-items-start justify-content-between mb-3">
+              <span style="background:rgba(201,168,76,0.15); color:#c9a84c; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid rgba(201,168,76,0.3);">Amount</span>
+              <div style="width:40px; height:40px; border-radius:10px; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); display:flex; align-items:center; justify-content:center;">
+                <i class="mdi mdi-wallet-outline" style="font-size:20px; color:#c9a84c;"></i>
+              </div>
+            </div>
+            <p style="font-size:11px; font-weight:700; color:#5a6d8c; letter-spacing:1px; text-transform:uppercase; margin:0 0 4px;">Transfer Amount</p>
+            <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:32px; color:#fff; font-weight:700; margin:0 0 10px;">$<%= number_with_delimiter(@transfer.amount) %></h3>
+            <div style="border-top:1px solid #1a2a42; padding-top:10px;">
+              <p style="font-size:12px; color:#5a6d8c; margin:0;">
+                <i class="mdi mdi-information-outline" style="color:#c9a84c; margin-right:4px;"></i>
+                Current Balance: <strong style="color:#8a9bbf;">$<%= number_with_delimiter(a.balance) %></strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
 
+      <!-- Beneficiary -->
+      <div class="col-lg-4 col-md-6">
+        <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #eef1f6; position:relative;">
+          <div style="height:3px; background:linear-gradient(90deg,#9b59b6,#bb8fce);"></div>
+          <div style="padding:20px 24px;">
+            <div class="d-flex align-items-start justify-content-between mb-3">
+              <span style="background:rgba(155,89,182,0.1); color:#8e44ad; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid rgba(155,89,182,0.2);"><%= @transfer.transfer_type %></span>
+              <div style="width:40px; height:40px; border-radius:10px; background:rgba(155,89,182,0.08); border:1px solid rgba(155,89,182,0.15); display:flex; align-items:center; justify-content:center;">
+                <i class="mdi mdi-account-arrow-right-outline" style="font-size:20px; color:#9b59b6;"></i>
+              </div>
+            </div>
+            <p style="font-size:11px; font-weight:700; color:#8a9bbf; letter-spacing:1px; text-transform:uppercase; margin:0 0 4px;">Beneficiary</p>
+            <h5 style="font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#0a1628; font-weight:700; margin:0 0 10px;"><%= @transfer.account_name %></h5>
+            <p style="font-size:11px; color:#8a9bbf; margin:0 0 4px; font-family:monospace;">Acct: <%= @transfer.account_number %></p>
+            <p style="font-size:11px; color:#8a9bbf; margin:0; font-family:monospace;">Routing: <%= @transfer.routine_number %></p>
+          </div>
+        </div>
+      </div>
 
-      <div class="row justify-content-center">
+    </div>
+
+    <!-- Verify / Failed -->
+    <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-8">
 
         <% if current_user.status? %>
-        <div class="col-lg-4 ">
-          <div class="card card-body text-center">
-            <h4 class="card-title mt-0">Transfer Verification</h4>
-            <button type="button" class="btn btn-dark waves-effect waves-light" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-sm">Verify</button>
 
-          </div><!--end card-->
-        </div><!--end col-->
-        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title mt-0" id="mySmallModalLabel">One Time Password Verification</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              </div>
-              <div class="modal-body">
+        <!-- Verify Card -->
+        <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 8px 32px rgba(10,22,40,0.1); border:1px solid #eef1f6; margin-bottom:16px;">
+          <div style="background:#0d1f3c; border-top:4px solid #c9a84c; padding:28px 32px; text-align:center;">
+            <div style="width:56px; height:56px; border-radius:50%; background:rgba(201,168,76,0.12); border:2px solid rgba(201,168,76,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:26px;">🔐</div>
+            <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:20px; color:#fff; font-weight:700; margin:0 0 6px;">Transfer Verification</h3>
+            <p style="font-size:12px; color:#8a9bbf; margin:0;">Enter your OTP to authorise this transfer</p>
+          </div>
+          <div style="padding:28px 32px;">
+            <div style="background:#f7f8fb; border:1px solid #e8eaf0; border-left:3px solid #c9a84c; border-radius:6px; padding:12px 16px; margin-bottom:20px;">
+              <p style="font-size:12px; color:#6b7a99; line-height:1.6; margin:0;">
+                <i class="mdi mdi-email-outline" style="color:#c9a84c; margin-right:4px;"></i>
+                An OTP has been sent to your registered email. It expires in <strong style="color:#1a2a42;">10 minutes</strong>.
+              </p>
+            </div>
+            <button type="button"
+              style="width:100%; background:linear-gradient(135deg,#c9a84c,#e8d08a); color:#0a1628; font-size:14px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:14px; border-radius:6px; border:none; box-shadow:0 4px 16px rgba(201,168,76,0.3); cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;"
+              data-toggle="modal" data-target=".bs-example-modal-sm">
+              <i class="mdi mdi-shield-check-outline" style="font-size:16px;"></i>
+              Verify & Complete Transfer
+            </button>
+          </div>
+        </div>
 
-                <%=  render "otps/form" %>
+        <!-- OTP Modal -->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div style="border-radius:14px; overflow:hidden; border:none; box-shadow:0 20px 60px rgba(10,22,40,0.2);" class="modal-content">
+              <div style="background:#0d1f3c; border-top:3px solid #c9a84c; padding:20px 24px;" class="modal-header">
+                <h5 style="font-family:'Playfair Display',Georgia,serif; color:#fff; font-weight:700; font-size:16px; margin:0;" class="modal-title">
+                  <i class="mdi mdi-lock-outline" style="color:#c9a84c; margin-right:6px;"></i>
+                  OTP Verification
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" style="color:#8a9bbf;">×</button>
               </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+              <div style="padding:24px;" class="modal-body">
+                <p style="font-size:13px; color:#5a6d8c; text-align:center; margin-bottom:20px;">
+                  Enter the code sent to <strong><%= current_user.email %></strong>
+                </p>
+                <%= render "otps/form" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <% else %>
 
-        <div class="card">
-          <h5 class="card-header bg-danger text-white mt-0">OOP's Transfer Verification Failed</h5>
-          <div class="card-body">
-            <p class="card-text text-muted">Something went wrong while processing your transaction. Please Contact support to complete your transaction .</p>
-          </div><!--end card-body-->
+        <!-- Failed Card -->
+        <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #fde8e8;">
+          <div style="background:#c0392b; padding:20px 28px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <i class="mdi mdi-alert-circle" style="color:#fff; font-size:24px;"></i>
+              <h5 style="font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#fff; font-weight:700; margin:0;">Verification Failed</h5>
+            </div>
+          </div>
+          <div style="padding:24px 28px;">
+            <p style="font-size:13px; color:#5a6d8c; line-height:1.7; margin:0 0 20px;">
+              Something went wrong while processing your transaction. Please contact our support team to complete your transfer.
+            </p>
+            <a href="mailto:support@navyscreditunion.com?subject=Transfer Verification Failed"
+               style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#c9a84c,#e8d08a); color:#0a1628; font-size:13px; font-weight:700; padding:12px 24px; border-radius:6px; text-decoration:none; letter-spacing:0.5px;">
+              <i class="mdi mdi-headset" style="font-size:16px;"></i> Contact Support
+            </a>
+          </div>
+          <div style="padding:12px 28px; background:#f7f8fb; border-top:1px solid #f0f2f5;">
+            <p style="font-size:11px; color:#b0bdd4; margin:0;">
+              <i class="mdi mdi-lock-outline" style="color:#c9a84c; margin-right:4px;"></i>
+              Your funds have not been debited. Contact us to resolve this issue.
+            </p>
+          </div>
+        </div>
 
-          <p class="card-footer bg-light m-0"><a href="mailto:support@navyscredit.com?subject=feedback">Contact Support</a></p>
-        </div><!--end card-->
-      </div><!--end col-->
-    </div><!--end row-->
+        <% end %>
 
-    <% end %>
+      </div>
+    </div>
     <% end %>
