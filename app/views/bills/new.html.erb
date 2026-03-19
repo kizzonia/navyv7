@@ -1,20 +1,54 @@
-
-<!-- Loog In page -->
 <div class="row justify-content-center">
-    <div class="col-10">
-        <div class="auth-page">
-            <div class="card auth-card shadow-lg">
-                <div class="card-body">
+  <div class="col-lg-7 col-md-9 col-12">
 
+    <!-- Header -->
+    <div style="background:#0d1f3c; border-top:4px solid #c9a84c; border-radius:14px 14px 0 0; padding:32px; text-align:center;">
+      <div style="width:64px; height:64px; border-radius:50%; background:rgba(201,168,76,0.12); border:2px solid rgba(201,168,76,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:28px;">📋</div>
+      <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:22px; color:#fff; font-weight:700; margin:0 0 6px;">Record Bill Payment</h3>
+      <p style="font-size:12px; color:#8a9bbf; margin:0;">Fill in the details to record and track this bill payment</p>
+    </div>
+    <div style="height:3px; background:linear-gradient(90deg,#c9a84c,#e8d08a,#c9a84c);"></div>
 
-                        <!--end auth-logo-box-->
-                        <div class="text-center auth-logo-text">
-                            <h4 class="mt-0 mb-3 mt-5">Hello</h4>
-                            <p class="text-muted mb-0">Register a bill payment</p>
-                        </div>
-                        <!--end auth-logo-text-->
-                        <div class="col-12">
+    <!-- Form Body -->
+    <div style="background:#fff; border-radius:0 0 14px 14px; padding:28px 32px; box-shadow:0 8px 32px rgba(10,22,40,0.1);">
 
+      <div style="background:#f7f8fb; border:1px solid #e8eaf0; border-left:3px solid #c9a84c; border-radius:6px; padding:12px 16px; margin-bottom:24px; font-size:12px; color:#6b7a99; line-height:1.6;">
+        <i class="mdi mdi-information-outline" style="color:#c9a84c; margin-right:4px;"></i>
+        All recorded bills will appear in your Bill Payment history for easy tracking.
+      </div>
 
-                          <%= render 'form', bill: @bill %>
-</div></div></div></div></div></div>  
+      <!-- Section Header -->
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid #e8eaf0;">
+        <div style="width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,#c9a84c,#e8d08a); display:flex; align-items:center; justify-content:center; font-size:14px;">📋</div>
+        <div>
+          <p style="font-family:'Playfair Display',serif; font-size:15px; color:#0a1628; font-weight:700; margin:0;">Bill Information</p>
+          <p style="font-size:11px; color:#8a9bbf; margin:0;">Enter the details for this bill</p>
+        </div>
+      </div>
+
+      <!-- Scoped styles -->
+      <style>
+        .bill-form .form-control, .bill-form .form-select {
+          border:1.5px solid #dde2ec !important; border-radius:6px !important;
+          font-size:13px !important; color:#1a2a42 !important;
+          padding:11px 14px !important; height:auto !important; box-shadow:none !important;
+        }
+        .bill-form .form-control:focus, .bill-form .form-select:focus {
+          border-color:#c9a84c !important;
+          box-shadow:0 0 0 3px rgba(201,168,76,0.12) !important;
+        }
+        .bill-form label {
+          font-size:11px !important; font-weight:700 !important;
+          color:#5a6d8c !important; letter-spacing:1.2px !important;
+          text-transform:uppercase !important; margin-bottom:6px !important;
+        }
+      </style>
+
+      <div class="bill-form">
+        <%= render 'form', bill: @bill %>
+      </div>
+
+    </div>
+
+  </div>
+</div>

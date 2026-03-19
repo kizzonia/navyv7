@@ -2,31 +2,30 @@
                 <div class="container-fluid">
 
                   <!-- Page-Title -->
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="card text-white card-dark">
-                        <div class="card-body">
-                          <blockquote class="card-bodyquote mb-0">
-                            <p> Complete your loan application effortlessly. Secure the funding you need to grow your business with NavyXSeal Federal Credit Union</p>
-                            <footer class="blockquote-footer text-white font-14">
-                              Hello  <%= current_user.first_name %>
-                            </footer>
-                          </blockquote>
-                        </div><!--end card-body-->
-                      </div><!--end card-->
-                      <br>
-                      <div class="page-title-box">
-                        <div class="float-right">
-                          <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><%= link_to "Money Market", loans_path %></li>
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">Loan Request</a></li>
-                          </ol>
-                        </div>
-                        <h4 class="page-title">Loans</h4>
+                  <div style="background:#0d1f3c; border-top:4px solid #c9a84c; border-radius:12px; padding:24px 32px; margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+                    <div style="display:flex; align-items:center; gap:16px;">
+                      <div style="width:52px; height:52px; min-width:52px; border-radius:50%; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); display:flex; align-items:center; justify-content:center; font-size:24px;">🏦</div>
+                      <div>
+                        <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:18px; color:#fff; font-weight:700; margin:0 0 4px;">Welcome to Navy's Credit Union!</h4>
+                        <p style="font-size:13px; color:#8a9bbf; margin:0; line-height:1.6; max-width:480px;">We're excited to support your business's financial journey. Our loan options are tailored to fit your unique needs — from startup funding to expansion capital.</p>
                       </div>
-                      <!--end page-title-box-->
                     </div>
-                    <!--end col-->
+                    <div style="text-align:right;">
+                      <p style="font-size:10px; color:#c9a84c; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin:0 0 2px;">Hello</p>
+                      <p style="font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#fff; font-weight:700; margin:0;"><%= current_user.first_name %></p>
+                    </div>
+                  </div>
+
+                  <!-- Breadcrumb -->
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+                    <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:20px; color:#0a1628; font-weight:700; margin:0;">
+                      <i class="mdi mdi-currency-usd" style="color:#c9a84c; margin-right:8px;"></i>Enterprise Loans
+                    </h4>
+                    <nav style="font-size:12px; color:#8a9bbf;">
+                      <%= link_to loans_path, style: "color:#c9a84c; text-decoration:none; font-weight:600;" do %>Money Market<% end %>
+                      <span style="margin:0 8px;">›</span>
+                      <span>Loan Request</span>
+                    </nav>
                   </div>
 
                   <div class="row">

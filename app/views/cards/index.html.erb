@@ -1,212 +1,189 @@
 <div class="container-fluid">
 
-    <!-- Page-Title -->
-    <div class="row">
-        <div class="col-sm-12">
-          <div class="card text-white card-dark">
-              <div class="card-body">
-                  <blockquote class="card-bodyquote mb-0">
-                      <p> Your Credit/Debit Cards </p>
-                      <footer class="blockquote-footer text-white font-14">
-                        Hello  <%= current_user.first_name %>
-                      </footer>
-                  </blockquote>
-              </div><!--end card-body-->
-          </div><!--end card-->
-          <br>
-            <div class="page-title-box">
-                <div class="float-right">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Account</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Cards</a></li>
-                    </ol>
-                </div>
-                <h4 class="page-title">Account</h4>
-            </div>
-            <!--end page-title-box-->
-        </div>
-        <!--end col-->
+  <!-- Welcome Banner -->
+  <div style="background:#0d1f3c; border-top:4px solid #c9a84c; border-radius:12px; padding:24px 32px; margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+    <div style="display:flex; align-items:center; gap:16px;">
+      <div style="width:52px; height:52px; min-width:52px; border-radius:50%; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); display:flex; align-items:center; justify-content:center; font-size:24px;">💳</div>
+      <div>
+        <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:18px; color:#fff; font-weight:700; margin:0 0 4px;">Your Credit / Debit Cards</h4>
+        <p style="font-size:13px; color:#8a9bbf; margin:0;">Manage, monitor and request new cards from your Navy's Credit Union account.</p>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="header-title mt-0">Current Cards</h4>
-                    <div class="">
-                        <div id="ana_dash_1" class="apex-charts"></div>
-                    </div>
-                </div>
-                <!--end card-body-->
-            </div>
-            <!--end card-->
+    <div style="text-align:right;">
+      <p style="font-size:10px; color:#c9a84c; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin:0 0 2px;">Hello</p>
+      <p style="font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#fff; font-weight:700; margin:0;"><%= current_user.first_name %></p>
+    </div>
+  </div>
 
-    </div>
-    </div>
-    <div class="row justify-content-center">
+  <!-- Breadcrumb -->
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+    <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:20px; color:#0a1628; font-weight:700; margin:0;">
+      <i class="mdi mdi-credit-card-outline" style="color:#c9a84c; margin-right:8px;"></i>Account Cards
+    </h4>
+    <nav style="font-size:12px; color:#8a9bbf;">
+      <a href="#" style="color:#c9a84c; text-decoration:none; font-weight:600;">Account</a>
+      <span style="margin:0 8px;">›</span>
+      <span>Cards</span>
+    </nav>
+  </div>
+
+  <!-- Stat Cards -->
+  <div class="row g-3 mb-4">
+
+    <!-- Card Details -->
+    <div class="col-lg-4 col-md-6">
       <% if Card.where(user_id: current_user.id).exists? %>
-
-      <% @cards.take(1).each do |a| %>
-
-
-    <!--end row-->
-        <div class="col-lg-4">
-            <div class="card report-card">
-                <div class="card-body">
-                  <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
-                  <span class="badge badge-success">Cards  details</span>
-                        <div class="row">
-                            <div class="col-8 align-self-center">
-                              <h5 class="">Card Number: <%= a.card_number %></h5>
-                              <p class="text-muted mb-0">Expiry Date: <%= a.date %>
-                                <i class="mdi mdi-menu-up text-success font-16"></i></p>
-
-                            </div>
-                            <!--end col-->
-                            <div class="col-4"> <%= link_to "view details", a %> </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    <!--end icon-contain-->
-                </div>
-                <!--end card-body-->
+        <% @cards.take(1).each do |a| %>
+        <div style="background:linear-gradient(135deg,#0a1628 0%,#1a3a6c 60%,#0d1f3c 100%); border-radius:14px; padding:22px 24px; position:relative; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.18);">
+          <div style="position:absolute; top:-40px; right:-40px; width:120px; height:120px; border-radius:50%; background:rgba(201,168,76,0.08);"></div>
+          <div style="display:flex; align-items:start; justify-content:space-between; margin-bottom:16px;">
+            <span style="background:rgba(201,168,76,0.15); color:#c9a84c; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid rgba(201,168,76,0.3);">✦ Active Card</span>
+            <i class="mdi mdi-credit-card-outline" style="font-size:22px; color:#c9a84c; opacity:0.6;"></i>
+          </div>
+          <div style="width:30px; height:22px; background:linear-gradient(135deg,#c9a84c,#e8d08a); border-radius:4px; margin-bottom:14px;"></div>
+          <p style="font-size:11px; font-weight:700; color:#5a6d8c; letter-spacing:1px; text-transform:uppercase; margin:0 0 4px;">Card Number</p>
+          <h4 style="font-family:monospace; font-size:16px; color:#fff; font-weight:700; margin:0 0 10px; letter-spacing:3px;"><%= a.card_number %></h4>
+          <div style="border-top:1px solid #1a2a42; padding-top:10px; display:flex; align-items:center; justify-content:space-between;">
+            <div>
+              <p style="font-size:10px; color:#5a6d8c; text-transform:uppercase; letter-spacing:1px; margin:0 0 2px;">Expires</p>
+              <p style="font-size:13px; color:#c9a84c; font-weight:700; margin:0;"><%= a.date %></p>
             </div>
-            <!--end card-->
+            <%= link_to a, style: "font-size:11px; color:#c9a84c; font-weight:700; text-decoration:none; background:rgba(201,168,76,0.1); padding:5px 12px; border-radius:20px; border:1px solid rgba(201,168,76,0.25);" do %>View Details →<% end %>
+          </div>
         </div>
-        <!--end col-->
         <% end %>
-        <% else %>
-        <div class="col-lg-4">
-            <div class="card report-card">
-                <div class="card-body">
-                  <div class="float-right"><i class="dripicons-user-group report-main-icon"></i></div>
-                  <span class="badge badge-success">Cards</span>
-                        <div class="row">
-                            <div class="col-6 align-self-center">
-                                <h5 class="">Cards </h5>
-
-                            </div>
-                            <!--end col-->
-                            <div class="col-6">  <h4>  no data
-.</h4></div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    <!--end icon-contain-->
-                </div>
-                <!--end card-body-->
-            </div>
-            <!--end card-->
+      <% else %>
+        <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #eef1f6; padding:24px; text-align:center;">
+          <i class="mdi mdi-credit-card-off-outline" style="font-size:36px; color:#dde2ec; display:block; margin-bottom:10px;"></i>
+          <p style="font-size:13px; color:#8a9bbf; font-weight:600; margin:0 0 4px;">No Cards Yet</p>
+          <p style="font-size:12px; color:#b0bdd4; margin:0;">Request your first card below</p>
         </div>
-        <!--end col-->
-        <% end %>
-        <% @accounts.take(1).each do |a| %>
+      <% end %>
+    </div>
 
-        <div class="col-lg-4">
-            <div class="card report-card">
-                <div class="card-body">
-                    <div class="float-right"><i class="dripicons-meter report-main-icon"></i></div>
-                    <span class="badge badge-warning">Overview</span>
-                        <div class="row">
-                            <div class="col-12 align-self-center">
-                                <h5 class="">Account Number: <%= a.account_number %></h5>
-                                <p class="text-muted mb-0">Routine Number: <%= a.routine_number %>
-                                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
-                            </div>
-                            <!--end col-->
-
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    <!--end icon-contain-->
-                </div>
-                <!--end card-body-->
-            </div>
-            <!--end card-->
-        </div>
-        <div class="col-lg-4">
-            <div class="card report-card">
-                <div class="card-body">
-                  <div class="float-right">
-                    <i class="dripicons-wallet report-main-icon"></i>
-                  </div><span class="badge badge-success">Balance</span>
-
-                        <div class="row">
-                            <div class="col-6 align-self-center">
-                                <h5 class="">Balance</h5>
-                                <p class="text-muted mb-0">Book Balance: $<%=a.lbalance %>
-                                  <i class="mdi mdi-menu-up text-success font-16"></i></p>
-                            </div>
-                            <!--end col-->
-                            <div class="col-6">
-                          <h4>    $ <%= a.balance %></h4>
-                            </div>
-                            <!--end col-->
-                        </div>
-                        <!--end row-->
-                    <!--end icon-contain-->
-                </div>
-                <!--end card-body-->
-            </div>
-            <!--end card-->
-        </div>
-
-
-        </div>
-        <!--end col-->
-    <!--end row-->
-    <% end %>
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body">
-            <%= link_to new_card_path, class: "btn btn-primary px-4 float-right mt-0 mb-3" do %>
-
-            <<i class="mdi mdi-plus-circle-outline mr-2"></i>Request A New Card? <% end %>
-            <h4
-            class="header-title mt-0"> Recent Cards</h4>
-            <div class="table-responsive dash-social">
-              <table id="datatable" class="table">
-                <thead class="thead-light">
-                  <tr>
-                    <th>Full Name</th>
-                    <th>Card Type</th>
-                    <th>Card Company</th>
-                    <th> Expiry Date</th>
-                    <th>Status</th>
-
-                  </tr>
-                  <!--end tr-->
-                </thead>
-                <tbody>
-                  <% if Card.where(user_id: current_user.id).exists? %>
-                  <% @cards.each do |t| %>
-                  <tr>
-                    <td><%= t.name %></td>
-                    <td><%= t.card_type %></td>
-                    <td><%= t.card_company %></td>
-
-                    <td><%= t.date  %></td>
-                    <td><% if t.status? %> <%= link_to t, class: "btn btn-success" do %> Active <br><<small>view card details </small> <% end %><% else %><%= link_to "#", class: "btn btn-danger" do %> processing <% end %> <% end %></td>
-
-                  </tr>
-                  <% end %>
-                  <% else %>
-                  <!--end tr-->
-                  <tr>
-                    <td>.</td>
-                    <td>No Data</td>
-                  </tr>
-                  <% end %>
-
-                </tbody>
-              </table>
+    <!-- Account Overview -->
+    <% @accounts.take(1).each do |a| %>
+    <div class="col-lg-4 col-md-6">
+      <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #eef1f6; position:relative; transition:transform 0.2s ease;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#3498db,#5dade2);"></div>
+        <div style="padding:22px 24px;">
+          <div class="d-flex align-items-start justify-content-between mb-3">
+            <span style="background:rgba(52,152,219,0.1); color:#2980b9; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid rgba(52,152,219,0.2);">✦ Overview</span>
+            <div style="width:40px; height:40px; border-radius:10px; background:rgba(52,152,219,0.08); border:1px solid rgba(52,152,219,0.15); display:flex; align-items:center; justify-content:center;">
+              <i class="mdi mdi-card-account-details-outline" style="font-size:20px; color:#3498db;"></i>
             </div>
           </div>
-          <!--end card-body-->
+          <p style="font-size:11px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 4px;">Account Number</p>
+          <h4 style="font-size:17px; color:#0a1628; font-weight:700; margin:0 0 12px; font-family:monospace;"><%= a.account_number %></h4>
+          <div style="background:#f7f8fb; border:1px solid #e8eaf0; border-radius:6px; padding:8px 12px;">
+            <p style="font-size:10px; font-weight:700; color:#8a9bbf; text-transform:uppercase; letter-spacing:1px; margin:0 0 2px;">Routing Number</p>
+            <p style="font-size:13px; font-weight:700; color:#3498db; font-family:monospace; margin:0;"><%= a.routine_number %></p>
+          </div>
         </div>
-        <!--end card-->
       </div>
-      <!--end col-->
     </div>
 
+    <!-- Balance -->
+    <div class="col-lg-4 col-md-6">
+      <div style="background:#0d1f3c; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.18); border:1px solid #152238; position:relative; transition:transform 0.2s ease;">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#c9a84c,#e8d08a);"></div>
+        <div style="padding:22px 24px;">
+          <div class="d-flex align-items-start justify-content-between mb-3">
+            <span style="background:rgba(201,168,76,0.15); color:#c9a84c; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; border:1px solid rgba(201,168,76,0.3);">✦ Balance</span>
+            <div style="width:40px; height:40px; border-radius:10px; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); display:flex; align-items:center; justify-content:center;">
+              <i class="mdi mdi-wallet-outline" style="font-size:20px; color:#c9a84c;"></i>
+            </div>
+          </div>
+          <p style="font-size:11px; font-weight:700; color:#5a6d8c; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 4px;">Available Balance</p>
+          <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:30px; color:#fff; font-weight:700; margin:0 0 12px;">$<%= number_with_delimiter(a.balance) %></h3>
+          <div style="border-top:1px solid #1a2a42; padding-top:10px; display:flex; align-items:center; justify-content:space-between;">
+            <div>
+              <p style="font-size:10px; color:#5a6d8c; text-transform:uppercase; letter-spacing:1px; font-weight:600; margin:0 0 2px;">Book Balance</p>
+              <p style="font-size:14px; color:#c9a84c; font-weight:700; margin:0;">$<%= number_with_delimiter(a.lbalance) %></p>
+            </div>
+            <span style="background:rgba(46,204,113,0.12); color:#2ecc71; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid rgba(46,204,113,0.2);"><i class="mdi mdi-trending-up"></i> Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+
+  <!-- Cards Table -->
+  <div style="background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(10,22,40,0.08); border:1px solid #eef1f6;">
+
+    <div style="padding:20px 24px; border-bottom:2px solid #f0f2f5; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#c9a84c,#e8d08a); display:flex; align-items:center; justify-content:center;">
+          <i class="mdi mdi-credit-card-multiple-outline" style="font-size:18px; color:#0a1628;"></i>
+        </div>
+        <div>
+          <h5 style="font-family:'Playfair Display',Georgia,serif; font-size:17px; color:#0a1628; font-weight:700; margin:0;">Recent Cards</h5>
+          <p style="font-size:11px; color:#8a9bbf; margin:0;">All your card applications and status</p>
+        </div>
+      </div>
+      <%= link_to new_card_path, style: "display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:#c9a84c; text-decoration:none; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25); padding:8px 16px; border-radius:6px;" do %>
+        <i class="mdi mdi-plus-circle-outline" style="font-size:14px;"></i> Request A New Card
+      <% end %>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="table mb-0" id="datatable" style="font-size:13px;">
+        <thead>
+          <tr style="background:#f7f8fb;">
+            <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Card Holder</th>
+            <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Card Type</th>
+            <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Card Company</th>
+            <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Expiry Date</th>
+            <th style="font-size:10px; font-weight:700; color:#8a9bbf; letter-spacing:1.5px; text-transform:uppercase; padding:12px 20px; border:none;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if Card.where(user_id: current_user.id).exists? %>
+            <% @cards.each do |t| %>
+            <tr style="border-bottom:1px solid #f0f2f5;">
+              <td style="padding:14px 20px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <div style="width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#0a1628,#1a3a6c); display:flex; align-items:center; justify-content:center;">
+                    <i class="mdi mdi-credit-card-outline" style="color:#c9a84c; font-size:16px;"></i>
+                  </div>
+                  <span style="font-size:13px; color:#1a2a42; font-weight:600;"><%= t.name %></span>
+                </div>
+              </td>
+              <td style="padding:14px 20px;"><span style="font-size:13px; color:#5a6d8c;"><%= t.card_type %></span></td>
+              <td style="padding:14px 20px;"><span style="font-size:13px; color:#5a6d8c;"><%= t.card_company %></span></td>
+              <td style="padding:14px 20px;"><span style="font-size:12px; color:#8a9bbf; font-family:monospace;"><%= t.date %></span></td>
+              <td style="padding:14px 20px;">
+                <% if t.status? %>
+                  <%= link_to t, style: "background:#eafaf1; color:#1e8449; font-size:11px; font-weight:700; padding:5px 12px; border-radius:20px; border:1px solid rgba(46,204,113,0.25); text-decoration:none; display:inline-flex; align-items:center; gap:4px;" do %>
+                    <i class="mdi mdi-check-circle-outline" style="font-size:12px;"></i> Active
+                  <% end %>
+                <% else %>
+                  <span style="background:#fef9ec; color:#d68910; font-size:11px; font-weight:700; padding:5px 12px; border-radius:20px; border:1px solid rgba(230,176,15,0.25); display:inline-flex; align-items:center; gap:4px;">
+                    <i class="mdi mdi-clock-outline" style="font-size:12px;"></i> Processing
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td colspan="5" style="padding:48px 20px; text-align:center;">
+                <i class="mdi mdi-credit-card-off-outline" style="font-size:40px; color:#dde2ec; display:block; margin-bottom:12px;"></i>
+                <p style="font-size:14px; color:#8a9bbf; margin:0; font-weight:600;">No cards yet</p>
+                <p style="font-size:12px; color:#b0bdd4; margin:4px 0 0;">Request your first card to get started</p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="padding:14px 24px; border-top:1px solid #f0f2f5; display:flex; align-items:center; justify-content:space-between; background:#f7f8fb;">
+      <p style="font-size:12px; color:#8a9bbf; margin:0;"><i class="mdi mdi-shield-check-outline" style="color:#c9a84c; margin-right:4px;"></i> All cards are protected by Navy's Credit Union fraud protection</p>
+      <p style="font-size:11px; color:#8a9bbf; margin:0; letter-spacing:1px; text-transform:uppercase; font-weight:600;">Navy's Credit Union</p>
+    </div>
+
+  </div>
 </div>

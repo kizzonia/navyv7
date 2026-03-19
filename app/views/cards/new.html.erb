@@ -1,46 +1,88 @@
-
-<div class="row">
-    <div class="col-sm-12">
-      <div class="card text-white card-dark">
-          <div class="card-body">
-              <blockquote class="card-bodyquote mb-0">
-                  <p>Welcome to your Virtual Card Management Dashboard! Your one-stop destination for managing and controlling your virtual cards with ease and security. Explore, create, and monitor your virtual cards effortlessly. Let's simplify your financial transactions together!</p>
-                  <footer class="blockquote-footer text-white font-14">
-                    Hello  <%= current_user.first_name %>
-                  </footer>
-              </blockquote>
-          </div><!--end card-body-->
-      </div><!--end card-->
-      <br>
-        <div class="page-title-box">
-            <div class="float-right">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><%= link_to "Cards", cards_path %></li>
-                    <li class="breadcrumb-item"><a href="javascript:void(0);">Card Management</a></li>
-                </ol>
-            </div>
-            <h4 class="page-title">Cards</h4>
-        </div>
-        <!--end page-title-box-->
+<!-- Welcome Banner -->
+<div style="background:#0d1f3c; border-top:4px solid #c9a84c; border-radius:12px; padding:24px 32px; margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+  <div style="display:flex; align-items:center; gap:16px;">
+    <div style="width:52px; height:52px; min-width:52px; border-radius:50%; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); display:flex; align-items:center; justify-content:center; font-size:24px;">💳</div>
+    <div>
+      <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:18px; color:#fff; font-weight:700; margin:0 0 4px;">Virtual Card Management</h4>
+      <p style="font-size:13px; color:#8a9bbf; margin:0; line-height:1.6; max-width:480px;">Your one-stop destination for managing and controlling your virtual cards with ease and security. Explore, create, and monitor your cards effortlessly.</p>
     </div>
-    <!--end col-->
+  </div>
+  <div style="text-align:right;">
+    <p style="font-size:10px; color:#c9a84c; letter-spacing:2px; text-transform:uppercase; font-weight:700; margin:0 0 2px;">Hello</p>
+    <p style="font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#fff; font-weight:700; margin:0;"><%= current_user.first_name %></p>
+  </div>
 </div>
-<!-- Loog In page -->
-<div class="row justify-content-center">
-    <div class="col-10">
-        <div class="auth-page">
-            <div class="card auth-card shadow-lg">
-                <div class="card-body">
 
+<!-- Breadcrumb -->
+<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+  <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:20px; color:#0a1628; font-weight:700; margin:0;">
+    <i class="mdi mdi-credit-card-outline" style="color:#c9a84c; margin-right:8px;"></i>Cards
+  </h4>
+  <nav style="font-size:12px; color:#8a9bbf;">
+    <%= link_to cards_path, style: "color:#c9a84c; text-decoration:none; font-weight:600;" do %>Cards<% end %>
+    <span style="margin:0 8px;">›</span>
+    <span>Card Management</span>
+  </nav>
+</div>
 
-                        <!--end auth-logo-box-->
-                        <div class="text-center auth-logo-text">
-                            <h4 class="mt-0 mb-3 mt-5">Hello</h4>
-                            <p class="text-muted mb-0">Request Your Credit/Debit Cards </p>
-                        </div>
-                        <!--end auth-logo-text-->
-                        <div class="col-12">
+<!-- Card Visual + Form -->
+<div class="row g-4 justify-content-center">
 
+  <!-- Left: Virtual Card Preview -->
+  <div class="col-lg-4 col-md-5 d-flex flex-column gap-3">
 
-                          <%= render 'form', card: @card %>
-</div></div></div></div></div></div>
+    <!-- Virtual Card -->
+    <div style="background:linear-gradient(135deg,#0a1628 0%,#1a3a6c 60%,#0d1f3c 100%); border-radius:16px; padding:28px 32px; position:relative; overflow:hidden; box-shadow:0 12px 40px rgba(10,22,40,0.35);">
+      <div style="position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:rgba(201,168,76,0.08);"></div>
+      <div style="position:absolute; bottom:-40px; left:-40px; width:160px; height:160px; border-radius:50%; background:rgba(201,168,76,0.05);"></div>
+      <div style="width:40px; height:30px; background:linear-gradient(135deg,#c9a84c,#e8d08a); border-radius:6px; margin-bottom:24px;"></div>
+      <div style="font-family:monospace; font-size:18px; color:#fff; letter-spacing:4px; margin-bottom:20px;">•••• &nbsp;•••• &nbsp;•••• &nbsp;****</div>
+      <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+        <div>
+          <div style="font-size:9px; color:rgba(255,255,255,0.5); letter-spacing:2px; text-transform:uppercase; margin-bottom:3px;">Card Holder</div>
+          <div style="font-size:13px; color:#fff; font-weight:600;"><%= current_user.first_name %> <%= current_user.last_name %></div>
+        </div>
+        <div>
+          <div style="font-size:9px; color:rgba(255,255,255,0.5); letter-spacing:2px; text-transform:uppercase; margin-bottom:3px;">Expires</div>
+          <div style="font-size:13px; color:#fff; font-weight:600;">••/••</div>
+        </div>
+        <div style="font-family:'Playfair Display',serif; font-size:14px; color:#c9a84c; font-weight:700; line-height:1.3;">Navy's<br>Credit</div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div style="background:#fff; border-radius:12px; padding:20px 24px; box-shadow:0 4px 20px rgba(10,22,40,0.07); border:1px solid #eef1f6;">
+      <p style="font-size:11px; font-weight:700; color:#c9a84c; letter-spacing:2px; text-transform:uppercase; margin:0 0 14px;">✦ Card Benefits</p>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li style="display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #f0f2f5; font-size:13px; color:#3a4a6a;"><i class="mdi mdi-shield-check-outline" style="color:#c9a84c; font-size:16px;"></i> Zero fraud liability protection</li>
+        <li style="display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #f0f2f5; font-size:13px; color:#3a4a6a;"><i class="mdi mdi-lightning-bolt-outline" style="color:#c9a84c; font-size:16px;"></i> Instant virtual card issuance</li>
+        <li style="display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #f0f2f5; font-size:13px; color:#3a4a6a;"><i class="mdi mdi-earth" style="color:#c9a84c; font-size:16px;"></i> Accepted worldwide</li>
+        <li style="display:flex; align-items:center; gap:10px; padding:8px 0; font-size:13px; color:#3a4a6a;"><i class="mdi mdi-bell-outline" style="color:#c9a84c; font-size:16px;"></i> Real-time transaction alerts</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Right: Request Form -->
+  <div class="col-lg-6 col-md-7">
+    <div style="background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 8px 32px rgba(10,22,40,0.1); border:1px solid #eef1f6;">
+
+      <div style="background:#0d1f3c; border-top:4px solid #c9a84c; padding:24px 32px; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:rgba(201,168,76,0.12); border:2px solid rgba(201,168,76,0.3); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:26px;">💳</div>
+        <h4 style="font-family:'Playfair Display',Georgia,serif; font-size:20px; color:#fff; font-weight:700; margin:0 0 6px;">Request Your Card</h4>
+        <p style="font-size:12px; color:#8a9bbf; margin:0;">Fill in the form below to request your Credit or Debit Card</p>
+      </div>
+      <div style="height:3px; background:linear-gradient(90deg,#c9a84c,#e8d08a,#c9a84c);"></div>
+
+      <div style="padding:28px 32px;">
+        <div style="background:#f7f8fb; border:1px solid #e8eaf0; border-left:3px solid #c9a84c; border-radius:6px; padding:12px 16px; margin-bottom:24px; font-size:12px; color:#6b7a99; line-height:1.6;">
+          <i class="mdi mdi-information-outline" style="color:#c9a84c; margin-right:4px;"></i>
+          Your card will be issued within <strong style="color:#1a2a42;">2–3 business days</strong>. You will receive a confirmation email once your card is ready.
+        </div>
+        <%= render 'form', card: @card %>
+      </div>
+
+    </div>
+  </div>
+
+</div>

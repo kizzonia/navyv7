@@ -1,17 +1,44 @@
-
 <%= simple_form_for(@bill) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :service %>
-    <%= f.input :amount %>
-    <%= f.input :date, as: :datetime %>
-
+  <div class="row g-3">
+    <div class="col-md-6">
+      <%= f.input :name, label: "Bill Name",
+          placeholder: "e.g. Electricity Bill",
+          input_html: { class: "form-control" },
+          wrapper_html: { class: "form-group" } %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :service, label: "Service / Category",
+          placeholder: "e.g. Utilities, Telecom",
+          input_html: { class: "form-control" },
+          wrapper_html: { class: "form-group" } %>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Amount <span style="color:#c9a84c;">*</span></label>
+        <div style="position:relative;">
+          <span style="position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:14px; font-weight:700; color:#c9a84c; pointer-events:none; z-index:1;">$</span>
+          <%= f.input :amount, label: false,
+              input_html: { class: "form-control", placeholder: "0.00", style: "padding-left:28px !important;" },
+              wrapper_html: { style: "margin:0;" } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :date, label: "Due Date",
+          input_html: { class: "form-control" },
+          wrapper_html: { class: "form-group" } %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div style="padding-top:20px; border-top:2px solid #e8eaf0; margin-top:8px;">
+    <%= f.button :submit, class: "btn btn-warning btn-block font-weight-bold",
+        style: "padding:15px; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; border-radius:8px; box-shadow:0 4px 16px rgba(201,168,76,0.35); display:flex; align-items:center; justify-content:center; gap:8px; color:#0a1628; width:100%;" do %>
+      <i class="mdi mdi-check-circle-outline" style="font-size:18px;"></i>
+      Record Bill Payment
+    <% end %>
   </div>
+
 <% end %>
