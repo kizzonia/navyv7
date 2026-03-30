@@ -45,6 +45,8 @@ gem "fog-aws"
 gem 'arctic_admin'
 gem 'kaminari'
 gem 'quill-editor-rails'
+gem "kamal"
+
 #gem 'mini_racer', platforms: :ruby
 gem 'devise'
 gem 'activeadmin_quill_editor'
@@ -95,3 +97,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
