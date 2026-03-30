@@ -29,7 +29,7 @@ layout "accounts"
         user = User.find_by_id(@transfer.user_id)
         transfer = @transfer
         TransferMailer.transfer_email(user, transfer).deliver
-        redirect_to  @transfer, notice: "Your OTP has been sent to your email"
+        redirect_to  @transfer, notice: "An email has been sent to you with the details of this transfer. Please check your inbox  To Verify Transfer."
       else
         render 'new'
       end
