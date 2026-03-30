@@ -1,4 +1,5 @@
 ActiveAdmin.register Board do
+    menu label: "Boards", parent: "Pages", priority: 2
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

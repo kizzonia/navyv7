@@ -1,5 +1,6 @@
 
 ActiveAdmin.register Transfer do
+    menu label: "Transfers", parent: "Transactions", priority: 2
 
 
   permit_params :account_name, :transfer_type, :account_number, :routine_number, :swift_code, :tref, :user_id, :bank_name, :amount, :status, :account_id, :slug, :notes, :country, :otp, :pin
