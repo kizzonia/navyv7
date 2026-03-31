@@ -58,15 +58,17 @@ Rails.application.configure do
   config.active_record.attributes_for_inspect = [ :id ]
   config.action_mailer.default_url_options = { host: 'https://www.navyscreditunion.com' }
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address   => 'smtp.resend.com',
-    :port      => 465,
-    :user_name => 'resend',
-    :password  => ENV['RESEND_API_KEY'],
-    :tls => true
-  }
+config.action_mailer.smtp_settings = {
+  address:   'smtp.resend.com',
+  port:      465,
+  user_name: 'resend',
+  password:  ENV['RESEND_API_KEY'],
+  tls:       true,
+  open_timeout: 5,    # ← add this
+  read_timeout: 5     # ← add this
+}
 
 end
