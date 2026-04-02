@@ -67,8 +67,8 @@ config.action_mailer.smtp_settings = {
   user_name: 'resend',
   password:  ENV['RESEND_API_KEY'],
   tls:       true,
-  open_timeout: 5,    # ← add this
-  read_timeout: 5     # ← add this
+  open_timeout: 30,    # ← add this
+  read_timeout: 30     # ← add this
 }
 
 end

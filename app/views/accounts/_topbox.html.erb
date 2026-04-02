@@ -19,9 +19,9 @@
           <%= Account.where(user_id: current_user.id).count %> active account(s)
         </p>
         <div style="border-top:1px solid #f0f2f5; padding-top:16px;">
-          <%= link_to edit_account_path(a), style: "font-size:12px; font-weight:700; color:#c9a84c; text-decoration:none; display:flex; align-items:center; gap:6px;" do %>
+          <%= link_to account_path(a), style: "font-size:12px; font-weight:700; color:#c9a84c; text-decoration:none; display:flex; align-items:center; gap:6px;" do %>
             <i class="mdi mdi-pencil-outline" style="font-size:14px;"></i>
-            Edit Account Information
+            View Account Information
           <% end %>
         </div>
       </div>
