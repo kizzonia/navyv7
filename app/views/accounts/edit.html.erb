@@ -1,19 +1,465 @@
-<!-- Loog In page -->
-<div class="row justify-content-center">
-    <div class="col-10">
-        <div class="auth-page">
-            <div class="card auth-card shadow-lg">
-                <div class="card-body">
+    <!-- Loog In page -->
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12">
+    
+
+                            <!--end auth-logo-box-->
+                            <div class="text-center auth-logo-text">
+                                <h4 class="mt-0 mb-3 mt-5">Hello</h4>
+                                <p class="text-muted mb-0">Edit Account Information</p>
+                            </div>
+                            <!--end auth-logo-text-->
+                            <div class="col-12">
 
 
-                        <!--end auth-logo-box-->
-                        <div class="text-center auth-logo-text">
-                            <h4 class="mt-0 mb-3 mt-5">Hello</h4>
-                            <p class="text-muted mb-0">Edit Account Information</p>
-                        </div>
-                        <!--end auth-logo-text-->
-                        <div class="col-12">
+    <%= render 'form', account: @account %>
+    </div>
+    </div>
+    </div>
+    </div>
+  
 
+  <style media="screen">
+  /* ============================================
+     Navy's Credit Union — Account Opening Form
+     SCOPED under .ncu-form-wrap
+     Safe to use alongside Bootstrap
+     Drop into: app/assets/stylesheets/account_form.css
+     ============================================ */
 
-<%= render 'form', account: @account %>
-</div></div></div></div></div></div>
+  /* Google Fonts — add to your layout <head> if not already:
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  */
+
+  .ncu-form-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    animation: ncuFadeUp 0.5s ease both;
+  }
+
+  @keyframes ncuFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Form Header ── */
+  .ncu-form-wrap .ncu-form-header {
+    background: #0d1f3c;
+    border-top: 4px solid #c9a84c;
+    border-radius: 12px 12px 0 0;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .ncu-form-wrap .ncu-form-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    color: #fff;
+    margin: 0 0 4px;
+    font-weight: 700;
+  }
+
+  .ncu-form-wrap .ncu-form-header p {
+    font-size: 12px;
+    color: #8a9bbf;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .ncu-form-wrap .ncu-form-header-badge {
+    background: rgba(201, 168, 76, 0.15);
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  .ncu-form-wrap .ncu-form-header-badge span:first-child {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 2px;
+  }
+
+  .ncu-form-wrap .ncu-form-header-badge span:last-child {
+    font-size: 9px;
+    color: #c9a84c;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* ── Gold Bar ── */
+  .ncu-form-wrap .ncu-gold-bar {
+    height: 3px;
+    background: linear-gradient(90deg, #c9a84c, #e8d08a, #c9a84c);
+  }
+
+  /* ── Form Body ── */
+  .ncu-form-wrap .ncu-form-body {
+    background: #fff;
+    padding: 40px 40px 0;
+  }
+
+  /* ── Section Headers ── */
+  .ncu-form-wrap .ncu-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #e8eaf0;
+  }
+
+  .ncu-form-wrap .ncu-section-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #c9a84c, #e8d08a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .ncu-form-wrap .ncu-section-header h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    color: #0a1628;
+    margin: 0 0 2px;
+    font-weight: 700;
+  }
+
+  .ncu-form-wrap .ncu-section-header p {
+    font-size: 12px;
+    color: #8a9bbf;
+    margin: 0;
+  }
+
+  /* ── Form Section ── */
+  .ncu-form-wrap .ncu-form-section {
+    margin-bottom: 36px;
+  }
+
+  /* ── Field Groups ── */
+  .ncu-form-wrap .ncu-field-group {
+    margin-bottom: 20px;
+  }
+
+  .ncu-form-wrap .ncu-field-group > label,
+  .ncu-form-wrap .ncu-field-group .label-text {
+    display: block;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #5a6d8c !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 8px !important;
+  }
+
+  .ncu-form-wrap .ncu-field-group label .req {
+    color: #c9a84c;
+    margin-left: 2px;
+  }
+
+  /* Override Bootstrap form-control inside this scope */
+  .ncu-form-wrap .ncu-input,
+  .ncu-form-wrap .ncu-field-group input.form-control,
+  .ncu-form-wrap .ncu-field-group select.form-control,
+  .ncu-form-wrap .ncu-select {
+    width: 100% !important;
+    padding: 13px 16px !important;
+    border: 1.5px solid #dde2ec !important;
+    border-radius: 6px !important;
+    font-family: 'Source Sans 3', Helvetica, sans-serif !important;
+    font-size: 14px !important;
+    color: #1a2a42 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    outline: none !important;
+    height: auto !important;
+  }
+
+  .ncu-form-wrap .ncu-input::placeholder,
+  .ncu-form-wrap .ncu-field-group input.form-control::placeholder {
+    color: #b0bdd4 !important;
+  }
+
+  .ncu-form-wrap .ncu-input:focus,
+  .ncu-form-wrap .ncu-field-group input.form-control:focus,
+  .ncu-form-wrap .ncu-field-group select.form-control:focus,
+  .ncu-form-wrap .ncu-select:focus {
+    border-color: #c9a84c !important;
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12) !important;
+  }
+
+  /* ── Account Type Cards ── */
+  .ncu-form-wrap .ncu-account-type-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .ncu-form-wrap .ncu-account-type-card {
+    border: 2px solid #dde2ec;
+    border-radius: 8px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .ncu-form-wrap .ncu-account-type-card:hover,
+  .ncu-form-wrap .ncu-account-type-card.active {
+    border-color: #c9a84c;
+    background: rgba(201, 168, 76, 0.05);
+  }
+
+  .ncu-form-wrap .ncu-account-type-card span:first-child {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .ncu-form-wrap .ncu-account-type-card span:last-child {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a2a42;
+    letter-spacing: 0.5px;
+  }
+
+  .ncu-form-wrap .ncu-account-type-card.active span:last-child {
+    color: #b8892a;
+  }
+
+  /* ── File Upload ── */
+  .ncu-form-wrap .ncu-file-upload,
+  .ncu-form-wrap .ncu-file-input-wrap {
+    border: 2px dashed #dde2ec;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #f7f8fb;
+  }
+
+  .ncu-form-wrap .ncu-file-upload:hover {
+    border-color: #c9a84c;
+    background: rgba(201, 168, 76, 0.04);
+  }
+
+  .ncu-form-wrap .ncu-file-upload span:first-child {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .ncu-form-wrap .ncu-file-upload span:last-child {
+    font-size: 12px;
+    color: #8a9bbf;
+    font-weight: 600;
+  }
+
+  /* Style the actual file input */
+  .ncu-form-wrap input[type="file"].form-control,
+  .ncu-form-wrap input[type="file"].ncu-input {
+    padding: 10px 12px !important;
+    background: #f7f8fb !important;
+    cursor: pointer !important;
+  }
+
+  /* ── PIN Field ── */
+  .ncu-form-wrap .ncu-pin-wrap {
+    position: relative;
+  }
+
+  .ncu-form-wrap .ncu-pin-wrap input {
+    letter-spacing: 4px;
+    font-size: 18px !important;
+    padding-right: 44px !important;
+  }
+
+  .ncu-form-wrap .ncu-pin-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #8a9bbf;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    line-height: 1;
+  }
+
+  /* ── Security Notice ── */
+  .ncu-form-wrap .ncu-security-notice {
+    background: #fff8ec;
+    border: 1px solid #f0d98a;
+    border-left: 3px solid #c9a84c;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    color: #7a6020;
+    line-height: 1.6;
+  }
+
+  /* ── Form Footer ── */
+  .ncu-form-wrap .ncu-form-footer {
+    background: #fff;
+    padding: 0 40px 40px;
+  }
+
+  .ncu-form-wrap .ncu-submit-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 2px solid #e8eaf0;
+  }
+
+  .ncu-form-wrap .ncu-btn-submit {
+    flex: 1;
+    display: inline-block;
+    background: linear-gradient(135deg, #c9a84c, #e8d08a) !important;
+    color: #0a1628 !important;
+    font-family: 'Source Sans 3', Helvetica, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    padding: 16px 24px !important;
+    border-radius: 6px !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35) !important;
+    transition: all 0.25s ease !important;
+  }
+
+  .ncu-form-wrap .ncu-btn-submit:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(201, 168, 76, 0.45) !important;
+    color: #0a1628 !important;
+  }
+
+  .ncu-form-wrap .ncu-submit-secure {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #8a9bbf;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    min-width: 110px;
+    white-space: nowrap;
+  }
+
+  /* ── Card Footer Strip ── */
+  .ncu-form-wrap .ncu-card-foot {
+    background: #0a1628;
+    border-radius: 0 0 12px 12px;
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .ncu-form-wrap .ncu-card-foot > span {
+    font-size: 10px;
+    color: #3a4f6a;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .ncu-form-wrap .ncu-foot-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .ncu-form-wrap .ncu-foot-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c9a84c;
+    opacity: 0.3;
+    display: block;
+  }
+
+  .ncu-form-wrap .ncu-foot-dots span:first-child {
+    opacity: 1;
+  }
+
+  /* ── simple_form error styles ── */
+  .ncu-form-wrap .error {
+    font-size: 11px !important;
+    color: #c0392b !important;
+    margin-top: 4px !important;
+    display: block !important;
+  }
+
+  .ncu-form-wrap .field_with_errors input,
+  .ncu-form-wrap .field_with_errors select {
+    border-color: #e74c3c !important;
+  }
+
+  .ncu-form-wrap #error_explanation,
+  .ncu-form-wrap .alert-error {
+    background: #fdf0ef;
+    border: 1px solid #e74c3c;
+    border-left: 3px solid #e74c3c;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #a93226;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .ncu-form-wrap .ncu-form-header,
+    .ncu-form-wrap .ncu-form-body,
+    .ncu-form-wrap .ncu-form-footer,
+    .ncu-form-wrap .ncu-card-foot {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .ncu-form-wrap .ncu-account-type-wrap {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ncu-form-wrap .ncu-form-header {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .ncu-form-wrap .ncu-submit-area {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .ncu-form-wrap .ncu-submit-secure {
+      justify-content: center;
+      min-width: unset;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ncu-form-wrap .ncu-account-type-wrap {
+      grid-template-columns: 1fr;
+    }
+  }
+
+</style>
