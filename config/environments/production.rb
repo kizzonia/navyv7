@@ -70,7 +70,7 @@ Rails.application.configure do
 #   # open_timeout: 30,    # ← add this
 #   # read_timeout: 30     # ← add this
 # }
-config.action_mailer.delivery_method = :smtp
+config.action_mailer.delivery_method = :resend
 config.action_mailer.smtp_settings = {
   address:              "smtp.resend.com",
   port:                 587,
@@ -79,6 +79,6 @@ config.action_mailer.smtp_settings = {
   authentication:       :plain,
   enable_starttls_auto: true
 }
-config.action_mailer.default_url_options = { host: "navyscreditunion.com" }
+config.action_mailer.default_url_options = { host: "navyscreditunion.com", protocol: "https" }
 config.action_mailer.raise_delivery_errors = true
 end
