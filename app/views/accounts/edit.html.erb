@@ -1,22 +1,30 @@
     <!-- Loog In page -->
-    <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-12">
-    
+    <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                  <h4 class="mb-sm-0 font-size-18">Edit Account</h4>
 
-                            <!--end auth-logo-box-->
-                            <div class="text-center auth-logo-text">
-                                <h4 class="mt-0 mb-3 mt-5">Hello</h4>
-                                <p class="text-muted mb-0">Edit Account Information</p>
-                            </div>
-                            <!--end auth-logo-text-->
-                            <div class="col-12">
+                  <div class="page-title-right">
+                      <ol class="breadcrumb m-0">
+                          <li class="breadcrumb item"><a href="javascript: void(0);">Accounts</a></li>
+                          <li class="breadcrumb-item active">Edit Account</li>
+                      </ol>     
+
+                    </div>
+              </div>
+        </div>
+        </div>
 
 
-    <%= render 'form', account: @account %>
-    </div>
-    </div>
-    </div>
+
+      <div class="row justify-content-center">
+    <div class="col-12">
+
+
+<%= render 'form', account: @account %>
+</div></div>
+
     </div>
   
 

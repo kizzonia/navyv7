@@ -3425,3 +3425,1575 @@ Migrating to CreateChaselogins (20251027012535)
   [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(4892508274123690395)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4892508274123690395)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (8.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddFieldsToChaselogins (20251027131617)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.9ms)[0m  [1m[35mALTER TABLE "chaselogins" ADD "phone" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "chaselogins" ADD "address" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "chaselogins" ADD "ssn" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (39.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251027131617') RETURNING "version"[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4892508274123690395)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2026-04-03 05:34:36 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcomes/index.html.erb within layouts/application
+  [1m[36mBanner Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "banners" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_banner.html.erb:1
+  Rendered shared/_banner.html.erb (Duration: 100.0ms | GC: 0.0ms)
+  [1m[36mAbout Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "abouts" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_abouts2.html.erb:2
+  Rendered shared/_abouts2.html.erb (Duration: 11.9ms | GC: 0.0ms)
+  [1m[36mHeader Load (2.3ms)[0m  [1m[34mSELECT "headers".* FROM "headers"[0m
+  ↳ app/views/shared/_abtcta.html.erb:21
+  Rendered shared/_abtcta.html.erb (Duration: 5.1ms | GC: 0.0ms)
+  [1m[36mPlan Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "plans" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_plans2.html.erb:1
+  Rendered shared/_plans2.html.erb (Duration: 9.2ms | GC: 0.0ms)
+  [1m[36mHeader Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "headers" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_services.html.erb:7
+  [1m[36mService Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "services" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_services.html.erb:40
+  [1m[36mWelcome Load (4.7ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_services.html.erb:158
+  Rendered shared/_services.html.erb (Duration: 77.9ms | GC: 0.0ms)
+  [1m[36mCACHE Header Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "headers" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_features.html.erb:7
+  [1m[36mCACHE Header Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "headers" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_features.html.erb:42
+  [1m[36mFeature Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "features" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_features.html.erb:67
+  Rendered shared/_features.html.erb (Duration: 13.9ms | GC: 0.0ms)
+  Rendered shared/_reviews.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  [1m[36mPackage Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "packages" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_loanbody.html.erb:24
+  Rendered shared/_loancta.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered shared/_loanbody.html.erb (Duration: 11.5ms | GC: 0.0ms)
+  [1m[36mBoard Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_board.html.erb:1
+  Rendered shared/_board.html.erb (Duration: 11.1ms | GC: 0.0ms)
+  Rendered shared/_body.html.erb (Duration: 258.6ms | GC: 0.0ms)
+  Rendered welcomes/index.html.erb within layouts/application (Duration: 261.4ms | GC: 0.0ms)
+  [1m[36mCACHE Welcome Load (0.1ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:5
+  [1m[36mWelcome Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:1
+  Rendered shared/_header.html.erb (Duration: 7.5ms | GC: 0.0ms)
+  [1m[36mCACHE Welcome Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_footer.html.erb:4
+  Rendered shared/_footer.html.erb (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 285.2ms | GC: 0.0ms)
+Completed 200 OK in 473ms (Views: 200.5ms | ActiveRecord: 115.0ms (15 queries, 4 cached) | GC: 0.0ms)
+
+
+Started GET "/images/blog/02.jpg" for ::1 at 2026-04-03 05:34:39 +0100
+Started GET "/images/blog/01.jpg" for ::1 at 2026-04-03 05:34:39 +0100
+Started GET "/images/blog/03.jpg" for ::1 at 2026-04-03 05:34:39 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/blog/01.jpg"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/images/blog/02.jpg"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/images/blog/03.jpg"):
+  
+Started GET "/images/footer-payment-img.png" for ::1 at 2026-04-03 05:34:41 +0100
+Started GET "/fonts/fontawesome-webfont3e6e.woff2?v=4.7.0" for ::1 at 2026-04-03 05:34:41 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/footer-payment-img.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont3e6e.woff2"):
+  
+Started GET "/fonts/fontawesome-webfont3e6e.woff?v=4.7.0" for ::1 at 2026-04-03 05:34:42 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont3e6e.woff"):
+  
+Started GET "/fonts/fontawesome-webfont3e6e.ttf?v=4.7.0" for ::1 at 2026-04-03 05:34:43 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont3e6e.ttf"):
+  
+Started GET "/sign_up" for ::1 at 2026-04-03 05:34:46 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/sign_up"):
+  
+Started GET "/users/sign_up" for ::1 at 2026-04-03 05:35:08 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/devise.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/devise
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/devise (Duration: 207.1ms | GC: 27.2ms)
+  [1m[36mWelcome Load (34.1ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/devise.html.erb:5
+  [1m[36mWelcome Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/devise.html.erb:51
+  Rendered layout layouts/devise.html.erb (Duration: 262.0ms | GC: 32.9ms)
+Completed 200 OK in 365ms (Views: 231.5ms | ActiveRecord: 49.7ms (2 queries, 0 cached) | GC: 33.5ms)
+
+
+Started GET "/users/assets/images/logo/logo.png" for ::1 at 2026-04-03 05:35:09 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/assets/images/logo/logo.png"):
+  
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:35:10 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started POST "/users" for ::1 at 2026-04-03 05:35:20 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"kizonia", "last_name"=>"partner", "email"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (8.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (6.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "first_name", "last_name", "status", "verified") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "[FILTERED]"], ["encrypted_password", "[FILTERED]"], ["confirmation_token", "[FILTERED]"], ["confirmation_sent_at", "2026-04-03 04:35:21.158776"], ["created_at", "2026-04-03 04:35:21.158616"], ["updated_at", "2026-04-03 04:35:21.158616"], ["first_name", "kizonia"], ["last_name", "partner"], ["status", false], ["verified", true]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 69.0ms
+Delivered mail 69cf438972026_146ef1815082831@Kizzonia-MacBook-Pro.local.mail (113.4ms)
+Date: Fri, 03 Apr 2026 05:35:21 +0100
+From: noreply@navyscreditunion.com
+Reply-To: noreply@navyscreditunion.com
+To: kizoniapartner@gmail.com
+Message-ID: <69cf438972026_146ef1815082831@Kizzonia-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+MIME-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!-- BEGIN app/views/devise/mailer/confirmation_instructions.html.erb -->=
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+  <title>Confirm Your Account =E2=80=93 Navy SEAL Credit Union</title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <style type=3D"text/css">
+    @import url('https://fonts.googleapis.com/css2?family=3DPlayfair+Disp=
+lay:wght@600;700&family=3DSource+Sans+3:wght@300;400;600&display=3Dswap')=
+;
+
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:none; box-siz=
+ing:border-box; }
+    body { margin:0; padding:0; background-color:#0a1628; font-family:'So=
+urce Sans 3', Helvetica, Arial, sans-serif; }
+    a { color:#c9a84c; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    @media only screen and (max-width:600px) {
+      .outer { width:100% !important; }
+      .inner { padding:30px 20px !important; }
+      .hero-pad { padding:40px 20px !important; }
+      .footer-pad { padding:30px 20px !important; }
+      .hide { display:none !important; }
+      .logo-img { width:140px !important; }
+      h1 { font-size:26px !important; line-height:32px !important; }
+    }
+  </style>
+</head>
+<body bgcolor=3D"#0a1628" style=3D"margin:0;padding:0;background-color:#0=
+a1628;">
+
+  <!-- Wrapper -->
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#0=
+a1628" style=3D"background-color:#0a1628;">
+    <tr>
+      <td align=3D"center" style=3D"padding:40px 16px 0;">
+
+        <!-- Container -->
+        <table class=3D"outer" width=3D"620" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"width:620px;">
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 HEADER =E2=95=90=E2=95=90=E2=95=
+=90 -->
+          <tr>
+            <td style=3D"background-color:#fff; border-top:4px solid #c9a=
+84c; border-radius:8px 8px 0 0; padding:28px 48px;" bgcolor=3D"#0d1f3c">
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td>
+                    <img src=3D"https://zoniahome.s3.us-east-2.amazonaws.=
+com/uploads/welcome/logoimg/1/newtry(2).png"
+                         alt=3D"Navy SEAL Credit Union" width=3D"150" sty=
+le=3D"display:block; max-width:150px; height:auto;">
+                  </td>
+                  <td align=3D"right" style=3D"font-family:'Source Sans 3=
+',Helvetica,Arial,sans-serif; font-size:11px; color:#8a9bbf; letter-spaci=
+ng:2px; text-transform:uppercase; font-weight:600;">
+                    Secure Message
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 GOLD DIVIDER =E2=95=90=E2=95=90=
+=E2=95=90 -->
+          <tr>
+            <td style=3D"background:linear-gradient(90deg,#c9a84c 0%,#e8d=
+08a 50%,#c9a84c 100%); height:2px; font-size:0; line-height:0;">&nbsp;</t=
+d>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 HERO BANNER =E2=95=90=E2=95=90=
+=E2=95=90 -->
+          <tr>
+            <td class=3D"hero-pad" style=3D"background-color:#0d1f3c; pad=
+ding:56px 48px 48px; text-align:center;" bgcolor=3D"#0d1f3c">
+
+              <!-- Shield icon -->
+              <table width=3D"72" align=3D"center" style=3D"margin:0 auto=
+ 28px;" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td align=3D"center" style=3D"background-color:#0a1628;=
+ border:2px solid #c9a84c; border-radius:50%; width:72px; height:72px; te=
+xt-align:center; vertical-align:middle;">
+                    <div style=3D"font-size:32px; line-height:72px;">=F0=9F=
+=9B=A1</div>
+                  </td>
+                </tr>
+              </table>
+
+              <h1 style=3D"font-family:'Playfair Display',Georgia,serif; =
+font-size:32px; line-height:40px; color:#ffffff; font-weight:700; margin:=
+0 0 12px; letter-spacing:-0.5px;">
+                Confirm Your Account
+              </h1>
+              <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,san=
+s-serif; font-size:13px; color:#c9a84c; letter-spacing:3px; text-transfor=
+m:uppercase; margin:0 0 32px; font-weight:600;">
+                Account Verification Required
+              </p>
+
+              <!-- Divider -->
+              <table width=3D"60" align=3D"center" style=3D"margin:0 auto=
+ 36px;" cellpadding=3D"0" cellspacing=3D"0">
+                <tr><td style=3D"background-color:#c9a84c; height:1px; fo=
+nt-size:0;">&nbsp;</td></tr>
+              </table>
+
+              <!-- Greeting -->
+              <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,san=
+s-serif; font-size:17px; color:#c9a84c; font-weight:600; margin:0 0 8px;"=
+>
+                kizoniapartner@gmail.com
+              </p>
+              <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,san=
+s-serif; font-size:15px; color:#b0bdd4; line-height:26px; margin:0 0 36px=
+;">
+                Thank you for registering with  Navy SEAL Credit Union. T=
+o complete your enrollment and activate your account, please verify your =
+email address by clicking the button below.
+              </p>
+
+              <!-- CTA Button -->
+              <table align=3D"center" style=3D"margin:0 auto 32px;" cellp=
+adding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td style=3D"border-radius:4px; background:linear-gradi=
+ent(135deg,#c9a84c,#e8d08a); box-shadow:0 4px 20px rgba(201,168,76,0.35);=
+">
+                    <a style=3D"display:inline-block; font-family:&#39;So=
+urce Sans 3&#39;,Helvetica,Arial,sans-serif; font-size:14px; font-weight:=
+700; color:#0a1628; text-decoration:none; letter-spacing:1.5px; text-tran=
+sform:uppercase; padding:16px 40px;" href=3D"http://localhost:3000/users/=
+confirmation?confirmation_token=3Dx9JzQWZRsD85yv4Q6r9V">Confirm My Accoun=
+t</a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Expiry notice -->
+              <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,san=
+s-serif; font-size:12px; color:#5a6d8c; margin:0;">
+                =E2=8F=B1&nbsp; This confirmation link expires in <strong=
+ style=3D"color:#8a9bbf;">30 minutes</strong>
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 GOLD DIVIDER =E2=95=90=E2=95=90=
+=E2=95=90 -->
+          <tr>
+            <td style=3D"background:linear-gradient(90deg,#c9a84c 0%,#e8d=
+08a 50%,#c9a84c 100%); height:1px; font-size:0; line-height:0;">&nbsp;</t=
+d>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 SECURITY NOTICE =E2=95=90=E2=95=
+=90=E2=95=90 -->
+          <tr>
+            <td class=3D"inner" style=3D"background-color:#091526; paddin=
+g:28px 48px;" bgcolor=3D"#091526">
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td width=3D"20" valign=3D"top" style=3D"padding-top:2p=
+x;">
+                    <div style=3D"font-size:16px;">=F0=9F=94=92</div>
+                  </td>
+                  <td style=3D"padding-left:12px;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:12px; color:#5a6d8c; line-height:20px; margin:0;=
+">
+                      <strong style=3D"color:#8a9bbf;">Security Notice:</=
+strong>  Navy SEAL Credit Union will never ask for your password, PIN, or=
+ full account number via email. If you did not create this account, pleas=
+e disregard this email or
+                      <a href=3D"mailto:support@navyscreditunion.com" sty=
+le=3D"color:#c9a84c;">contact our support team</a> immediately.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 FOOTER =E2=95=90=E2=95=90=E2=95=
+=90 -->
+          <tr>
+            <td class=3D"footer-pad" style=3D"background-color:#060f1e; b=
+order-radius:0 0 8px 8px; padding:36px 48px;" bgcolor=3D"#060f1e">
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+
+                <!-- Footer logo / name -->
+                <tr>
+                  <td align=3D"center" style=3D"padding-bottom:20px;">
+                    <p style=3D"font-family:'Playfair Display',Georgia,se=
+rif; font-size:16px; color:#c9a84c; font-weight:700; letter-spacing:1px; =
+margin:0 0 4px;">
+                       Navy SEAL Credit Union
+                    </p>
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:10px; color:#3a4f6a; letter-spacing:2px; text-tr=
+ansform:uppercase; margin:0;">
+                      Member FDIC &nbsp;=C2=B7&nbsp; Equal Housing Lender=
+
+                    </p>
+                  </td>
+                </tr>
+
+                <!-- Divider -->
+                <tr>
+                  <td style=3D"border-top:1px solid #1a2a42; font-size:0;=
+ line-height:0; padding-bottom:20px;">&nbsp;</td>
+                </tr>
+
+                <!-- Address & contact -->
+                <tr>
+                  <td align=3D"center">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:12px; color:#3a4f6a; line-height:22px; margin:0 =
+0 8px;">
+                      180 Water St, New York, NY 10038
+                    </p>
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:12px; margin:0 0 16px; line-height:22px;">
+                      <a href=3D"mailto:support@navyscreditunion.com" sty=
+le=3D"color:#5a6d8c; text-decoration:none;">support@navyscreditunion.com<=
+/a>
+                      &nbsp;=C2=B7&nbsp;
+                      <a href=3D"https://www.navyscreditunion.com" style=3D=
+"color:#5a6d8c; text-decoration:none;">navyscreditunion.com</a>
+                    </p>
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#2a3a52; line-height:18px; margin:0;=
+">
+                      =C2=A9 2026  Navy SEAL Credit Union. All rights res=
+erved.<br>
+                      This email was sent to kizoniapartner@gmail.com as =
+part of your account registration.
+                    </p>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /Container -->
+
+      </td>
+    </tr>
+    <!-- Bottom spacing -->
+    <tr><td style=3D"height:40px;">&nbsp;</td></tr>
+  </table>
+
+</body>
+</html>
+<!-- END app/views/devise/mailer/confirmation_instructions.html.erb -->=
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 969ms (ActiveRecord: 14.9ms (2 queries, 0 cached) | GC: 8.5ms)
+
+
+Started GET "/" for ::1 at 2026-04-03 05:35:21 +0100
+Processing by WelcomesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcomes/index.html.erb within layouts/application
+  [1m[36mBanner Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "banners" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_banner.html.erb:1
+  Rendered shared/_banner.html.erb (Duration: 2.0ms | GC: 0.0ms)
+  [1m[36mAbout Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "abouts" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_abouts2.html.erb:2
+  Rendered shared/_abouts2.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  [1m[36mHeader Load (0.4ms)[0m  [1m[34mSELECT "headers".* FROM "headers"[0m
+  ↳ app/views/shared/_abtcta.html.erb:21
+  Rendered shared/_abtcta.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  [1m[36mPlan Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "plans" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_plans2.html.erb:1
+  Rendered shared/_plans2.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  [1m[36mHeader Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "headers" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_services.html.erb:7
+  [1m[36mService Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "services" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_services.html.erb:40
+  [1m[36mWelcome Load (0.4ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_services.html.erb:158
+  Rendered shared/_services.html.erb (Duration: 7.5ms | GC: 0.0ms)
+  [1m[36mCACHE Header Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "headers" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_features.html.erb:7
+  [1m[36mCACHE Header Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "headers" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_features.html.erb:42
+  [1m[36mFeature Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "features" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_features.html.erb:67
+  Rendered shared/_features.html.erb (Duration: 5.4ms | GC: 0.0ms)
+  Rendered shared/_reviews.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mPackage Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "packages" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_loanbody.html.erb:24
+  Rendered shared/_loancta.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered shared/_loanbody.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  [1m[36mBoard Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_board.html.erb:1
+  Rendered shared/_board.html.erb (Duration: 87.6ms | GC: 0.0ms)
+  Rendered shared/_body.html.erb (Duration: 119.4ms | GC: 0.0ms)
+  Rendered welcomes/index.html.erb within layouts/application (Duration: 119.7ms | GC: 0.0ms)
+  [1m[36mCACHE Welcome Load (0.0ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:5
+  [1m[36mWelcome Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_header.html.erb:1
+  Rendered shared/_header.html.erb (Duration: 3.5ms | GC: 0.8ms)
+  [1m[36mCACHE Welcome Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/shared/_footer.html.erb:4
+  Rendered shared/_footer.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 129.0ms | GC: 0.8ms)
+Completed 200 OK in 131ms (Views: 124.8ms | ActiveRecord: 4.7ms (15 queries, 4 cached) | GC: 0.8ms)
+
+
+Started GET "/images/blog/01.jpg" for ::1 at 2026-04-03 05:35:22 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/blog/01.jpg"):
+  
+Started GET "/images/blog/02.jpg" for ::1 at 2026-04-03 05:35:22 +0100
+Started GET "/fonts/fontawesome-webfont3e6e.woff2?v=4.7.0" for ::1 at 2026-04-03 05:35:22 +0100
+Started GET "/images/footer-payment-img.png" for ::1 at 2026-04-03 05:35:22 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont3e6e.woff2"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/images/blog/02.jpg"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/images/footer-payment-img.png"):
+  
+Started GET "/images/blog/03.jpg" for ::1 at 2026-04-03 05:35:24 +0100
+Started GET "/fonts/fontawesome-webfont3e6e.woff?v=4.7.0" for ::1 at 2026-04-03 05:35:24 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/blog/03.jpg"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont3e6e.woff"):
+  
+Started GET "/fonts/fontawesome-webfont3e6e.ttf?v=4.7.0" for ::1 at 2026-04-03 05:35:25 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont3e6e.ttf"):
+  
+Started GET "/users/sign_in" for ::1 at 2026-04-03 05:37:48 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/devise.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/devise
+  Rendered devise/shared/_links.html.erb (Duration: 5.2ms | GC: 0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/devise (Duration: 40.4ms | GC: 1.3ms)
+  [1m[36mWelcome Load (0.8ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/devise.html.erb:5
+  [1m[36mWelcome Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/devise.html.erb:51
+  Rendered layout layouts/devise.html.erb (Duration: 77.3ms | GC: 1.9ms)
+Completed 200 OK in 193ms (Views: 95.2ms | ActiveRecord: 49.0ms (2 queries, 0 cached) | GC: 16.0ms)
+
+
+Started GET "/users/assets/images/logo/logo.png" for ::1 at 2026-04-03 05:37:51 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/assets/images/logo/logo.png"):
+  
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:37:51 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started POST "/users/sign_in" for ::1 at 2026-04-03 05:37:55 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 530ms (ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2026-04-03 05:37:56 +0100
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Processing by AccountsController#index as HTML
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/index.html.erb within layouts/accounts
+  [1m[36mAccount Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:4
+  Rendered accounts/index.html.erb within layouts/accounts (Duration: 8.8ms | GC: 0.0ms)
+  [1m[36mWelcome Load (0.8ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mCACHE Account Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered layout layouts/accounts.html.erb (Duration: 30.0ms | GC: 7.2ms)
+Completed 200 OK in 75ms (Views: 32.7ms | ActiveRecord: 16.2ms (3 queries, 1 cached) | GC: 17.3ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:37:57 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/new" for ::1 at 2026-04-03 05:38:00 +0100
+Processing by AccountsController#new as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/new.html.erb within layouts/accounts
+  [1m[36mPlan Load (1.2ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 80.9ms | GC: 0.0ms)
+  Rendered accounts/new.html.erb within layouts/accounts (Duration: 86.5ms | GC: 0.7ms)
+  [1m[36mWelcome Load (0.4ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered layout layouts/accounts.html.erb (Duration: 94.6ms | GC: 0.7ms)
+Completed 200 OK in 222ms (Views: 93.4ms | ActiveRecord: 7.2ms (4 queries, 0 cached) | GC: 4.3ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:38:00 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started POST "/accounts" for ::1 at 2026-04-03 05:38:56 +0100
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "account"=>{"address"=>"1 sansome st", "occupation_address"=>"", "city"=>"san francisco", "state"=>"CA", "zip_code"=>"94104", "ssn"=>"[FILTERED]", "phone"=>"23456789098", "mmn"=>"kizoniapartner@gmail.com", "account_pin"=>"BXmF36"}, "commit"=>"Open My Account"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `create'
+  [1m[36mAccount Exists? (4.3ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."id" IS NOT NULL AND "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:29:in `create'
+  [1m[36mAccount Create (15.1ms)[0m  [1m[32mINSERT INTO "accounts" ("address", "zip_code", "ssn", "mmn", "account_pin", "account_number", "routine_number", "slug", "balance", "occupation_address", "user_id", "created_at", "updated_at", "status", "state", "city", "phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["address", "1 sansome st"], ["zip_code", "94104"], ["ssn", "[FILTERED]"], ["mmn", "kizoniapartner@gmail.com"], ["account_pin", 0], ["account_number", "3682243101"], ["routine_number", "889921298"], ["slug", "3682243101"], ["balance", 0.0], ["occupation_address", ""], ["user_id", 2], ["created_at", "2026-04-03 04:38:58.200079"], ["updated_at", "2026-04-03 04:38:58.200079"], ["status", false], ["state", "CA"], ["city", "san francisco"], ["phone", "23456789098"]]
+  ↳ app/controllers/accounts_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:30:in `create'
+[ActiveJob] Enqueued ActionMailer::MailDeliveryJob (Job ID: f344e42b-75de-4f42-8095-a77e60966d6b) to Async(mailers) with arguments: "AccountMailer", "account_email", "deliver_now", {:args=>[#<GlobalID:0x0000000114d07608 @uri=#<URI::GID gid://pnw/User/2>>, #<GlobalID:0x0000000114d06a28 @uri=#<URI::GID gid://pnw/Account/1>>]}
+[ActiveJob] ↳ app/controllers/accounts_controller.rb:32:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 275ms (ActiveRecord: 125.0ms (4 queries, 0 cached) | GC: 15.4ms)
+
+
+Started GET "/" for ::1 at 2026-04-03 05:38:59 +0100
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b]   [1m[36mAccount Load (17.7ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b] Performing ActionMailer::MailDeliveryJob (Job ID: f344e42b-75de-4f42-8095-a77e60966d6b) from Async(mailers) enqueued at 2026-04-03T04:38:58.257139000Z with arguments: "AccountMailer", "account_email", "deliver_now", {:args=>[#<GlobalID:0x00000001153a8980 @uri=#<URI::GID gid://pnw/User/2>>, #<GlobalID:0x00000001153a7c88 @uri=#<URI::GID gid://pnw/Account/1>>]}
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b]   Rendering layout layouts/mailer.html.erb
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b]   Rendering account_mailer/account_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b]   Rendered account_mailer/account_email.html.erb within layouts/mailer (Duration: 5.7ms | GC: 0.0ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b]   Rendered layout layouts/mailer.html.erb (Duration: 26.8ms | GC: 0.0ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b] AccountMailer#account_email: processed outbound mail in 36.8ms
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b] Delivered mail 69cf4463f18c4_146ef3bc048294@Kizzonia-MacBook-Pro.local.mail (11.7ms)
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b] Date: Fri, 03 Apr 2026 05:38:59 +0100
+From: noreply@navyscreditunion.com
+To: kizoniapartner@gmail.com
+Message-ID: <69cf4463f18c4_146ef3bc048294@Kizzonia-MacBook-Pro.local.mail>
+Subject: Account Onboarding
+MIME-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!-- BEGIN app/views/layouts/mailer.html.erb --><!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+  <title>Navy SEAL Credit Union</title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <style type=3D"text/css">
+    @import url('https://fonts.googleapis.com/css2?family=3DPlayfair+Disp=
+lay:wght@600;700&family=3DSource+Sans+3:wght@300;400;600&display=3Dswap')=
+;
+
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:none; box-siz=
+ing:border-box; }
+    body { margin:0; padding:0; background-color:#0a1628; font-family:'So=
+urce Sans 3', Helvetica, Arial, sans-serif; }
+    a { color:#c9a84c; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    @media only screen and (max-width:600px) {
+      .outer { width:100% !important; }
+      .inner { padding:30px 20px !important; }
+      .hero-pad { padding:40px 20px !important; }
+      .footer-pad { padding:30px 20px !important; }
+      .hide { display:none !important; }
+      h1 { font-size:26px !important; line-height:32px !important; }
+    }
+  </style>
+</head>
+<body bgcolor=3D"#0a1628" style=3D"margin:0;padding:0;background-color:#0=
+a1628;">
+
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#0=
+a1628" style=3D"background-color:#0a1628;">
+    <tr>
+      <td align=3D"center" style=3D"padding:40px 16px 0;">
+
+        <table class=3D"outer" width=3D"620" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"width:620px;">
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 HEADER =E2=95=90=E2=95=90=E2=95=
+=90 -->
+          <tr>
+            <td style=3D"background-color:#fff; border-top:4px solid #c9a=
+84c; border-radius:8px 8px 0 0; padding:28px 48px;" bgcolor=3D"#0d1f3c">
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td>
+                    <img src=3D"https://zoniahome.s3.us-east-2.amazonaws.=
+com/uploads/welcome/logoimg/1/newtry%282%29.png"
+                         alt=3D"Navy SEAL Union" width=3D"150" style=3D"d=
+isplay:block; max-width:150px; height:auto;">
+                  </td>
+                  <td align=3D"right" style=3D"font-family:'Source Sans 3=
+',Helvetica,Arial,sans-serif; font-size:11px; color:#8a9bbf; letter-spaci=
+ng:2px; text-transform:uppercase; font-weight:600;">
+                    Welcome
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 GOLD DIVIDER =E2=95=90=E2=95=90=
+=E2=95=90 -->
+          <tr>
+            <td style=3D"background:linear-gradient(90deg,#c9a84c 0%,#e8d=
+08a 50%,#c9a84c 100%); height:2px; font-size:0; line-height:0;">&nbsp;</t=
+d>
+          </tr>
+
+
+
+
+<!-- BEGIN app/views/account_mailer/account_email.html.erb --><!DOCTYPE h=
+tml>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+  <title>Account Registration =E2=80=93 Navy SEAL Union</title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <style type=3D"text/css">
+    @import url('https://fonts.googleapis.com/css2?family=3DPlayfair+Disp=
+lay:wght@600;700&family=3DSource+Sans+3:wght@300;400;600&display=3Dswap')=
+;
+
+    * { -ms-text-size-adjust:100%; -webkit-text-size-adjust:none; box-siz=
+ing:border-box; }
+    body { margin:0; padding:0; background-color:#0a1628; font-family:'So=
+urce Sans 3', Helvetica, Arial, sans-serif; }
+    a { color:#c9a84c; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    @media only screen and (max-width:600px) {
+      .outer { width:100% !important; }
+      .inner { padding:30px 20px !important; }
+      .hero-pad { padding:40px 20px !important; }
+      .footer-pad { padding:30px 20px !important; }
+      .hide { display:none !important; }
+      h1 { font-size:26px !important; line-height:32px !important; }
+    }
+  </style>
+</head>
+<body bgcolor=3D"#0a1628" style=3D"margin:0;padding:0;background-color:#0=
+a1628;">
+
+  <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#0=
+a1628" style=3D"background-color:#0a1628;">
+    <tr>
+      <td align=3D"center" style=3D"padding:40px 16px 0;">
+
+        <table class=3D"outer" width=3D"620" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"width:620px;">
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 HEADER =E2=95=90=E2=95=90=E2=95=
+=90 -->
+          <tr>
+            <td style=3D"background-color:#fff; border-top:4px solid #c9a=
+84c; border-radius:8px 8px 0 0; padding:28px 48px;" bgcolor=3D"#0d1f3c">
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td>
+                    <img src=3D"https://zoniahome.s3.us-east-2.amazonaws.=
+com/uploads/welcome/logoimg/1/newtry%282%29.png"
+                         alt=3D"Navy SEAL Union" width=3D"150" style=3D"d=
+isplay:block; max-width:150px; height:auto;">
+                  </td>
+                  <td align=3D"right" style=3D"font-family:'Source Sans 3=
+',Helvetica,Arial,sans-serif; font-size:11px; color:#8a9bbf; letter-spaci=
+ng:2px; text-transform:uppercase; font-weight:600;">
+                    Welcome
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 GOLD DIVIDER =E2=95=90=E2=95=90=
+=E2=95=90 -->
+          <tr>
+            <td style=3D"background:linear-gradient(90deg,#c9a84c 0%,#e8d=
+08a 50%,#c9a84c 100%); height:2px; font-size:0; line-height:0;">&nbsp;</t=
+d>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 HERO =E2=95=90=E2=95=90=E2=95=90=
+ -->
+          <tr>
+            <td class=3D"hero-pad" style=3D"background-color:#0d1f3c; pad=
+ding:56px 48px 48px; text-align:center;" bgcolor=3D"#0d1f3c">
+
+              <!-- Icon -->
+              <table width=3D"72" align=3D"center" style=3D"margin:0 auto=
+ 28px;" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td align=3D"center" style=3D"background-color:#0a1628;=
+ border:2px solid #c9a84c; border-radius:50%; width:72px; height:72px; te=
+xt-align:center; vertical-align:middle;">
+                    <div style=3D"font-size:32px; line-height:72px;">=F0=9F=
+=8F=A6</div>
+                  </td>
+                </tr>
+              </table>
+
+              <h1 style=3D"font-family:'Playfair Display',Georgia,serif; =
+font-size:32px; line-height:40px; color:#ffffff; font-weight:700; margin:=
+0 0 12px; letter-spacing:-0.5px;">
+                Account Successfully Opened
+              </h1>
+              <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,san=
+s-serif; font-size:13px; color:#c9a84c; letter-spacing:3px; text-transfor=
+m:uppercase; margin:0 0 32px; font-weight:600;">
+                Account Registration Confirmation
+              </p>
+
+              <!-- Divider -->
+              <table width=3D"60" align=3D"center" style=3D"margin:0 auto=
+ 36px;" cellpadding=3D"0" cellspacing=3D"0">
+                <tr><td style=3D"background-color:#c9a84c; height:1px; fo=
+nt-size:0;">&nbsp;</td></tr>
+              </table>
+
+              <!-- Welcome name -->
+              <p style=3D"font-family:'Playfair Display',Georgia,serif; f=
+ont-size:20px; color:#ffffff; font-weight:600; margin:0 0 12px;">
+                Welcome, kizonia partner
+              </p>
+              <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,san=
+s-serif; font-size:15px; color:#b0bdd4; line-height:26px; margin:0 0 40px=
+;">
+                Your account registration is complete and your Navy SEAL =
+Union account is ready to use. Below are your official account details =E2=
+=80=94 please keep this information secure.
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 ACCOUNT DETAILS TABLE =E2=95=90=
+=E2=95=90=E2=95=90 -->
+          <tr>
+            <td style=3D"background-color:#ffffff; padding:0 48px 40px;" =
+bgcolor=3D"#ffffff">
+
+              <!-- Section header -->
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"margin-bottom:20px;">
+                <tr>
+                  <td style=3D"padding:28px 0 16px; border-bottom:2px sol=
+id #e8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#c9a84c; letter-spacing:3px; text-tr=
+ansform:uppercase; font-weight:700; margin:0;">
+                      =E2=9C=A6 &nbsp;Your Account Details
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Details rows -->
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+
+                <tr>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0; width:45%;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#8a9bbf; letter-spacing:1.5px; text-=
+transform:uppercase; font-weight:600; margin:0;">Account Type</p>
+                  </td>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:14px; color:#1a2a42; font-weight:600; margin:0;"=
+>
+                      =
+
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#8a9bbf; letter-spacing:1.5px; text-=
+transform:uppercase; font-weight:600; margin:0;">Account Number</p>
+                  </td>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:14px; color:#b8892a; font-weight:700; letter-spa=
+cing:2px; margin:0;">
+                      3682243101
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#8a9bbf; letter-spacing:1.5px; text-=
+transform:uppercase; font-weight:600; margin:0;">Routing Number</p>
+                  </td>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:14px; color:#b8892a; font-weight:700; letter-spa=
+cing:2px; margin:0;">
+                      889921298
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#8a9bbf; letter-spacing:1.5px; text-=
+transform:uppercase; font-weight:600; margin:0;">Address</p>
+                  </td>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:14px; color:#1a2a42; font-weight:400; margin:0; =
+line-height:20px;">
+                      1 sansome st, san francisco,<br>CA, =
+
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#8a9bbf; letter-spacing:1.5px; text-=
+transform:uppercase; font-weight:600; margin:0;">IP Location</p>
+                  </td>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:14px; color:#1a2a42; font-weight:400; margin:0;"=
+>
+                      =
+
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#8a9bbf; letter-spacing:1.5px; text-=
+transform:uppercase; font-weight:600; margin:0;">SSN / ID</p>
+                  </td>
+                  <td style=3D"padding:12px 0; border-bottom:1px solid #e=
+8eaf0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:14px; color:#1a2a42; font-weight:400; margin:0;"=
+>
+                      kizoniapartner@gmail.com
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style=3D"padding:12px 0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#8a9bbf; letter-spacing:1.5px; text-=
+transform:uppercase; font-weight:600; margin:0;">Opening Date</p>
+                  </td>
+                  <td style=3D"padding:12px 0;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:14px; color:#1a2a42; font-weight:400; margin:0;"=
+>
+                      April 03, 2026
+                    </p>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 CTA =E2=95=90=E2=95=90=E2=95=90=
+ -->
+          <tr>
+            <td style=3D"background-color:#0d1f3c; padding:36px 48px; tex=
+t-align:center;" bgcolor=3D"#0d1f3c">
+              <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,san=
+s-serif; font-size:15px; color:#b0bdd4; line-height:26px; margin:0 0 28px=
+;">
+                Your account is ready. Click the button below to sign in =
+and start banking.
+              </p>
+              <table align=3D"center" style=3D"margin:0 auto;" cellpaddin=
+g=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td style=3D"border-radius:4px; background:linear-gradi=
+ent(135deg,#c9a84c,#e8d08a); box-shadow:0 4px 20px rgba(201,168,76,0.35);=
+">
+                    <a style=3D"display:inline-block; font-family:&#39;So=
+urce Sans 3&#39;,Helvetica,Arial,sans-serif; font-size:14px; font-weight:=
+700; color:#0a1628; text-decoration:none; letter-spacing:1.5px; text-tran=
+sform:uppercase; padding:16px 40px;" href=3D"http://localhost:3000/users/=
+sign_in">Sign In To Your Account</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 GOLD DIVIDER =E2=95=90=E2=95=90=
+=E2=95=90 -->
+          <tr>
+            <td style=3D"background:linear-gradient(90deg,#c9a84c 0%,#e8d=
+08a 50%,#c9a84c 100%); height:1px; font-size:0; line-height:0;">&nbsp;</t=
+d>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 SECURITY NOTICE =E2=95=90=E2=95=
+=90=E2=95=90 -->
+          <tr>
+            <td class=3D"inner" style=3D"background-color:#091526; paddin=
+g:28px 48px;" bgcolor=3D"#091526">
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td width=3D"20" valign=3D"top" style=3D"padding-top:2p=
+x;">
+                    <div style=3D"font-size:16px;">=F0=9F=94=92</div>
+                  </td>
+                  <td style=3D"padding-left:12px;">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:12px; color:#5a6d8c; line-height:20px; margin:0;=
+">
+                      <strong style=3D"color:#8a9bbf;">Security Notice:</=
+strong> Navy SEAL Union will never ask for your password, PIN, or full ac=
+count number via email. If you did not open this account, please
+                      <a href=3D"mailto:support@navyscreditunion.com" sty=
+le=3D"color:#c9a84c;">contact our support team</a> immediately.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- =E2=95=90=E2=95=90=E2=95=90 FOOTER =E2=95=90=E2=95=90=E2=95=
+=90 -->
+          <tr>
+            <td class=3D"footer-pad" style=3D"background-color:#060f1e; b=
+order-radius:0 0 8px 8px; padding:36px 48px;" bgcolor=3D"#060f1e">
+              <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td align=3D"center" style=3D"padding-bottom:20px;">
+                    <p style=3D"font-family:'Playfair Display',Georgia,se=
+rif; font-size:16px; color:#c9a84c; font-weight:700; letter-spacing:1px; =
+margin:0 0 4px;">
+                      Navy SEAL Union
+                    </p>
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:10px; color:#3a4f6a; letter-spacing:2px; text-tr=
+ansform:uppercase; margin:0;">
+                      Member FDIC &nbsp;=C2=B7&nbsp; Equal Housing Lender=
+
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style=3D"border-top:1px solid #1a2a42; font-size:0;=
+ line-height:0; padding-bottom:20px;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td align=3D"center">
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:12px; color:#3a4f6a; line-height:22px; margin:0 =
+0 8px;">
+                      180 Water St, New York, NY 10038
+                    </p>
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:12px; margin:0 0 16px; line-height:22px;">
+                      <a href=3D"mailto:support@navyscreditunion.com" sty=
+le=3D"color:#5a6d8c; text-decoration:none;">support@navyscreditunion.com<=
+/a>
+                      &nbsp;=C2=B7&nbsp;
+                      <a href=3D"https://www.navyscreditunion.com" style=3D=
+"color:#5a6d8c; text-decoration:none;">navyscreditunion.com</a>
+                    </p>
+                    <p style=3D"font-family:'Source Sans 3',Helvetica,Ari=
+al,sans-serif; font-size:11px; color:#2a3a52; line-height:18px; margin:0;=
+">
+                      =C2=A9 2026 Navy SEAL Union. All rights reserved.<b=
+r>
+                      This email was sent to kizoniapartner@gmail.com upo=
+n successful account registration.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+    <tr><td style=3D"height:40px;">&nbsp;</td></tr>
+  </table>
+
+</body>
+</html>
+<!-- END app/views/account_mailer/account_email.html.erb -->
+
+
+<!-- =E2=95=90=E2=95=90=E2=95=90 FOOTER =E2=95=90=E2=95=90=E2=95=90 -->
+<tr>
+  <td class=3D"footer-pad" style=3D"background-color:#060f1e; border-radi=
+us:0 0 8px 8px; padding:36px 48px;" bgcolor=3D"#060f1e">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0">
+      <tr>
+        <td align=3D"center" style=3D"padding-bottom:20px;">
+          <p style=3D"font-family:'Playfair Display',Georgia,serif; font-=
+size:16px; color:#c9a84c; font-weight:700; letter-spacing:1px; margin:0 0=
+ 4px;">
+            Navy SEAL Union
+          </p>
+          <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,sans-se=
+rif; font-size:10px; color:#3a4f6a; letter-spacing:2px; text-transform:up=
+percase; margin:0;">
+            Member FDIC &nbsp;=C2=B7&nbsp; Equal Housing Lender
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style=3D"border-top:1px solid #1a2a42; font-size:0; line-heig=
+ht:0; padding-bottom:20px;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align=3D"center">
+          <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,sans-se=
+rif; font-size:12px; color:#3a4f6a; line-height:22px; margin:0 0 8px;">
+            180 Water St, New York, NY 10038
+          </p>
+          <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,sans-se=
+rif; font-size:12px; margin:0 0 16px; line-height:22px;">
+            <a href=3D"mailto:support@navyscreditunion.com" style=3D"colo=
+r:#5a6d8c; text-decoration:none;">support@navyscreditunion.com</a>
+            &nbsp;=C2=B7&nbsp;
+            <a href=3D"https://www.navyscreditunion.com" style=3D"color:#=
+5a6d8c; text-decoration:none;">navyscreditunion.com</a>
+          </p>
+          <p style=3D"font-family:'Source Sans 3',Helvetica,Arial,sans-se=
+rif; font-size:11px; color:#2a3a52; line-height:18px; margin:0;">
+            =C2=A9 2026 Navy SEAL Union. All rights reserved.<br>
+            This email was sent to kizoniapartner@gmail.com upon successf=
+ul account registration.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+<tr><td style=3D"height:40px;">&nbsp;</td></tr>
+</table>
+
+</body>
+</html>
+<!-- END app/views/layouts/mailer.html.erb -->=
+
+[ActiveJob] [ActionMailer::MailDeliveryJob] [f344e42b-75de-4f42-8095-a77e60966d6b] Performed ActionMailer::MailDeliveryJob (Job ID: f344e42b-75de-4f42-8095-a77e60966d6b) from Async(mailers) in 580.55ms
+  [1m[36mUser Load (15.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Processing by AccountsController#index as HTML
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/index.html.erb within layouts/accounts
+  [1m[36mAccount Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:4
+  [1m[36mAccount Load (37.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 ORDER BY created_at ASC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/accounts/_topbox.html.erb:1
+  [1m[36mAccount Count (62.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "accounts" WHERE "accounts"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/accounts/_topbox.html.erb:19
+  Rendered accounts/_topbox.html.erb (Duration: 116.8ms | GC: 0.4ms)
+  [1m[36mTransfer Exists? (38.8ms)[0m  [1m[34mSELECT 1 AS one FROM "transfers" WHERE "transfers"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_transactions.html.erb:36
+  [1m[36mTransaction Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "transactions" WHERE "transactions"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_transactions.html.erb:77
+  [1m[36mCACHE Transfer Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "transfers" WHERE "transfers"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_transactions.html.erb:128
+  [1m[36mCACHE Transaction Exists? (4.0ms)[0m  [1m[34mSELECT 1 AS one FROM "transactions" WHERE "transactions"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_transactions.html.erb:128
+  Rendered shared/_transactions.html.erb (Duration: 60.5ms | GC: 0.4ms)
+  Rendered accounts/index.html.erb within layouts/accounts (Duration: 186.2ms | GC: 0.7ms)
+  [1m[36mWelcome Load (3.4ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mCACHE Account Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 4.3ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 269.7ms | GC: 1.1ms)
+Completed 200 OK in 304ms (Views: 127.4ms | ActiveRecord: 162.2ms (9 queries, 3 cached) | GC: 1.7ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:39:01 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101" for ::1 at 2026-04-03 05:39:08 +0100
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (0.8ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/show.html.erb within layouts/accounts
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/accounts/show.html.erb:47
+  Rendered accounts/show.html.erb within layouts/accounts (Duration: 63.6ms | GC: 0.0ms)
+  [1m[36mWelcome Load (0.6ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 90.7ms | GC: 6.7ms)
+Completed 200 OK in 228ms (Views: 134.5ms | ActiveRecord: 12.9ms (5 queries, 0 cached) | GC: 6.7ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:39:08 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101" for ::1 at 2026-04-03 05:40:16 +0100
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (1.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/show.html.erb within layouts/accounts
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/accounts/show.html.erb:47
+  Rendered accounts/show.html.erb within layouts/accounts (Duration: 9.0ms | GC: 0.5ms)
+  [1m[36mWelcome Load (0.7ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 3.3ms | GC: 0.3ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 32.5ms | GC: 1.1ms)
+Completed 200 OK in 205ms (Views: 33.9ms | ActiveRecord: 96.7ms (5 queries, 0 cached) | GC: 3.7ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:40:19 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101" for ::1 at 2026-04-03 05:40:27 +0100
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (1.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/show.html.erb within layouts/accounts
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/accounts/show.html.erb:47
+  Rendered accounts/show.html.erb within layouts/accounts (Duration: 7.2ms | GC: 0.5ms)
+  [1m[36mWelcome Load (0.8ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 2.9ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 34.9ms | GC: 1.0ms)
+Completed 200 OK in 196ms (Views: 37.7ms | ActiveRecord: 36.1ms (5 queries, 0 cached) | GC: 23.3ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:40:29 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101/edit" for ::1 at 2026-04-03 05:40:49 +0100
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/edit.html.erb within layouts/accounts
+  [1m[36mPlan Load (1.0ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 18.2ms | GC: 0.6ms)
+  Rendered accounts/edit.html.erb within layouts/accounts (Duration: 20.8ms | GC: 0.6ms)
+  [1m[36mWelcome Load (0.3ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 30.2ms | GC: 1.0ms)
+Completed 200 OK in 42ms (Views: 28.9ms | ActiveRecord: 2.9ms (5 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:40:50 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101/edit" for ::1 at 2026-04-03 05:43:41 +0100
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (2.0ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/edit.html.erb within layouts/accounts
+  [1m[36mPlan Load (0.4ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 23.2ms | GC: 0.7ms)
+  Rendered accounts/edit.html.erb within layouts/accounts (Duration: 26.5ms | GC: 0.7ms)
+  [1m[36mWelcome Load (0.4ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 2.5ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 46.8ms | GC: 1.4ms)
+Completed 200 OK in 156ms (Views: 49.8ms | ActiveRecord: 24.7ms (5 queries, 0 cached) | GC: 21.7ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:43:43 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101/edit" for ::1 at 2026-04-03 05:43:55 +0100
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (1.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/edit.html.erb within layouts/accounts
+  [1m[36mPlan Load (0.6ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 22.1ms | GC: 0.0ms)
+  Rendered accounts/edit.html.erb within layouts/accounts (Duration: 24.5ms | GC: 0.0ms)
+  [1m[36mWelcome Load (0.3ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 19.7ms | GC: 14.1ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 62.2ms | GC: 14.1ms)
+Completed 200 OK in 162ms (Views: 64.0ms | ActiveRecord: 33.9ms (5 queries, 0 cached) | GC: 14.1ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:43:57 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101/edit" for ::1 at 2026-04-03 05:44:48 +0100
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (3.8ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/edit.html.erb within layouts/accounts
+  [1m[36mPlan Load (0.6ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 60.4ms | GC: 0.0ms)
+  Rendered accounts/edit.html.erb within layouts/accounts (Duration: 68.9ms | GC: 0.0ms)
+  [1m[36mWelcome Load (0.8ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 2.3ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 5.9ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 104.9ms | GC: 0.0ms)
+Completed 200 OK in 299ms (Views: 113.0ms | ActiveRecord: 64.7ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:44:50 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101/edit" for ::1 at 2026-04-03 05:45:06 +0100
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/edit.html.erb within layouts/accounts
+  [1m[36mPlan Load (0.4ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 13.1ms | GC: 0.3ms)
+  Rendered accounts/edit.html.erb within layouts/accounts (Duration: 16.8ms | GC: 1.0ms)
+  [1m[36mWelcome Load (0.3ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 2.9ms | GC: 0.3ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 34.1ms | GC: 1.6ms)
+Completed 200 OK in 92ms (Views: 35.5ms | ActiveRecord: 13.6ms (5 queries, 0 cached) | GC: 2.6ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:45:08 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101/edit" for ::1 at 2026-04-03 05:45:31 +0100
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (0.7ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/edit.html.erb within layouts/accounts
+  [1m[36mPlan Load (0.5ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 48.3ms | GC: 0.2ms)
+  Rendered accounts/edit.html.erb within layouts/accounts (Duration: 53.5ms | GC: 0.4ms)
+  [1m[36mWelcome Load (1.2ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 3.3ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 85.9ms | GC: 0.4ms)
+Completed 200 OK in 197ms (Views: 92.4ms | ActiveRecord: 32.3ms (5 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:45:33 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101/edit" for ::1 at 2026-04-03 05:45:52 +0100
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/edit.html.erb within layouts/accounts
+  [1m[36mPlan Load (0.4ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 12.9ms | GC: 0.0ms)
+  Rendered accounts/edit.html.erb within layouts/accounts (Duration: 15.6ms | GC: 0.0ms)
+  [1m[36mWelcome Load (0.3ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 2.4ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 33.5ms | GC: 0.0ms)
+Completed 200 OK in 88ms (Views: 35.4ms | ActiveRecord: 13.3ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:45:54 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/accounts/3682243101/edit" for ::1 at 2026-04-03 05:48:37 +0100
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3682243101"}
+  [1m[36mAccount Load (0.8ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."slug" = $1 LIMIT $2[0m  [["slug", "3682243101"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:55:in `find_account'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering accounts/edit.html.erb within layouts/accounts
+  [1m[36mPlan Load (0.4ms)[0m  [1m[34mSELECT "plans".* FROM "plans"[0m
+  ↳ app/views/accounts/_form.html.erb:29
+  Rendered accounts/_form.html.erb (Duration: 22.1ms | GC: 1.7ms)
+  Rendered accounts/edit.html.erb within layouts/accounts (Duration: 27.8ms | GC: 1.7ms)
+  [1m[36mWelcome Load (0.4ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 2.4ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 49.7ms | GC: 2.4ms)
+Completed 200 OK in 153ms (Views: 53.2ms | ActiveRecord: 24.3ms (5 queries, 0 cached) | GC: 17.2ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:48:41 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/loans" for ::1 at 2026-04-03 05:49:09 +0100
+Processing by LoansController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering loans/index.html.erb within layouts/accounts
+  [1m[36mPackage Load (2.4ms)[0m  [1m[34mSELECT "packages".* FROM "packages" ORDER BY created_at ASC[0m
+  ↳ app/views/loans/index.html.erb:33
+  Rendered loans/index.html.erb within layouts/accounts (Duration: 11.8ms | GC: 5.5ms)
+  [1m[36mWelcome Load (0.3ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 2.7ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 5.5ms | GC: 4.8ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 34.8ms | GC: 10.3ms)
+Completed 200 OK in 74ms (Views: 31.3ms | ActiveRecord: 27.6ms (4 queries, 0 cached) | GC: 16.1ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:49:10 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/userorder" for ::1 at 2026-04-03 05:49:16 +0100
+Processing by LoansController#userorder as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering loans/userorder.html.erb within layouts/accounts
+  [1m[36mLoan Exists? (5.7ms)[0m  [1m[34mSELECT 1 AS one FROM "loans" WHERE "loans"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/loans/userorder.html.erb:46
+  [1m[36mAccount Load (0.8ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = $1 ORDER BY created_at ASC LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/loans/userorder.html.erb:63
+  [1m[36mCACHE Loan Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "loans" WHERE "loans"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/loans/userorder.html.erb:144
+  Rendered loans/userorder.html.erb within layouts/accounts (Duration: 22.9ms | GC: 0.6ms)
+  [1m[36mWelcome Load (0.4ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 50.6ms | GC: 1.2ms)
+Completed 200 OK in 59ms (Views: 43.6ms | ActiveRecord: 8.5ms (6 queries, 1 cached) | GC: 1.2ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:49:16 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
+Started GET "/loans/new" for ::1 at 2026-04-03 05:49:19 +0100
+Processing by LoansController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering loans/new.html.erb within layouts/accounts
+  Rendered loans/_form.html.erb (Duration: 19.5ms | GC: 1.3ms)
+  Rendered loans/new.html.erb within layouts/accounts (Duration: 23.4ms | GC: 1.3ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 23.9ms | GC: 1.3ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 3.4ms (1 query, 0 cached) | GC: 3.6ms)
+
+
+  
+ActionView::Template::Error (No input found for attachment_preview):
+
+Causes:
+RuntimeError (No input found for attachment_preview)
+    68: 
+    69:                       <div class="col-md-6">
+    70: 
+    71:                       <%= f.input :bfs, as: :attachment_preview, label: "Upload Business Financial Statements" %>
+    72:                       </div>
+    73: 
+    74:                       <div class="col-md-6">
+  
+app/views/loans/_form.html.erb:71
+app/views/loans/_form.html.erb:2
+app/views/loans/new.html.erb:31
+Started GET "/loans/new" for ::1 at 2026-04-03 05:54:08 +0100
+Processing by LoansController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/accounts.html.erb
+  Rendering loans/new.html.erb within layouts/accounts
+  [1m[36mPackage Load (0.6ms)[0m  [1m[34mSELECT "packages".* FROM "packages" ORDER BY created_at ASC[0m
+  ↳ app/views/loans/_form.html.erb:103
+  Rendered loans/_form.html.erb (Duration: 35.5ms | GC: 0.0ms)
+  Rendered loans/new.html.erb within layouts/accounts (Duration: 38.9ms | GC: 0.0ms)
+  [1m[36mWelcome Load (0.4ms)[0m  [1m[34mSELECT "welcomes".* FROM "welcomes" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:5
+  [1m[36mAccount Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "accounts" WHERE "accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/views/layouts/accounts.html.erb:108
+  Rendered shared/_menu.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered shared/_sidebar2update.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  Rendered shared/_dashboardfooter.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/accounts.html.erb (Duration: 63.1ms | GC: 0.0ms)
+Completed 200 OK in 154ms (Views: 63.4ms | ActiveRecord: 26.9ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/images/acount-page.jpg" for ::1 at 2026-04-03 05:54:10 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/images/acount-page.jpg"):
+  
