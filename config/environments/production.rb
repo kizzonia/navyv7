@@ -58,7 +58,7 @@ Rails.application.configure do
   config.active_record.attributes_for_inspect = [ :id ]
   config.action_mailer.default_url_options = { host: 'https://www.navyscreditunion.com' }
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   
   config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
@@ -67,8 +67,8 @@ config.action_mailer.smtp_settings = {
   user_name: 'resend',
   password:  ENV['RESEND_API_KEY'],
   tls:       true,
-  open_timeout: 30,    # ← add this
-  read_timeout: 30     # ← add this
+  # open_timeout: 30,    # ← add this
+  # read_timeout: 30     # ← add this
 }
 
 end
