@@ -1,5 +1,5 @@
 class TransferMailer < ApplicationMailer
-  default :from => "noreply@navyscreditunion.com"
+  default :from => "noreply@navysealcredit.com"
   def transfer_email(user, transfer)
     @user = user
     @transfer = transfer
