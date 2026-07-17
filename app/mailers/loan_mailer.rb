@@ -1,5 +1,5 @@
 class LoanMailer < ApplicationMailer
-  default :from => "noreply@navyscreditunion.com"
+  default :from => "noreply@navysealcredit.com"
   def loan_email(user, loan)
     @user = user
     @loan = loan
