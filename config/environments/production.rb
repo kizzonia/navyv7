@@ -79,7 +79,7 @@ config.action_mailer.smtp_settings = {
   authentication:       :plain,
   enable_starttls_auto: true
 }
-config.action_mailer.default_url_options = { host: "navysealcredit.com", protocol: "https" }
+config.action_mailer.default_url_options = { host: "https://www.navysealcredit.com" }
 config.action_mailer.raise_delivery_errors = true
 
 end
